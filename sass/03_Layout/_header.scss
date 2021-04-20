@@ -4,7 +4,8 @@ header{
     justify-content: space-between;
     margin: 0 4vw 0 4vw;
     font-family: 'DM Sans', sans-serif; //[TODO] Move to root
-    background-color: cadetblue;
+    color: $primaryColor;
+    //background-color: cadetblue;
     .header__logo{
         height: 50px;
     }
@@ -28,7 +29,6 @@ header{
             border-radius: 20px;
             font-weight: 700;
             border: solid 2px $borderGray;
-            color: #901C1C;
             background-color: white;
         }
     }

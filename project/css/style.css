@@ -63,7 +63,7 @@ header {
   justify-content: space-between;
   margin: 0 4vw 0 4vw;
   font-family: "DM Sans", sans-serif;
-  background-color: cadetblue;
+  color: #901C1C;
 }
 header .header__logo {
   height: 50px;
@@ -89,7 +89,6 @@ header .header__keywords span {
   border-radius: 20px;
   font-weight: 700;
   border: solid 2px #C4C4C4;
-  color: #901C1C;
   background-color: white;
 }
 

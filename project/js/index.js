@@ -660,10 +660,12 @@ function GetAllTags(){
   })
   console.log(allTags);
 }
+
+// Update html with stored tags
 function PopulateTags(){
   keywordsRoot.innerHTML = "";
   for (var [key, value] of allTags) {
-    keywordsRoot.innerHTML += "<li><span>"+key+"</span></li>";
+    keywordsRoot.innerHTML += "<li><span>#"+key+"</span></li>";
   }
 }
 
