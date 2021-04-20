@@ -601,60 +601,48 @@ var jsonFile = {
     ]
 }
 
-//console.log(jsonFile);
-var mydata = JSON.parse(data);
-console.log(mydata);
-function GetJsonData(path){
-    console.log("path = " + path);
-    
-    var tempData = JSON.parse(path);
-    // console.log("tempData = " + tempData);
-    // photographers = tempData[0];
-    // medias = tempData[1];
-    // console.log("Photographers = " + photographers);
-    console.log("Medias = " + medias);
-}
-
-//GetJsonData(jsonPath);
-
 class Photographer{
-    constructor(name, id, city, country, tags, tagline, price, portrait){
-        this.name = name;
-        this.id = id;
-        this.city = city;
-        this.country = country;
-        this.tags = tags;
-        this.tagline = tagline;
-        this.price = price;
-        this.portrait = portrait;
-    }
+  constructor(name, id, city, country, tags, tagline, price, portrait){
+      this.name = name;
+      this.id = id;
+      this.city = city;
+      this.country = country;
+      this.tags = tags;
+      this.tagline = tagline;
+      this.price = price;
+      this.portrait = portrait;
+  }
 }
 
 class Media{
-    constructor(id, photographerId, image, tags, likes, date, price){
-        this.id = id;
-        this.photographerId = photographerId;
-        this.image = image;
-        this.tags = tags;
-        this.likes = likes;
-        this.date = date;
-        this.price = price;
-    }
+  constructor(id, photographerId, image, tags, likes, date, price){
+      this.id = id;
+      this.photographerId = photographerId;
+      this.image = image;
+      this.tags = tags;
+      this.likes = likes;
+      this.date = date;
+      this.price = price;
+  }
 }
 
-//       "name": "Mimi Keel",
-//       "id": 243,
-//       "city": "London",
-//       "country": "UK",
-//       "tags": ["portrait", "events", "travel", "animals"],
-//       "tagline": "Voir le beau dans le quotidien",
-//       "price": 400,
-//       "portrait": "MimiKeel.jpg"
+var photographers = [];
+var medias = [];
 
-//       "id": 342550,
-//       "photographerId": 82,
-//       "image": "Fashion_Yellow_Beach.jpg",
-//       "tags": ["fashion"],
-//       "likes": 62,
-//       "date": "2011-12-08",
-//       "price": 55
+function GetJsonData(data){
+    jsonFile.photographers.forEach(u => {
+      var newUser = new Photographer(u.name, u.id, u.city, u.country, u.tags, u.tagline, u.price, u.portrait);
+      photographers.push(newUser);
+    });
+
+    jsonFile.media.forEach(m => {
+      var newMedia = new Media(m.id, m.photographerId, m.image, m.tags, m.likes, m.date, m.price);
+      medias.push(newMedia);
+    });
+    console.log(photographers);
+    console.log(medias);
+}
+
+GetJsonData(jsonFile);
+
+
