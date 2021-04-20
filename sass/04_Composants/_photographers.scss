@@ -1,0 +1,17 @@
+.photographers{
+    background-color: cadetblue;
+    .photographers__list{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-evenly;
+        flex-wrap: wrap;
+        .photographers__profil-preview{
+            display: flex;
+            flex-direction: column;
+            margin: 2vw 5vw 2vw 5vw;
+            width: 300px;
+            height: 40vh;
+            background-color: cornflowerblue;
+        }
+    }
+}
