@@ -31,7 +31,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
 }
 
 ol, ul {
@@ -62,12 +62,9 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  margin: 0 4vw 0 4vw;
+  margin: 0 4vw 2vh 4vw;
   font-family: "DM Sans", sans-serif;
   color: #901C1C;
-}
-header .header__keywords-wrapper {
-  align-self: end;
 }
 header .header__logo {
   height: 50px;
@@ -101,20 +98,24 @@ header .header__keywords span {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  max-width: 1500px;
+  margin: auto;
   flex-wrap: wrap;
 }
 .photographers .photographers__list .photographers__profil-preview {
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease-out;
   align-items: center;
-  margin: 2vw 5vw 2vw 5vw;
+  margin: 0.5vw 3vw 0.5vw 3vw;
   width: 300px;
-  height: 40vh;
+  height: 350px;
   font-family: DM Sans, sans-serif;
 }
 
 .profil__pic {
   border-radius: 100%;
+  flex-shrink: 0;
   height: 175px;
   width: 175px;
   box-shadow: 2px 8px 10px -1px rgba(0, 0, 0, 0.1);
@@ -167,6 +168,18 @@ header .header__keywords span {
   color: #901C1C;
   border: solid 2px #C4C4C4;
   background-color: white;
+}
+
+@media (max-width: 900px) {
+  .photographers .photographers__list .photographers__profil-preview {
+    width: 100%;
+    margin: 5vh;
+  }
+
+  .profil__pic {
+    height: 25vh;
+    width: 25vh;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

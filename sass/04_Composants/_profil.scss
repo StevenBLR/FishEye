@@ -3,6 +3,7 @@ $lineheight : 20px;
 
 .profil__pic{
     border-radius: 100%;
+    flex-shrink: 0;
     height: $picSize-preview;
     width: $picSize-preview;
     box-shadow: 2px 8px 10px -1px rgb(0 0 0 / 10%);
