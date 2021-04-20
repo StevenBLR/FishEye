@@ -58,6 +58,7 @@ a {
 }
 
 header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -170,6 +171,15 @@ header .header__keywords span {
   background-color: white;
 }
 
+@media (max-width: 1200px) {
+  .header__keywords-wrapper {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    margin: auto;
+  }
+}
 @media (max-width: 900px) {
   .photographers .photographers__list .photographers__profil-preview {
     width: 100%;

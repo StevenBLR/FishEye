@@ -1,3 +1,16 @@
+
+// Move keyword section
+@media (max-width: 1200px){
+    .header__keywords-wrapper{
+        position: absolute;
+        bottom: -50px;
+        left:0;
+        width: 100%;
+        margin: auto;
+
+    }
+}
+// Mobile mode
 @media (max-width: 900px){
     .photographers .photographers__list .photographers__profil-preview{
         width: 100%;
