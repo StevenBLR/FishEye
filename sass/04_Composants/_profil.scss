@@ -1,0 +1,43 @@
+$picSize-preview : 175px;
+$lineheight : 20px;
+
+.profil__pic{
+    border-radius: 100%;
+    height: $picSize-preview;
+    width: $picSize-preview;
+    box-shadow: 2px 8px 10px -1px rgb(0 0 0 / 10%);
+    object-fit: cover;
+}
+
+.profil__name{
+    margin: 20px 0 10px 0;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 36px;
+    margin-top: 20px;
+    color: $secondaryColor;
+}
+
+.profil__location{
+    font-size: 13px;
+    line-height: $lineheight;
+    color: $primaryColor;
+}
+
+.profil__bio{
+    font-size: 10px;
+    line-height: $lineheight;
+}
+
+.profil__tjm{
+    font-size: 9px;
+    line-height: $lineheight;
+    color: $darkGrey;
+}
+
+.profil__tags{
+    @include keywords(12px);
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}

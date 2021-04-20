@@ -1,0 +1,18 @@
+@mixin keywords ($fontsize:12px){
+    display: flex;
+    justify-content: center;
+    line-height: 40px;
+    margin: 0 4vw 0 4vw;
+    flex-wrap: wrap;
+    span{
+        margin: 2.5px;
+        padding: 2px 5px 2px 5px;
+        line-height: 30px;
+        font-size: $fontsize;
+        border-radius: 20px;
+        font-weight: 700;
+        color: $primaryColor;
+        border: solid 2px $borderGray;
+        background-color: white;
+    }
+}

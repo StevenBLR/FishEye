@@ -632,6 +632,7 @@ var allTags = new Map();
 
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
+var photographersRoot = document.querySelector(".photographers__list");
 
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
@@ -669,8 +670,28 @@ function PopulateTags(){
   }
 }
 
+function PopulatePhotographers(){
+  photographersRoot.innerHTML= "";
+  photographers.forEach(p => {
+    var profilPreview = document.createElement("li");
+    profilPreview.className = "photographers__profil-preview";
+    profilPreview.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
+    profilPreview.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
+    profilPreview.innerHTML += '<h3 class="profil__location">'+ p.city +', '+ p.country +'</h3>';
+    profilPreview.innerHTML += '<p class="profil__bio">'+ p.tagline +'</p>';
+    profilPreview.innerHTML += '<p class="profil__tjm">'+ p.price +'/jour</p>';
+    profilPreview.innerHTML += '<ul class="profil__tags">'
+    photographersRoot.appendChild(profilPreview);
+
+    var profilTagsRoot = profilPreview.querySelector(".profil__tags");
+    p.tags.forEach(t => {
+      profilTagsRoot.innerHTML += '<li><span>#'+t+'</span></li>';
+    });
+  });
+}
+
 GetJsonData(jsonFile);
 GetAllTags();
 PopulateTags();
-
+PopulatePhotographers();
 

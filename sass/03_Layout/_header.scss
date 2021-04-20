@@ -1,3 +1,5 @@
+@import "../04_Composants/tags";
+
 header{
     display: flex;
     align-items: center;
@@ -20,20 +22,6 @@ header{
         justify-self: flex-end;
     }
     .header__keywords{
-        display: flex;
-        justify-content: center;
-        line-height: 40px;
-        margin: 0 4vw 0 4vw;
-        flex-wrap: wrap;
-        span{
-            margin: 5px;
-            padding: 5px 10px 5px 10px;
-            line-height: 30px;
-            font-size: 12px;
-            border-radius: 20px;
-            font-weight: 700;
-            border: solid 2px $borderGray;
-            background-color: white;
-        }
+        @include keywords();
     }
 }
