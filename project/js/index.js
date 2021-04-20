@@ -628,7 +628,12 @@ class Media{
 
 var photographers = [];
 var medias = [];
+var allTags = new Map();
 
+// DOM Elements
+var keywordsRoot = document.querySelector(".header__keywords");
+
+// Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
     jsonFile.photographers.forEach(u => {
       var newUser = new Photographer(u.name, u.id, u.city, u.country, u.tags, u.tagline, u.price, u.portrait);
@@ -643,6 +648,27 @@ function GetJsonData(data){
     console.log(medias);
 }
 
+// Store all tags from data and how much they've been used
+function GetAllTags(){
+  medias.forEach(info => {
+    if(allTags.has(info.tags.toString()) == false){
+      allTags.set(info.tags.toString(), 1);
+    }
+    else{
+      allTags.set(info.tags.toString(), parseInt(allTags.get(info.tags.toString()))+1);
+    }
+  })
+  console.log(allTags);
+}
+function PopulateTags(){
+  keywordsRoot.innerHTML = "";
+  for (var [key, value] of allTags) {
+    keywordsRoot.innerHTML += "<li><span>"+key+"</span></li>";
+  }
+}
+
 GetJsonData(jsonFile);
+GetAllTags();
+PopulateTags();
 
 
