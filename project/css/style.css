@@ -113,6 +113,12 @@ header .header__keywords span {
   height: 380px;
   font-family: DM Sans, sans-serif;
 }
+.photographers .photographers__profil-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
 
 .profil__pic {
   border-radius: 100%;

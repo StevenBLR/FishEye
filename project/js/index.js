@@ -675,14 +675,19 @@ function PopulatePhotographers(){
   photographers.forEach(p => {
     var profilPreview = document.createElement("li");
     profilPreview.className = "photographers__profil-preview";
-    profilPreview.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
-    profilPreview.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
+    var linkElt = document.createElement("a");
+    linkElt.href = '#profil-id:'+p.id;
+    linkElt.className = 'photographers__profil-link';
+    profilPreview.appendChild(linkElt);
+    linkElt.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
+    linkElt.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
+    profilPreview.innerHTML += '</a>';
     profilPreview.innerHTML += '<h3 class="profil__location">'+ p.city +', '+ p.country +'</h3>';
     profilPreview.innerHTML += '<p class="profil__bio">'+ p.tagline +'</p>';
     profilPreview.innerHTML += '<p class="profil__tjm">'+ p.price +'/jour</p>';
-    profilPreview.innerHTML += '<ul class="profil__tags">'
+    profilPreview.innerHTML += '<ul class="profil__tags">';
     photographersRoot.appendChild(profilPreview);
-
+    
     var profilTagsRoot = profilPreview.querySelector(".profil__tags");
     p.tags.forEach(t => {
       profilTagsRoot.innerHTML += '<li><span>#'+t+'</span></li>';
