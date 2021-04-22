@@ -1,34 +1,55 @@
 
 // Move keyword section
-@media (max-width: 1200px){
+@media (max-width: 1050px){
     .header__keywords-wrapper{
         position: absolute;
         bottom: -30px;
-        left:0;
         width: 100%;
         margin: auto;
-
     }
-
+    header .header__keywords{
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        width: 100%;
+        margin: auto;
+        transform:translateX(-50%);
+    }
     .photographers{
         .photographers__list{
-            margin-top : 5vw;
+            margin-top : 80px;
         }
     }
 }
 // Mobile mode
-@media (max-width: 900px){
+@media (max-width: 750px){
     .photographers{
         .photographers__list{
             margin-top : 50px;
             .photographers__profil-preview{
                 width: 100%;
-                margin: 5vh;
+                margin-top: 90px;
             }
         }
     }
     .profil__pic{
         height: 25vh;
         width: 25vh;
+    }
+    
+    header .header__keywords{
+        position: absolute;
+        top: 0;
+        width: 110%;
+        margin: auto;
+        transform:translate(-50%,-50%);
+    }
+
+    header .header__title {
+        font-size: 4vw;
+    }
+    header .header__logo {
+        height: 7vw;
+        max-height: 50px;
     }
 }
