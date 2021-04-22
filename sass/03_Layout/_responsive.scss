@@ -3,18 +3,29 @@
 @media (max-width: 1200px){
     .header__keywords-wrapper{
         position: absolute;
-        bottom: -50px;
+        bottom: -30px;
         left:0;
         width: 100%;
         margin: auto;
 
     }
+
+    .photographers{
+        .photographers__list{
+            margin-top : 5vw;
+        }
+    }
 }
 // Mobile mode
 @media (max-width: 900px){
-    .photographers .photographers__list .photographers__profil-preview{
-        width: 100%;
-        margin: 5vh;
+    .photographers{
+        .photographers__list{
+            margin-top : 50px;
+            .photographers__profil-preview{
+                width: 100%;
+                margin: 5vh;
+            }
+        }
     }
     .profil__pic{
         height: 25vh;
