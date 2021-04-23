@@ -690,7 +690,7 @@ function PopulatePhotographers(){
     
     var profilTagsRoot = profilPreview.querySelector(".profil__tags");
     p.tags.forEach(t => {
-      profilTagsRoot.innerHTML += '<li><span>#'+t+'</span></li>';
+      profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +'><li><span>#'+t+'</span></li></a>';
     });
   });
 }
