@@ -117,7 +117,7 @@ header .header__keywords span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .profil__pic {
