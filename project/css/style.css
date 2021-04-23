@@ -195,12 +195,12 @@ header .header__keywords span {
   }
 
   .photographers .photographers__list {
-    margin-top: 80px;
+    margin-top: 50px;
   }
 }
 @media (max-width: 750px) {
   .photographers .photographers__list {
-    margin-top: 50px;
+    margin-top: 0;
   }
   .photographers .photographers__list .photographers__profil-preview {
     width: 100%;

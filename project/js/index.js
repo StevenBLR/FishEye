@@ -632,7 +632,6 @@ var allTags = new Map();
 
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
-var keywordsWrapper = document.querySelector(".header__keywords-wrapper");
 var photographersRoot = document.querySelector(".photographers__list");
 
 // Store every data from Json into 2 objects --> photographers[] / medias[]

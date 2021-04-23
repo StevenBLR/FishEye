@@ -19,7 +19,7 @@ $keywordsBp: 1050px;
     }
     .photographers{
         .photographers__list{
-            margin-top : 80px;
+            margin-top : 50px;
         }
     }
 }
@@ -27,7 +27,7 @@ $keywordsBp: 1050px;
 @media (max-width: $mobileBp){
     .photographers{
         .photographers__list{
-            margin-top : 50px;
+            margin-top : 0;
             .photographers__profil-preview{
                 width: 100%;
                 margin-top: 90px;
