@@ -1,3 +1,5 @@
+$mobileBp: 750px;
+$keywordsBp: 1050px;
 
 // Move keyword section
 @media (max-width: 1050px){
@@ -22,7 +24,7 @@
     }
 }
 // Mobile mode
-@media (max-width: 750px){
+@media (max-width: $mobileBp){
     .photographers{
         .photographers__list{
             margin-top : 50px;
