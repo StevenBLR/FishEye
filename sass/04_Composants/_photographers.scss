@@ -1,3 +1,5 @@
+@import "../04_Composants/animations";
+
 .photographers{
     //background-color: cadetblue;
     .photographers__list{
@@ -8,6 +10,7 @@
         margin: auto;
         flex-wrap: wrap;
         .photographers__profil-preview{
+            //@include hideInOut(false,2s);
             display: flex;
             flex-direction: column;
             transition: all .5s ease-out;
@@ -17,6 +20,11 @@
             height: 380px;
             font-family: DM Sans, sans-serif;
             //background-color: cornflowerblue;
+
+            // h2, h3, p{
+            //     overflow: hidden;
+            //     @include hideInOut(true,2s);
+            // }
         }
     }
     .photographers__profil-link{
