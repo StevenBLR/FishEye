@@ -626,9 +626,12 @@ class Media{
   }
 }
 
+
+
 // URL Parameters
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
+var currentValues = [];
 
 const
   keys = urlParams.keys(),
@@ -640,7 +643,8 @@ for (const key of keys){
 }
 
 for (const value of values){
-  console.log(value);
+  currentValues.push(value);
+  //console.log(value);
 }
   
 // DOM Elements
@@ -650,6 +654,11 @@ var photographersRoot = document.querySelector(".photographers__list");
 var photographers = [];
 var medias = [];
 var allTags = new Map();
+
+// Not Working ------------------------
+// sort by value
+// const mapSort1 = new Map([...allTags.entries()].sort((a, b) => b[1] - a[1]));
+// console.log(mapSort1);
 
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
@@ -689,7 +698,20 @@ function PopulateTags(){
 
 function PopulatePhotographers(){
   photographersRoot.innerHTML= "";
-  photographers.forEach(p => {
+  
+  var photographersToShow = photographers;
+
+  if (urlParams.has("tag")){
+    console.log(currentValues);
+    photographersToShow = [];
+    photographers.forEach(p => {
+      if(p.tags.includes(currentValues.toString())){
+        console.log("Adding " + p.name);
+        photographersToShow.push(p);
+      }
+    });
+  }
+  photographersToShow.forEach(p => {
     var profilPreview = document.createElement("li");
     profilPreview.className = "photographers__profil-preview";
     var linkElt = document.createElement("a");
@@ -704,12 +726,12 @@ function PopulatePhotographers(){
     profilPreview.innerHTML += '<p class="profil__tjm">'+ p.price +'/jour</p>';
     profilPreview.innerHTML += '<ul class="profil__tags">';
     photographersRoot.appendChild(profilPreview);
-    
     var profilTagsRoot = profilPreview.querySelector(".profil__tags");
     p.tags.forEach(t => {
       profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +'><li><span>#'+t+'</span></li></a>';
     });
   });
+  
 }
 
 GetJsonData(jsonFile);

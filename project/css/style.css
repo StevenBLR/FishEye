@@ -152,7 +152,6 @@ header .header__keywords span {
   flex-direction: row;
   justify-content: space-evenly;
   max-width: 1500px;
-  margin: auto;
   flex-wrap: wrap;
 }
 .photographers .photographers__list .photographers__profil-preview {
