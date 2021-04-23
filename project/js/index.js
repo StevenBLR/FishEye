@@ -666,7 +666,7 @@ function GetAllTags(){
 function PopulateTags(){
   keywordsRoot.innerHTML = "";
   for (var [key, value] of allTags) {
-    keywordsRoot.innerHTML += "<li><span>#"+key+"</span></li>";
+    keywordsRoot.innerHTML += '<li><a href="?tag='+ key +'"><span>#'+key+'</span></li></a>';
   }
 }
 
