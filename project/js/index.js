@@ -626,13 +626,18 @@ class Media{
   }
 }
 
-var photographers = [];
-var medias = [];
-var allTags = new Map();
+// URL Parameters
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+console.log("ULR Params = " + urlParams);
 
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
 var photographersRoot = document.querySelector(".photographers__list");
+
+var photographers = [];
+var medias = [];
+var allTags = new Map();
 
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
