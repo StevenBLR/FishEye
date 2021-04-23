@@ -629,8 +629,20 @@ class Media{
 // URL Parameters
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-console.log("ULR Params = " + urlParams);
 
+const
+  keys = urlParams.keys(),
+  values = urlParams.values(),
+  entries = urlParams.entries();
+
+for (const key of keys){
+  //console.log(key);
+}
+
+for (const value of values){
+  console.log(value);
+}
+  
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
 var photographersRoot = document.querySelector(".photographers__list");

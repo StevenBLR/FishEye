@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/StevenBLR/OC_05_FishEye/issues"
   },
-  "homepage": "https://github.com/StevenBLR/OC_05_FishEye#readme"
+  "homepage": "https://github.com/StevenBLR/OC_05_FishEye#readme",
+  "dependencies": {
+    "eslint": "^7.24.0"
+  }
 }
