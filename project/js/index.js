@@ -629,7 +629,7 @@ class Media{
 // URL Parameters
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-console.log(urlParams.keys());
+console.log("ULR Params = " + urlParams);
 
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
