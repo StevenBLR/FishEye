@@ -626,12 +626,11 @@ class Media{
   }
 }
 
-
-
 // URL Parameters
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 var currentValues = [];
+var currentKeys = [];
 
 const
   keys = urlParams.keys(),
@@ -639,17 +638,18 @@ const
   entries = urlParams.entries();
 
 for (const key of keys){
-  //console.log(key);
+  currentKeys.push(key);
 }
 
 for (const value of values){
   currentValues.push(value);
-  //console.log(value);
 }
   
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
 var photographersRoot = document.querySelector(".photographers__list");
+var tagsElts;
+
 
 var photographers = [];
 var medias = [];
@@ -659,6 +659,8 @@ var allTags = new Map();
 // sort by value
 // const mapSort1 = new Map([...allTags.entries()].sort((a, b) => b[1] - a[1]));
 // console.log(mapSort1);
+
+
 
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
@@ -692,10 +694,11 @@ function GetAllTags(){
 function PopulateTags(){
   keywordsRoot.innerHTML = "";
   for (var [key, value] of allTags) {
-    keywordsRoot.innerHTML += '<li><a href="?tag='+ key +'"><span>#'+key+'</span></li></a>';
+    keywordsRoot.innerHTML += '<li><a href="?tag='+ key +'" id="tag"><span>#'+key+'</span></li></a>';
   }
 }
 
+// Update Html with selected photographers previews
 function PopulatePhotographers(){
   photographersRoot.innerHTML= "";
   
@@ -728,14 +731,21 @@ function PopulatePhotographers(){
     photographersRoot.appendChild(profilPreview);
     var profilTagsRoot = profilPreview.querySelector(".profil__tags");
     p.tags.forEach(t => {
-      profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +'><li><span>#'+t+'</span></li></a>';
+      profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +' id="tag"><li><span>#'+t+'</span></li></a>';
     });
   });
-  
+  // Store all tags elts 
+  tagsElts = document.querySelectorAll("#tag");
 }
 
 GetJsonData(jsonFile);
 GetAllTags();
 PopulateTags();
 PopulatePhotographers();
+
+// tagsElts.forEach(t => {
+//   t.addEventListener("click", function(e){
+//     e.preve
+//   });
+// });
 

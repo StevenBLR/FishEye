@@ -17,17 +17,17 @@ $keywordsBp: 1050px;
         margin: auto;
         transform:translateX(-50%);
     }
-    .photographers{
+    .page-wrapper .photographers{
         .photographers__list{
-            margin-top : 50px;
+            margin: 50px auto 0 auto;
         }
     }
 }
 // Mobile mode
 @media (max-width: $mobileBp){
-    .photographers{
+    .page-wrapper .photographers{
         .photographers__list{
-            margin-top : 85px;
+            margin: 85px auto 0 auto;
             .photographers__profil-preview{
                 width: 100%;
                 height: auto;

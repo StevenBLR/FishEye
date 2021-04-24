@@ -112,15 +112,15 @@ header .header__keywords span {
     transform: translateX(-50%);
   }
 
-  .photographers .photographers__list {
-    margin-top: 50px;
+  .page-wrapper .photographers .photographers__list {
+    margin: 50px auto 0 auto;
   }
 }
 @media (max-width: 750px) {
-  .photographers .photographers__list {
-    margin-top: 85px;
+  .page-wrapper .photographers .photographers__list {
+    margin: 85px auto 0 auto;
   }
-  .photographers .photographers__list .photographers__profil-preview {
+  .page-wrapper .photographers .photographers__list .photographers__profil-preview {
     width: 100%;
     height: auto;
   }
@@ -153,7 +153,7 @@ header .header__keywords span {
   justify-content: space-evenly;
   max-width: 1500px;
   flex-wrap: wrap;
-  margin: auto;
+  margin: 0 auto 0 auto;
 }
 .photographers .photographers__list .photographers__profil-preview {
   display: flex;
