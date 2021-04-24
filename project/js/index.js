@@ -701,6 +701,7 @@ function PopulateTags(){
 // Update page without reloading 
 function RefreshPage(clickedElt){
   currentValues = clickedElt.getAttribute('data-id');
+  console.log(currentValues);
   PopulatePhotographers();
 }
 
