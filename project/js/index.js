@@ -698,6 +698,10 @@ function PopulateTags(){
   }
 }
 
+function RefreshPage(clickedElt){
+  console.log(clickedElt);
+}
+
 // Update Html with selected photographers previews
 function PopulatePhotographers(){
   photographersRoot.innerHTML= "";
@@ -724,7 +728,7 @@ function PopulatePhotographers(){
     linkElt.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
     linkElt.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
     profilPreview.innerHTML += '</a>';
-    profilPreview.innerHTML += '<h3 class="profil__location">'+ p.city +', '+ p.country +'</h3>';
+    profilPreview.innerHTML += '<span><h3 class="profil__location">'+ p.city +', '+ p.country +'</h3></span>';
     profilPreview.innerHTML += '<p class="profil__bio">'+ p.tagline +'</p>';
     profilPreview.innerHTML += '<p class="profil__tjm">'+ p.price +'/jour</p>';
     profilPreview.innerHTML += '<ul class="profil__tags">';
@@ -736,6 +740,10 @@ function PopulatePhotographers(){
   });
   // Store all tags elts 
   tagsElts = document.querySelectorAll("#tag");
+  tagsElts.forEach((t) => t.addEventListener("click", function(e){
+    //e.preventDefault();
+    RefreshPage(t);
+  }));
 }
 
 GetJsonData(jsonFile);
@@ -743,9 +751,6 @@ GetAllTags();
 PopulateTags();
 PopulatePhotographers();
 
-// tagsElts.forEach(t => {
-//   t.addEventListener("click", function(e){
-//     e.preve
-//   });
-// });
 
+//tagsElts.forEach((t) => t.addEventListener("click", RefreshPage(t)));
+//quiBt.forEach((btn) => btn.addEventListener("click", quitModal));

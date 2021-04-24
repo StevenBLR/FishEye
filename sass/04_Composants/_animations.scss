@@ -1,21 +1,43 @@
 
 // true = anim out / false = anim in
-@mixin hideInOut($out, $delay) {
+@mixin hideInOut($out, $delay, $offsetY) {
     //animation-delay: 5s;
     //animation: hideOut 1.5s cubic-bezier(.17,.67,.33,.99) .5s backwards;
+    animation-delay: $delay;
     @if($out){
-        animation: hideOut 1.5s cubic-bezier(0,.71,0,1.01) .5s backwards;
+        animation-delay: $delay;
+        animation: hideOut 1.5s cubic-bezier(0,.71,0,1.01) $delay backwards;
     }
     @else{
-        animation: hideOut 1.5s cubic-bezier(.17,.67,.33,.99) .5s forwards reverse;
+        animation: hideOut 1.5s cubic-bezier(.17,.67,.33,.99) $delay forwards reverse;
     }
     
     @keyframes hideOut {
         0%{
-            transform: translateY(200px);
+            transform: translateY(offsetY);
         }
         100%{
             transform: translateY(0px);
+        }
+    }
+}
+
+@mixin staggerAnim($speed, $delay, $offset) {
+    $elements:100; // Nb elements to animate ( big offset to manage any amount of items )
+    animation-delay: $delay;
+    @for $i from 0 to $elements {
+        &:nth-child(#{$i + 1}) {
+            animation: staggerAnimation $speed cubic-bezier(.17,.67,.33,.99) $i * $delay backwards;
+        }
+    }
+    @keyframes staggerAnimation {
+        0%{
+            opacity: 0;
+            transform: translateY($offset);
+        }
+        100%{
+            opacity: 100%;
+            transform: translateY(0);
         }
     }
 }
