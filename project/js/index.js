@@ -694,12 +694,14 @@ function GetAllTags(){
 function PopulateTags(){
   keywordsRoot.innerHTML = "";
   for (var [key, value] of allTags) {
-    keywordsRoot.innerHTML += '<li><a href="?tag='+ key +'" id="tag"><span>#'+key+'</span></li></a>';
+    keywordsRoot.innerHTML += '<li><a href="?tag='+ key +'" id="tag" data-id="'+ key +'"><span>#'+key+'</span></li></a>';
   }
 }
 
+// Update page without reloading 
 function RefreshPage(clickedElt){
-  console.log(clickedElt);
+  currentValues = clickedElt.getAttribute('data-id');
+  PopulatePhotographers();
 }
 
 // Update Html with selected photographers previews
@@ -728,20 +730,20 @@ function PopulatePhotographers(){
     linkElt.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
     linkElt.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
     profilPreview.innerHTML += '</a>';
-    profilPreview.innerHTML += '<span><h3 class="profil__location">'+ p.city +', '+ p.country +'</h3></span>';
+    profilPreview.innerHTML += '<h3 class="profil__location">'+ p.city +', '+ p.country +'</h3>';
     profilPreview.innerHTML += '<p class="profil__bio">'+ p.tagline +'</p>';
     profilPreview.innerHTML += '<p class="profil__tjm">'+ p.price +'/jour</p>';
     profilPreview.innerHTML += '<ul class="profil__tags">';
     photographersRoot.appendChild(profilPreview);
     var profilTagsRoot = profilPreview.querySelector(".profil__tags");
     p.tags.forEach(t => {
-      profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +' id="tag"><li><span>#'+t+'</span></li></a>';
+      profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +' id="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
     });
   });
   // Store all tags elts 
   tagsElts = document.querySelectorAll("#tag");
   tagsElts.forEach((t) => t.addEventListener("click", function(e){
-    //e.preventDefault();
+    e.preventDefault();
     RefreshPage(t);
   }));
 }
