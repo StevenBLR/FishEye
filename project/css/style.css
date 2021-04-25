@@ -88,7 +88,6 @@ header .header__keywords {
   line-height: 40px;
   margin: 0 4vw 0 4vw;
   flex-wrap: wrap;
-  transition: all 0.5s ease-out;
 }
 header .header__keywords span {
   margin: 2.5px;
@@ -100,6 +99,7 @@ header .header__keywords span {
   color: #901C1C;
   border: solid 2px #C4C4C4;
   background-color: white;
+  transition: all 0.25s ease-out;
 }
 header .header__keywords span:hover {
   border-color: #901C1C;
@@ -851,7 +851,6 @@ header .header__keywords span:hover {
   line-height: 40px;
   margin: 0 4vw 0 4vw;
   flex-wrap: wrap;
-  transition: all 0.5s ease-out;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -865,6 +864,7 @@ header .header__keywords span:hover {
   color: #901C1C;
   border: solid 2px #C4C4C4;
   background-color: white;
+  transition: all 0.25s ease-out;
 }
 .profil__tags span:hover {
   border-color: #901C1C;
