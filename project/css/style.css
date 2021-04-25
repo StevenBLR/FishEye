@@ -88,6 +88,7 @@ header .header__keywords {
   line-height: 40px;
   margin: 0 4vw 0 4vw;
   flex-wrap: wrap;
+  transition: all 0.5s ease-out;
 }
 header .header__keywords span {
   margin: 2.5px;
@@ -99,6 +100,9 @@ header .header__keywords span {
   color: #901C1C;
   border: solid 2px #C4C4C4;
   background-color: white;
+}
+header .header__keywords span:hover {
+  border-color: #901C1C;
 }
 
 @media (max-width: 1050px) {
@@ -847,6 +851,7 @@ header .header__keywords span {
   line-height: 40px;
   margin: 0 4vw 0 4vw;
   flex-wrap: wrap;
+  transition: all 0.5s ease-out;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -860,6 +865,9 @@ header .header__keywords span {
   color: #901C1C;
   border: solid 2px #C4C4C4;
   background-color: white;
+}
+.profil__tags span:hover {
+  border-color: #901C1C;
 }
 
 #selected {

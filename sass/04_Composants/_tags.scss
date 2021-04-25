@@ -4,6 +4,7 @@
     line-height: 40px;
     margin: 0 4vw 0 4vw;
     flex-wrap: wrap;
+    transition: all .5s ease-out;
     span{
         margin: 2.5px;
         padding: 2px 5px 2px 5px;
@@ -14,6 +15,10 @@
         color: $primaryColor;
         border: solid 2px $borderGray;
         background-color: white;
+
+        &:hover{
+            border-color: #901C1C;
+        }
     }
     
 }
