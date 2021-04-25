@@ -23,9 +23,6 @@
             .photographers__profil-link{
                 @include staggerAnim(1500ms, 1s, 1rem);
             }
-            #tag{
-                //@include staggerAnim(1s,5);
-            }
         }
     }
     .photographers__profil-link{
