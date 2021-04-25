@@ -653,7 +653,6 @@ var tagsElts;
 var photographers = [];
 var medias = [];
 var allTags = new Map();
-var initTags = false;
 
 // Not Working ------------------------
 // sort by value
@@ -699,15 +698,13 @@ function PopulateTags(){
 // Add click events to all tags
 function InitTagsEvents(){
   tagsElts = document.querySelectorAll("#tag");
-  if(!initTags){
-    initTags = true;
-    console.log("init Tags");
-    //console.log("tagElts = ", tagsElts);
-    tagsElts.forEach((t) => t.addEventListener("click", function(e){
-      e.preventDefault();
-      RefreshPage(t);
-    }));
-  }
+  // Reset event listeners and add to new tag list
+  tagsElts.forEach((t) => t.removeEventListener("click", function(e){}));
+  tagsElts.forEach((t) => t.addEventListener("click", function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    RefreshPage(t);
+  }));
 }
 
 // Update page without reloading
@@ -767,7 +764,7 @@ function PopulatePhotographers(){
       profilTagsRoot.innerHTML += '<a href="#" id="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
     });
   });
-  if(!initTags) InitTagsEvents();
+  InitTagsEvents();
 }
 
 GetJsonData(jsonFile);
