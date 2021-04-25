@@ -660,8 +660,6 @@ var initTags = false;
 // const mapSort1 = new Map([...allTags.entries()].sort((a, b) => b[1] - a[1]));
 // console.log(mapSort1);
 
-
-
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
     jsonFile.photographers.forEach(u => {
@@ -698,6 +696,7 @@ function PopulateTags(){
   }
 }
 
+// Add click events to all tags
 function InitTagsEvents(){
   if(!initTags){
     initTags = true;
@@ -713,7 +712,6 @@ function InitTagsEvents(){
 // Update page without reloading
 function RefreshPage(clickedElt){
   currentValues = clickedElt.getAttribute('data-id');
-  //console.log(currentValues);
   // Reset all tags style ans update clicked tag style
   // To iterate a child object, we need to use Array.prototype
   Array.prototype.forEach.call(keywordsRoot.getElementsByTagName('span'), elt => {
@@ -774,7 +772,3 @@ GetJsonData(jsonFile);
 GetAllTags();
 PopulateTags();
 PopulatePhotographers();
-
-
-//tagsElts.forEach((t) => t.addEventListener("click", RefreshPage(t)));
-//quiBt.forEach((btn) => btn.addEventListener("click", quitModal));
