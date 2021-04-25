@@ -764,7 +764,7 @@ function PopulatePhotographers(){
     photographersRoot.appendChild(profilPreview);
     var profilTagsRoot = profilPreview.querySelector(".profil__tags");
     p.tags.forEach(t => {
-      profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +' id="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
+      profilTagsRoot.innerHTML += '<a href="#" id="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
     });
   });
   if(!initTags) InitTagsEvents();
