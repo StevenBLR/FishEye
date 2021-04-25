@@ -627,23 +627,23 @@ class Media{
 }
 
 // URL Parameters
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+//const queryString = window.location.search;
+//const urlParams = new URLSearchParams(queryString);
+//var currentKeys = [];
 var currentValues = [];
-var currentKeys = [];
 
-const
-  keys = urlParams.keys(),
-  values = urlParams.values(),
-  entries = urlParams.entries();
+// const
+//   keys = urlParams.keys(),
+//   values = urlParams.values(),
+//   entries = urlParams.entries();
 
-for (const key of keys){
-  currentKeys.push(key);
-}
+// for (const key of keys){
+//   currentKeys.push(key);
+// }
 
-for (const value of values){
-  currentValues.push(value);
-}
+// for (const value of values){
+//   currentValues.push(value);
+// }
 
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
@@ -698,10 +698,11 @@ function PopulateTags(){
 
 // Add click events to all tags
 function InitTagsEvents(){
+  tagsElts = document.querySelectorAll("#tag");
   if(!initTags){
     initTags = true;
     console.log("init Tags");
-    tagsElts = document.querySelectorAll("#tag");
+    //console.log("tagElts = ", tagsElts);
     tagsElts.forEach((t) => t.addEventListener("click", function(e){
       e.preventDefault();
       RefreshPage(t);
