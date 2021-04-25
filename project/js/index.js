@@ -650,10 +650,10 @@ var keywordsRoot = document.querySelector(".header__keywords");
 var photographersRoot = document.querySelector(".photographers__list");
 var tagsElts;
 
-
 var photographers = [];
 var medias = [];
 var allTags = new Map();
+var initTags = false;
 
 // Not Working ------------------------
 // sort by value
@@ -698,17 +698,27 @@ function PopulateTags(){
   }
 }
 
+// Activate Events on tags
+function InitTagsEvents(){
+  if(!initTags){
+    initTags = true;
+    tagsElts = document.querySelectorAll("#tag");
+    tagsElts.forEach((t) => t.addEventListener("click", function(e){
+    e.preventDefault();
+    RefreshPage(t);
+  }));
+  }
+}
+
 // Update page without reloading 
 function RefreshPage(clickedElt){
   currentValues = clickedElt.getAttribute('data-id');
-  console.log(currentValues);
   PopulatePhotographers();
 }
 
 // Update Html with selected photographers previews
 function PopulatePhotographers(){
   photographersRoot.innerHTML= "";
-  
   var photographersToShow = photographers;
 
   if (urlParams.has("tag")){
@@ -741,12 +751,7 @@ function PopulatePhotographers(){
       profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +' id="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
     });
   });
-  // Store all tags elts 
-  tagsElts = document.querySelectorAll("#tag");
-  tagsElts.forEach((t) => t.addEventListener("click", function(e){
-    e.preventDefault();
-    RefreshPage(t);
-  }));
+  InitTagsEvents();
 }
 
 GetJsonData(jsonFile);
