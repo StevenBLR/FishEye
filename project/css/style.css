@@ -57,6 +57,12 @@ a {
   text-decoration: none;
 }
 
+#selected {
+  color: white;
+  border-color: #901C1C;
+  background-color: #901C1C;
+}
+
 header {
   position: relative;
   display: flex;
@@ -854,6 +860,12 @@ header .header__keywords span {
   color: #901C1C;
   border: solid 2px #C4C4C4;
   background-color: white;
+}
+
+#selected {
+  color: white;
+  border-color: #901C1C;
+  background-color: #901C1C;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -713,8 +713,22 @@ function InitTagsEvents(){
 // Update page without reloading
 function RefreshPage(clickedElt){
   currentValues = clickedElt.getAttribute('data-id');
-  //console.log(clickedElt);
   console.log(currentValues);
+  // Reset all tags style ans update clicked tag style
+  console.log("All header tags spans = ", keywordsRoot.getElementsByTagName('span'));
+  // keywordsRoot.getElementsByTagName('span').forEach(elt => { 
+  //   elt.removeAttribute("id");
+  // });
+  Array.prototype.forEach.call(keywordsRoot.getElementsByTagName('span'), elt => {
+    elt.removeAttribute("id");
+  });
+
+  // var allHeaderTags = [];
+  // allHeaderTags.push(keywordsRoot.getElementsByTagName('span'));
+  // allHeaderTags.forEach(elt => { 
+  //   elt.removeAttribute('id');
+  // });
+  clickedElt.getElementsByTagName('span')[0].setAttribute("id", "selected");
   PopulatePhotographers();
 }
 
