@@ -725,6 +725,7 @@ function RefreshPage(clickedElt){
 function PopulatePhotographers(){
   photographersRoot.innerHTML= "";
   var photographersToShow = photographers;
+  // If a tag is enabled
   if(currentValues != ""){
     photographersToShow = [];
     photographers.forEach(p => {
