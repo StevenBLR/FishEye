@@ -722,10 +722,6 @@ function RefreshPage(clickedElt){
 function PopulatePhotographers(){
   photographersRoot.innerHTML= "";
   var photographersToShow = photographers;
-
-  //if(initTags) InitTagsEvents();
-
-
   if(currentValues != ""){
     photographersToShow = [];
     photographers.forEach(p => {
