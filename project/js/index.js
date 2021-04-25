@@ -152,7 +152,7 @@ var jsonFile = {
         "date": "2019-11-25",
         "price": 55
       },
-  
+
       {
         "id": 73852953,
         "photographerId": 925,
@@ -234,7 +234,7 @@ var jsonFile = {
         "date": "2016-06-12",
         "price": 70
       },
-  
+
       {
         "id": 394583434,
         "photographerId": 527,
@@ -316,7 +316,7 @@ var jsonFile = {
         "date": "2019-01-02",
         "price": 45
       },
-  
+
       {
         "id": 623534343,
         "photographerId": 243,
@@ -407,7 +407,7 @@ var jsonFile = {
         "date": "2019-07-02",
         "price": 60
       },
-  
+
       {
         "id": 52343416,
         "photographerId": 195,
@@ -498,7 +498,7 @@ var jsonFile = {
         "date": "2020-05-05",
         "price": 60
       },
-  
+
       {
         "id": 952343423,
         "photographerId": 930,
@@ -644,7 +644,7 @@ for (const key of keys){
 for (const value of values){
   currentValues.push(value);
 }
-  
+
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
 var photographersRoot = document.querySelector(".photographers__list");
@@ -698,21 +698,23 @@ function PopulateTags(){
   }
 }
 
-// Activate Events on tags
 function InitTagsEvents(){
   if(!initTags){
     initTags = true;
+    console.log("init Tags");
     tagsElts = document.querySelectorAll("#tag");
     tagsElts.forEach((t) => t.addEventListener("click", function(e){
-    e.preventDefault();
-    RefreshPage(t);
-  }));
+      e.preventDefault();
+      RefreshPage(t);
+    }));
   }
 }
 
-// Update page without reloading 
+// Update page without reloading
 function RefreshPage(clickedElt){
   currentValues = clickedElt.getAttribute('data-id');
+  //console.log(clickedElt);
+  console.log(currentValues);
   PopulatePhotographers();
 }
 
@@ -721,8 +723,10 @@ function PopulatePhotographers(){
   photographersRoot.innerHTML= "";
   var photographersToShow = photographers;
 
-  if (urlParams.has("tag")){
-    console.log(currentValues);
+  //if(initTags) InitTagsEvents();
+
+
+  if(currentValues != ""){
     photographersToShow = [];
     photographers.forEach(p => {
       if(p.tags.includes(currentValues.toString())){
@@ -731,6 +735,17 @@ function PopulatePhotographers(){
       }
     });
   }
+  // METHODE URL Parameters
+  // if (urlParams.has("tag")){
+  //   console.log(currentValues);
+  //   photographersToShow = [];
+  //   photographers.forEach(p => {
+  //     if(p.tags.includes(currentValues.toString())){
+  //       console.log("Adding " + p.name);
+  //       photographersToShow.push(p);
+  //     }
+  //   });
+  // }
   photographersToShow.forEach(p => {
     var profilPreview = document.createElement("li");
     profilPreview.className = "photographers__profil-preview";
@@ -751,7 +766,7 @@ function PopulatePhotographers(){
       profilTagsRoot.innerHTML += '<a href=?profil-id='+ p.id +'&tag='+ t +' id="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
     });
   });
-  InitTagsEvents();
+  if(!initTags) InitTagsEvents();
 }
 
 GetJsonData(jsonFile);
