@@ -870,6 +870,14 @@ header .header__keywords span:hover {
   border-color: #901C1C;
 }
 
+.profil-overview {
+  background-color: #FAFAFA;
+}
+.profil-overview .profil__name {
+  margin: 20px 0 10px 0;
+  text-align: unset;
+}
+
 #selected {
   color: white;
   border-color: #901C1C;

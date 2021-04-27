@@ -42,3 +42,11 @@ $lineheight : 20px;
     flex-wrap: nowrap;
     white-space: nowrap;
 }
+
+.profil-overview{
+    background-color: $lightGray;
+    .profil__name{
+        margin: 20px 0 10px 0;
+        text-align: unset;
+    }
+}

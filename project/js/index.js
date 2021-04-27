@@ -740,7 +740,7 @@ function PopulatePhotographers(){
     var profilPreview = document.createElement("li");
     profilPreview.className = "photographers__profil-preview";
     var linkElt = document.createElement("a");
-    linkElt.href = '#profil-id:'+p.id;
+    linkElt.href = 'photographer-page.html#profil-id:'+p.id;
     linkElt.className = 'photographers__profil-link';
     profilPreview.appendChild(linkElt);
     linkElt.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
