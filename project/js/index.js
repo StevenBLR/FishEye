@@ -705,10 +705,10 @@ function RefreshPage(clickedElt){
   
   clickedElt.getElementsByTagName('span')[0].setAttribute("id", "selected");
   PopulatePhotographers();
+  // Update style on other similar tags 
   document.querySelectorAll('a[data-id="'+ currentValues+'"] span').forEach(elt =>{
     elt.setAttribute("id","selected");
   }) 
-  console.log(document.querySelectorAll('a[data-id="'+ currentValues+'"] span'));
 }
 
 // Update Html with selected photographers previews
