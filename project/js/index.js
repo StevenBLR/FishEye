@@ -629,21 +629,7 @@ class Media{
 // URL Parameters
 //const queryString = window.location.search;
 //const urlParams = new URLSearchParams(queryString);
-//var currentKeys = [];
 var currentValues = [];
-
-// const
-//   keys = urlParams.keys(),
-//   values = urlParams.values(),
-//   entries = urlParams.entries();
-
-// for (const key of keys){
-//   currentKeys.push(key);
-// }
-
-// for (const value of values){
-//   currentValues.push(value);
-// }
 
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
@@ -715,8 +701,14 @@ function RefreshPage(clickedElt){
   Array.prototype.forEach.call(keywordsRoot.getElementsByTagName('span'), elt => {
     elt.removeAttribute("id");
   });
+  //console.log('span[data-id="'+currentValues+'"]');
+  
   clickedElt.getElementsByTagName('span')[0].setAttribute("id", "selected");
   PopulatePhotographers();
+  document.querySelectorAll('a[data-id="'+ currentValues+'"] span').forEach(elt =>{
+    elt.setAttribute("id","selected");
+  }) 
+  console.log(document.querySelectorAll('a[data-id="'+ currentValues+'"] span'));
 }
 
 // Update Html with selected photographers previews
