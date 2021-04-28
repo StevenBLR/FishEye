@@ -57,6 +57,10 @@ a {
   text-decoration: none;
 }
 
+.page-wrapper {
+  font-family: DM Sans, sans-serif;
+}
+
 #selected {
   color: white;
   border-color: #901C1C;
@@ -871,12 +875,36 @@ header .header__keywords span:hover {
 }
 
 .profil-overview {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
   margin: 0 40px 0 40px;
+  padding: 40px;
+  height: 310px;
   background-color: #FAFAFA;
 }
 .profil-overview .profil__name {
   margin: 20px 0 10px 0;
+  font-size: 64px;
   text-align: unset;
+}
+.profil-overview .profil__location {
+  font-size: 24px;
+}
+.profil-overview .profil__bio {
+  font-size: 18px;
+}
+.profil-overview .profil__tags {
+  justify-content: left;
+  margin: unset;
+}
+.profil-overview .profil__pic {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  margin-top: -87.5px;
 }
 
 #selected {

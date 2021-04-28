@@ -44,10 +44,34 @@ $lineheight : 20px;
 }
 
 .profil-overview{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
     margin: 0 40px 0 40px;
+    padding: 40px;
+    height: 310px;
     background-color: $lightGray;
     .profil__name{
         margin: 20px 0 10px 0;
+        font-size: 64px;
         text-align: unset;
+    }
+    .profil__location{
+        font-size: 24px;
+    }
+    .profil__bio{
+        font-size: 18px;
+    }
+    .profil__tags{
+        justify-content: left;
+        margin: unset;
+    }
+    .profil__pic{
+        position: absolute;
+        right: 40px;
+        top:50%;
+        margin-top: -$picSize-preview/2;
     }
 }
