@@ -69,7 +69,7 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  margin: 0 4vw 2vh 4vw;
+  margin: 0 40px 0 40px;
   font-family: "DM Sans", sans-serif;
   color: #901C1C;
 }
@@ -871,6 +871,7 @@ header .header__keywords span:hover {
 }
 
 .profil-overview {
+  margin: 0 40px 0 40px;
   background-color: #FAFAFA;
 }
 .profil-overview .profil__name {
