@@ -161,6 +161,70 @@ header .header__keywords span:hover {
     max-height: 50px;
   }
 }
+@keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+.dropdown {
+  width: 135px;
+  color: white;
+  padding: 10px;
+  line-height: 50px;
+  font-size: 15px;
+  border-radius: 10px;
+  font-weight: 700;
+  background-color: #901C1C;
+}
+.dropdown a {
+  color: white;
+}
+.dropdown li {
+  padding: 0 10px 0 10px;
+}
+.dropdown li:not(.dropdown li:last-child):after {
+  padding: 0 -10px 0 -10px;
+  padding: auto;
+  display: block;
+  content: "";
+  height: 1px;
+  background-color: white;
+}
+
+.medias-feed h2 {
+  position: relative;
+  margin-left: 40px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.medias-feed .dropdown {
+  position: absolute;
+  padding: 5px;
+  left: 90px;
+  top: -20px;
+}
+
+@keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
 .photographers .photographers__list {
   display: flex;
   flex-direction: row;
@@ -874,6 +938,27 @@ header .header__keywords span:hover {
   border-color: #901C1C;
 }
 
+.profil__contact-bt {
+  position: absolute;
+  transition: all 0.1s ease-in;
+  font-family: DM Sans, sans-serif;
+  left: 380px;
+  bottom: 50%;
+  margin-bottom: 35px;
+  padding: 0 10px 0 10px;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  background-color: #901C1C;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.profil__contact-bt:hover {
+  color: black;
+  background-color: #D3573C;
+}
+
 .profil-overview {
   display: flex;
   position: relative;
@@ -882,23 +967,29 @@ header .header__keywords span:hover {
   box-sizing: border-box;
   margin: 0 40px 0 40px;
   padding: 40px;
-  height: 310px;
   background-color: #FAFAFA;
 }
 .profil-overview .profil__name {
-  margin: 20px 0 10px 0;
-  font-size: 64px;
+  position: relative;
+  margin: unset;
+  font-size: 60px;
   text-align: unset;
 }
 .profil-overview .profil__location {
-  font-size: 24px;
+  font-size: 22px;
+  line-height: 40px;
 }
 .profil-overview .profil__bio {
-  font-size: 18px;
+  font-size: 13px;
+  line-height: 40px;
+  color: #525252;
 }
 .profil-overview .profil__tags {
   justify-content: left;
   margin: unset;
+}
+.profil-overview .profil__tags span {
+  margin: 0 5px 0 0;
 }
 .profil-overview .profil__pic {
   position: absolute;

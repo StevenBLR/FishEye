@@ -1,10 +1,14 @@
 @import "./01_Base/base";
 @import "./01_Base/colors";
 @import "./01_Base/typography";
+
 @import "./03_Layout/page-wrapper";
 @import "./03_Layout/header";
 @import "./03_Layout/responsive";
+
+@import "./04_Composants/animations";
+@import "./04_Composants/dropdowns";
+@import "./04_Composants/medias-feed";
 @import "./04_Composants/photographers";
 @import "./04_Composants/profil";
 @import "./04_Composants/tags";
-@import "./04_Composants/animations";

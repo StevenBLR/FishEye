@@ -1,0 +1,27 @@
+.dropdown{
+    width: 135px;
+    color: white;
+    padding: 10px;
+    line-height: 50px;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    background-color: $primaryColor;
+
+    a{
+        color: white;
+    }
+
+    li{
+        padding: 0 10px 0 10px;
+        //&::after{
+        &:not(&:last-child):after{
+            padding: 0 -10px 0 -10px;
+            padding: auto;
+            display: block;
+            content: "";
+            height: 1px;
+            background-color: white;
+        }
+    } 
+}

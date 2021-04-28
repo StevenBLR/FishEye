@@ -43,6 +43,28 @@ $lineheight : 20px;
     white-space: nowrap;
 }
 
+.profil__contact-bt{
+    position: absolute;
+    transition: all 0.1s ease-in;
+    font-family: DM Sans, sans-serif;
+    left: 380px;
+    bottom: 50%;
+    margin-bottom: 35px;
+    padding: 0 10px 0 10px;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    background-color: #901C1C;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover{
+        color: black;
+        background-color: $secondaryColor;
+    }
+}
+
 .profil-overview{
     display: flex;
     position: relative;
@@ -51,22 +73,29 @@ $lineheight : 20px;
     box-sizing: border-box;
     margin: 0 40px 0 40px;
     padding: 40px;
-    height: 310px;
+    //height: 310px;
     background-color: $lightGray;
     .profil__name{
-        margin: 20px 0 10px 0;
-        font-size: 64px;
+        position: relative;
+        margin: unset;
+        font-size: 60px;
         text-align: unset;
     }
     .profil__location{
-        font-size: 24px;
+        font-size: 22px;
+        line-height: 40px;
     }
     .profil__bio{
-        font-size: 18px;
+        font-size: 13px;
+        line-height: 40px;
+        color: $darkGrey;
     }
     .profil__tags{
         justify-content: left;
         margin: unset;
+        span{
+            margin: 0 5px 0 0;
+        }
     }
     .profil__pic{
         position: absolute;
