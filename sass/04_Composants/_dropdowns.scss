@@ -1,4 +1,6 @@
 .dropdown{
+    display: flex;
+    flex-direction: column;
     width: 135px;
     color: white;
     padding: 10px;
@@ -11,17 +13,24 @@
     a{
         color: white;
     }
+    .dropdown__separator{
+        padding: 0 -10px 0 -10px;
+        height: 1px;
+        background-color: white;
+    }
 
     li{
         padding: 0 10px 0 10px;
-        //&::after{
-        &:not(&:last-child):after{
-            padding: 0 -10px 0 -10px;
-            padding: auto;
-            display: block;
-            content: "";
-            height: 1px;
-            background-color: white;
+        // &::after{
+        //     padding: 0 -10px 0 -10px;
+        //     padding: auto;
+        //     display: block;
+        //     content: "";
+        //     height: 1px;
+        //     background-color: white;
+        // }
+        i{
+            color: white;
         }
     } 
 }

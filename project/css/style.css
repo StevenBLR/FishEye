@@ -175,6 +175,8 @@ header .header__keywords span:hover {
   }
 }
 .dropdown {
+  display: flex;
+  flex-direction: column;
   width: 135px;
   color: white;
   padding: 10px;
@@ -187,16 +189,16 @@ header .header__keywords span:hover {
 .dropdown a {
   color: white;
 }
+.dropdown .dropdown__separator {
+  padding: 0 -10px 0 -10px;
+  height: 1px;
+  background-color: white;
+}
 .dropdown li {
   padding: 0 10px 0 10px;
 }
-.dropdown li:not(.dropdown li:last-child):after {
-  padding: 0 -10px 0 -10px;
-  padding: auto;
-  display: block;
-  content: "";
-  height: 1px;
-  background-color: white;
+.dropdown li i {
+  color: white;
 }
 
 .medias-feed h2 {
