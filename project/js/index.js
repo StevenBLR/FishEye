@@ -631,6 +631,13 @@ class Media{
 //const urlParams = new URLSearchParams(queryString);
 var currentValues = [];
 
+// Ajouter des Url params sans reload
+setTimeout(function(){
+  window.history.pushState({page: 1}, "title 1", "?page=1");
+  console.log("hey");
+}, 5000);
+
+
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
 var photographersRoot = document.querySelector(".photographers__list");
@@ -639,6 +646,8 @@ var tagsElts;
 var photographers = [];
 var medias = [];
 var allTags = new Map();
+
+
 
 // Not Working ------------------------
 // sort by value
@@ -686,11 +695,18 @@ function InitTagsEvents(){
   tagsElts = document.querySelectorAll("#tag");
   // Reset event listeners and add to new tag list
   tagsElts.forEach((t) => t.removeEventListener("click", function(e){}));
-  tagsElts.forEach((t) => t.addEventListener("click", function(e){
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    RefreshPage(t);
-  }));
+  
+  tagsElts.forEach((t) => {
+
+    function clickEvent(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      RefreshPage(t);
+    }
+
+    t.removeEventListener("click", clickEvent)
+    t.addEventListener("click", clickEvent)
+  });
 }
 
 // Update page without reloading
@@ -750,11 +766,17 @@ function PopulatePhotographers(){
     profilPreview.innerHTML += '<p class="profil__bio">'+ p.tagline +'</p>';
     profilPreview.innerHTML += '<p class="profil__tjm">'+ p.price +'/jour</p>';
     profilPreview.innerHTML += '<ul class="profil__tags">';
+
     photographersRoot.appendChild(profilPreview);
     var profilTagsRoot = profilPreview.querySelector(".profil__tags");
     p.tags.forEach(t => {
-      profilTagsRoot.innerHTML += '<a href="#" id="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
+      const tagLink = document.createElement('a');
+      tagLink.addEventListener();
+      tagLink.preventDefault();
+      profilTagsRoot.innerHTML += '<a href="#" class="tag" data-id="'+ t +'"><li><span>#'+t+'</span></li></a>';
+      // profilTagsRoot.innerHTML += `<a href="#" class="tag" data-id="${coucou}"><li><span>#</span></li></a`; // <-- Template literals
     });
+
   });
   InitTagsEvents();
 }

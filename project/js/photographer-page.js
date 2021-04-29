@@ -11,3 +11,9 @@ filterDropdown.forEach(elt => {
         //console.log("leave " + elt.id);
     })
 })
+
+function initFilters(){
+    
+}
+
+initFilters();

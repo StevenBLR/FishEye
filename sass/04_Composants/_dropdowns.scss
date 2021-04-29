@@ -1,7 +1,9 @@
+$itemHeight : 40px;
+
 .dropdown{
     display: flex;
     flex-direction: column;
-    height: 50px;
+    height: $itemHeight;
     width: 135px;
     color: white;
     padding: 5px;
@@ -9,10 +11,14 @@
     background-color: $primaryColor;
 
     li{
-        
+        display: flex;
+        align-items: center;
+        height: 40px;
     }
 
     button{
+        display: flex;
+        align-items: center;
         position: relative;
         text-align: left;
         border: none;
