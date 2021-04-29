@@ -177,22 +177,18 @@ header .header__keywords span:hover {
 .dropdown {
   display: flex;
   flex-direction: column;
-  font-family: DM Sans, sans-serif;
+  height: 50px;
   width: 135px;
   color: white;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
   background-color: #901C1C;
 }
 .dropdown button {
   position: relative;
   text-align: left;
-  line-height: 50px;
-  font-size: 15px;
-  font-weight: 700;
   border: none;
   background-color: unset;
-  color: white;
   height: 100%;
   width: 100%;
   cursor: pointer;
@@ -203,6 +199,11 @@ header .header__keywords span:hover {
   background-color: white;
 }
 .dropdown p {
+  font-family: DM Sans, sans-serif;
+  color: white;
+  line-height: 50px;
+  font-size: 15px;
+  font-weight: 700;
   padding: 0 10px 0 10px;
 }
 .dropdown i {
@@ -213,17 +214,21 @@ header .header__keywords span:hover {
   color: white;
 }
 
+.medias-feed {
+  font-family: DM Sans, sans-serif;
+}
 .medias-feed h2 {
   position: relative;
   margin-left: 40px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
+  line-height: 70px;
 }
 .medias-feed .dropdown {
   position: absolute;
-  padding: 5px;
-  left: 90px;
-  top: -20px;
+  left: 75px;
+  top: 50%;
+  margin-top: -28px;
 }
 
 @keyframes rotateX {
