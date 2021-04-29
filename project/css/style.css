@@ -177,27 +177,39 @@ header .header__keywords span:hover {
 .dropdown {
   display: flex;
   flex-direction: column;
+  font-family: DM Sans, sans-serif;
   width: 135px;
   color: white;
   padding: 10px;
-  line-height: 50px;
-  font-size: 15px;
   border-radius: 10px;
-  font-weight: 700;
   background-color: #901C1C;
 }
-.dropdown a {
+.dropdown button {
+  position: relative;
+  text-align: left;
+  line-height: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  background-color: unset;
   color: white;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
 }
 .dropdown .dropdown__separator {
-  padding: 0 -10px 0 -10px;
+  margin: 0 5px 0 5px;
   height: 1px;
   background-color: white;
 }
-.dropdown li {
+.dropdown p {
   padding: 0 10px 0 10px;
 }
-.dropdown li i {
+.dropdown i {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  margin-top: -7px;
   color: white;
 }
 
