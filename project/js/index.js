@@ -627,7 +627,7 @@ class Media{
 }
 
 // URL Parameters
-const urlParams = new URLSearchParams(window.location.search);
+var urlParams = new URLSearchParams(window.location.search);
 // [ TEST ]  Ajouter des Url params sans reload
 // setTimeout(function(){
 //   window.history.pushState({page: 1}, "title 1", "?page=1");
@@ -677,18 +677,12 @@ function GetAllTags(){
   console.log(allTags);
 }
 
-// Update heading tags with data infos
-function PopulateTags(){
-  keywordsRoot.innerHTML = "";
-  for (var [key, value] of allTags) {
-    keywordsRoot.innerHTML += '<li><a href="#' +'" id="tag" data-id="'+ key +'"><span>#'+key+'</span></li></a>';
-  }
-}
+
 
 // Update page with selected tag (without reloading)
 function RefreshPage(clickedElt){
   currentTag = clickedElt.getAttribute('data-id');
-  console.log(currentTag);
+  console.log("current tag = ",currentTag);
   // Reset all tags style and update clicked tag style
   // To iterate a child object, we need to use Array.prototype
   Array.prototype.forEach.call(keywordsRoot.getElementsByTagName('span'), elt => {
@@ -711,14 +705,14 @@ function PopulatePhotographers(tagSelected = ""){
   // (1) Defining profils to display  ------------------------------------------------------------------------
   photographersRoot.innerHTML= "";
   var photographersToShow = photographers;
+  urlParams = new URLSearchParams(window.location.search);
 
   // Check if URL has parameters 
   if (urlParams.has('tag')){
-    console.log("tag detecté");
+    console.log(`tag ${urlParams.get("tag")} detecté`);
     if (urlParams.has("tag")){
       tagSelected = urlParams.get("tag");
     }
-    
   }
   // If a tag is enabled
   if(tagSelected != ""){
@@ -730,20 +724,6 @@ function PopulatePhotographers(tagSelected = ""){
       }
     });
   }
-
-  //#region Url params
-  // METHODE URL Parameters
-  // if (urlParams.has("tag")){
-  //   console.log(tagSelected);
-  //   photographersToShow = [];
-  //   photographers.forEach(p => {
-  //     if(p.tags.includes(tagSelected.toString())){
-  //       console.log("Adding " + p.name);
-  //       photographersToShow.push(p);
-  //     }
-  //   });
-  // }
-  //#endregion
 
   // (2) Generation Profil Cards with datas ------------------------------------------------------------------------
   // Pour chaque profil
@@ -768,36 +748,44 @@ function PopulatePhotographers(tagSelected = ""){
     // Pour chaque tag inclus dans le profil
     p.tags.forEach(t => {
       // Creation de la structure des tags (li -> a -> span)
-      //profilTagsRoot.innerHTML += `<li><a href="#" class="tag" data-id="${t}"><li><span>#${t}</span></a></li>`; // <-- Template literals
-      const liElt = document.createElement('li');
-      const tagLink = document.createElement('a');
-      tagLink.href = "#";
-      tagLink.setAttribute("class","tag");
-      tagLink.setAttribute("data-id",`${t}`);
-      const spanElt = document.createElement("span");
-      spanElt.textContent = `${t}`;
-      profilTagsRoot.appendChild(liElt);
-      liElt.appendChild(tagLink);
-      tagLink.appendChild(spanElt);
-
-      function clickEvent(e){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        // Updating URL params
-        window.history.pushState({page: 1}, "tag", `?tag=${t}`);
-        RefreshPage(tagLink);
-      }
-      tagLink.addEventListener("click", clickEvent);
-      
+      PopulateTag(t,profilTagsRoot);
     });
-
   });
-  //InitTagsEvents();
 }
 
+function PopulateTag(tagInfo, parent){
+  const liElt = document.createElement('li');
+  const tagLink = document.createElement('a');
+  tagLink.href = "#";
+  tagLink.setAttribute("class","tag");
+  tagLink.setAttribute("data-id",`${tagInfo}`);
+  const spanElt = document.createElement("span");
+  spanElt.textContent = `${tagInfo}`;
+  parent.appendChild(liElt);
+  liElt.appendChild(tagLink);
+  tagLink.appendChild(spanElt);
 
+  function clickEvent(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    // Updating URL params
+    window.history.pushState({page: 1}, "tag", `?tag=${tagInfo}`);
+    RefreshPage(tagLink);
+  }
+  tagLink.addEventListener("click", clickEvent);
+}
+
+// Update heading tags with data infos
+function PopulateHeaderTags(){
+  keywordsRoot.innerHTML = "";
+  for (var [key, value] of allTags) {
+    PopulateTag(key,keywordsRoot);
+    //keywordsRoot.innerHTML += '<li><a href="#' +'" id="tag" data-id="'+ key +'"><span>#'+key+'</span></li></a>';
+  }
+  
+}
 
 GetJsonData(jsonFile);
 GetAllTags();
-PopulateTags();
+PopulateHeaderTags();
 PopulatePhotographers();
