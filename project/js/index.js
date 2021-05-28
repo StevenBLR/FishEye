@@ -677,7 +677,13 @@ function GetAllTags(){
   console.log(allTags);
 }
 
-
+// Update heading tags with data infos
+function PopulateHeaderTags(){
+  keywordsRoot.innerHTML = "";
+  for (var [key, value] of allTags) {
+    PopulateTag(key,keywordsRoot);
+  }
+}
 
 // Update page with selected tag (without reloading)
 function RefreshPage(clickedElt){
@@ -709,12 +715,12 @@ function PopulatePhotographers(tagSelected = ""){
 
   // Check if URL has parameters 
   if (urlParams.has('tag')){
-    console.log(`tag ${urlParams.get("tag")} detecté`);
+    //console.log(`tag ${urlParams.get("tag")} detecté`);
     if (urlParams.has("tag")){
       tagSelected = urlParams.get("tag");
     }
   }
-  // If a tag is enabled
+  // Update profils with tag
   if(tagSelected != ""){
     photographersToShow = [];
     photographers.forEach(p => {
@@ -746,10 +752,7 @@ function PopulatePhotographers(tagSelected = ""){
 
     // (3) Add click events and behaviour ------------------------------------------------------------------------
     // Pour chaque tag inclus dans le profil
-    p.tags.forEach(t => {
-      // Creation de la structure des tags (li -> a -> span)
-      PopulateTag(t,profilTagsRoot);
-    });
+    p.tags.forEach(t => { PopulateTag(t,profilTagsRoot); });
   });
 }
 
@@ -775,15 +778,7 @@ function PopulateTag(tagInfo, parent){
   tagLink.addEventListener("click", clickEvent);
 }
 
-// Update heading tags with data infos
-function PopulateHeaderTags(){
-  keywordsRoot.innerHTML = "";
-  for (var [key, value] of allTags) {
-    PopulateTag(key,keywordsRoot);
-    //keywordsRoot.innerHTML += '<li><a href="#' +'" id="tag" data-id="'+ key +'"><span>#'+key+'</span></li></a>';
-  }
-  
-}
+
 
 GetJsonData(jsonFile);
 GetAllTags();
