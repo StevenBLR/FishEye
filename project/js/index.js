@@ -694,7 +694,6 @@ function RefreshPage(clickedElt){
   Array.prototype.forEach.call(keywordsRoot.getElementsByTagName('span'), elt => {
     elt.removeAttribute("id");
   });
-  //console.log('span[data-id="'+currentTag+'"]');
   
   clickedElt.getElementsByTagName('span')[0].setAttribute("id", "selected");
   // Update photo
@@ -715,7 +714,6 @@ function PopulatePhotographers(tagSelected = ""){
 
   // Check if URL has parameters 
   if (urlParams.has('tag')){
-    //console.log(`tag ${urlParams.get("tag")} detecté`);
     if (urlParams.has("tag")){
       tagSelected = urlParams.get("tag");
     }
@@ -725,7 +723,6 @@ function PopulatePhotographers(tagSelected = ""){
     photographersToShow = [];
     photographers.forEach(p => {
       if(p.tags.includes(tagSelected.toString())){
-        //console.log("Adding " + p.name);
         photographersToShow.push(p);
       }
     });
@@ -776,6 +773,7 @@ function PopulateTag(tagInfo, parent){
     RefreshPage(tagLink);
   }
   tagLink.addEventListener("click", clickEvent);
+  return spanElt;
 }
 
 
