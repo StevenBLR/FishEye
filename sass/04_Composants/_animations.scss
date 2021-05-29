@@ -55,3 +55,21 @@
       transform: rotateX(0deg);
     }
   }
+
+  @mixin dropdownReaveal($speed, $delay){
+    $elements:100; // Nb elements to animate ( big offset to manage any amount of items )
+    @for $i from 0 to $elements {
+        &:nth-child(#{$i + 1}) {
+            animation: staggerFade $speed cubic-bezier(.17,.67,.33,.99) $i * $delay forwards;
+        }
+    }
+
+    @keyframes staggerFade{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 100;
+        }
+    }
+  }

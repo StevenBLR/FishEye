@@ -1,8 +1,8 @@
 $itemHeight : 40px;
 
 .dropdown{
-    //itemHeightheight: $itemHeight;
     overflow: hidden;
+    z-index: 5;
     height: 40px;
     width: 135px;
     color: white;
@@ -10,10 +10,21 @@ $itemHeight : 40px;
     border-radius: 10px;
     background-color: $primaryColor;
 
+    &:hover{
+        li:not(:first-child){
+            @include dropdownReaveal(800ms, 0.05s);
+        }
+    }
+
     li{
         display: flex;
         align-items: center;
+        &:not(:first-child){
+            opacity: 0;
+        }
     }
+
+    
 
     button{
         display: flex;
