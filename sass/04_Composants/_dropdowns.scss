@@ -12,19 +12,27 @@ $itemHeight : 40px;
 
     &:hover{
         li:not(:first-child){
-            @include dropdownReaveal(800ms, 0.05s);
+            @include dropdownReveal(600ms, 0.06s);
+            &:nth-child(2n){
+                @include separatorAnim(400ms, 0.08s);
+                // .dropdown__separator{
+                //     @include separatorAnim(600ms, 0.08s);
+                // }
+            }
+            
         }
     }
 
     li{
         display: flex;
         align-items: center;
+        transition: all 1s;
         &:not(:first-child){
+            // dropdown items are hidden by default (except 1st child)
             opacity: 0;
         }
     }
 
-    
 
     button{
         display: flex;
