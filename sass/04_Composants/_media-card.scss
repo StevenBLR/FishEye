@@ -1,0 +1,33 @@
+.media-card{
+    position: relative;
+    img{
+        border-radius: 10px;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+    .media-card__title{
+        margin: 10px 0 10px 0;
+        color: $primaryColor;
+        line-height: 30px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .media-card__likes{
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        bottom: -35px;
+        color: $primaryColor;
+
+        .media-card__nb-likes{
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        i{
+            font-size: 20px;    // Icone size
+        }
+    }
+}

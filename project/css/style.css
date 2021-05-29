@@ -175,6 +175,7 @@ header .header__keywords span:hover {
   }
 }
 .dropdown {
+  overflow: hidden;
   height: 40px;
   width: 135px;
   color: white;
@@ -196,6 +197,7 @@ header .header__keywords span:hover {
   height: 40px;
   width: 100%;
   cursor: pointer;
+  transition: 0.4s;
 }
 .dropdown .dropdown__separator {
   margin: 0 5px 0 5px;
@@ -217,6 +219,37 @@ header .header__keywords span:hover {
   top: 50%;
   margin-top: -7px;
   color: white;
+}
+
+.media-card {
+  position: relative;
+}
+.media-card img {
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+.media-card .media-card__title {
+  margin: 10px 0 10px 0;
+  color: #901C1C;
+  line-height: 30px;
+  font-size: 24px;
+  font-weight: 400;
+}
+.media-card .media-card__likes {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: -35px;
+  color: #901C1C;
+}
+.media-card .media-card__likes .media-card__nb-likes {
+  font-size: 24px;
+  font-weight: 500;
+}
+.media-card .media-card__likes i {
+  font-size: 20px;
 }
 
 .medias-feed {
@@ -265,11 +298,6 @@ header .header__keywords span:hover {
   display: flex;
   flex-direction: column;
   background-color: cadetblue;
-}
-.medias-feed .media-feed__medias-grid .media-card img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
 }
 
 @keyframes rotateX {

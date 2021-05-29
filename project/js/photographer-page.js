@@ -1,27 +1,30 @@
-
+console.clear();
 const filterDropdown = document.querySelectorAll(".dropdown");
-console.log(filterDropdown);
+const filterBts = document.querySelectorAll(".dropdown button");
+const ddAnimSpeed = 0.5;
 
 // const ddAnim = gsap.timeline({reversed: true, paused:true})
-// .set(".open", {autoAlpha:0})
-// .to(".test", {height: "auto", duration: 1.5})
-// .from(".list", {autoAlpha:0, x:50, duration:1}, '-=1')
+// .to(".dropdown", {height: "auto", duration: 1.5})
+
+// gsap.timeline()
+// .to(".dropdown", {height: "auto", duration: 1.5});
 
 filterDropdown.forEach(elt => {
     elt.addEventListener("mouseenter", function(e){
-        //console.log("enter " + elt.id);
-        //let 
-        gsap.to(".dropdown", {height: 123, duration: 1, ease: "expo"});
+        toggleDropdown();
+        gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
+        e.stopImmediatePropagation();
     });
 
     elt.addEventListener("mouseleave", function(e){
         //console.log("leave " + elt.id);
-        gsap.to(".dropdown", {height: 40, duration: 1, ease: "expo"});
+        gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
+            //.to("");
+        // toggleDropdown()
+        e.stopImmediatePropagation();
     })
 })
 
-function initFilters(){
-    
+function toggleDropdown(){
+    //ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
 }
-
-initFilters();

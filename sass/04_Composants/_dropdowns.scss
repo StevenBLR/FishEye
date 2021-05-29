@@ -2,7 +2,7 @@ $itemHeight : 40px;
 
 .dropdown{
     //itemHeightheight: $itemHeight;
-    // overflow: hidden;
+    overflow: hidden;
     height: 40px;
     width: 135px;
     color: white;
@@ -25,6 +25,7 @@ $itemHeight : 40px;
         height: $itemHeight;
         width: 100%;
         cursor: pointer;
+        transition: .4s;
     }
     .dropdown__separator{
         margin: 0 5px 0 5px;
