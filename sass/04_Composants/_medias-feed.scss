@@ -1,9 +1,26 @@
 .medias-feed{
     font-family: DM Sans, sans-serif;
     display: flex;
+    flex-direction: column;
+
     .media-feed__filter-area{
         display: flex;
-        flex-direction: column;
+        height: 50px;
+        margin: 15px 0 15px 40px;
+        flex-direction: row;
+
+        span{
+            font-size: 15px;
+            font-weight: 700;
+            margin-right: 20px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+
+    .feed-wrapper{
+        margin: 0 40px 0 40px;
+        width: 100%;
     }
 
     h2{
@@ -12,25 +29,26 @@
         font-size: 15px;
         font-weight: 700;
         line-height: 70px;
+        height: 70px;
+        text-align: center;
     }
     .dropdown{
         position: absolute;
-        left: 75px;
-        top: 50%;
-        margin-top: -28px;
+        left: 140px;
     }
     .media-feed__medias-grid{
-            display: grid;
-            grid-template-columns: 300px 300px 300px;
-            grid-template-rows: 300px 300px 300px;
-            gap: 50px 50px;
-            grid-template-areas:
-              ". . ."
-              ". . ."
-              ". . .";
+        display: grid;
+        grid-template-columns: 300px 300px 300px;
+        grid-template-rows: 300px 300px 300px;
+        gap: 50px 50px;
+        grid-template-areas:
+            ". . ."
+            ". . ."
+            ". . .";
         .media-card{
             display: flex;
             flex-direction: column;
+            background-color: cadetblue;
     
             img{
                 width: 300px;

@@ -1,9 +1,9 @@
 $itemHeight : 40px;
 
 .dropdown{
-    display: flex;
-    flex-direction: column;
-    height: $itemHeight;
+    //itemHeightheight: $itemHeight;
+    // overflow: hidden;
+    height: 40px;
     width: 135px;
     color: white;
     padding: 5px;
@@ -13,7 +13,6 @@ $itemHeight : 40px;
     li{
         display: flex;
         align-items: center;
-        height: 40px;
     }
 
     button{
@@ -23,13 +22,14 @@ $itemHeight : 40px;
         text-align: left;
         border: none;
         background-color: unset;
-        height: 100%;
+        height: $itemHeight;
         width: 100%;
         cursor: pointer;
     }
     .dropdown__separator{
         margin: 0 5px 0 5px;
         height: 1px;
+        width: 100%;
         background-color: white;
     }
     p{

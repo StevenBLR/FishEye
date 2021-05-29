@@ -175,8 +175,6 @@ header .header__keywords span:hover {
   }
 }
 .dropdown {
-  display: flex;
-  flex-direction: column;
   height: 40px;
   width: 135px;
   color: white;
@@ -187,7 +185,6 @@ header .header__keywords span:hover {
 .dropdown li {
   display: flex;
   align-items: center;
-  height: 40px;
 }
 .dropdown button {
   display: flex;
@@ -196,13 +193,14 @@ header .header__keywords span:hover {
   text-align: left;
   border: none;
   background-color: unset;
-  height: 100%;
+  height: 40px;
   width: 100%;
   cursor: pointer;
 }
 .dropdown .dropdown__separator {
   margin: 0 5px 0 5px;
   height: 1px;
+  width: 100%;
   background-color: white;
 }
 .dropdown p {
@@ -224,10 +222,24 @@ header .header__keywords span:hover {
 .medias-feed {
   font-family: DM Sans, sans-serif;
   display: flex;
+  flex-direction: column;
 }
 .medias-feed .media-feed__filter-area {
   display: flex;
-  flex-direction: column;
+  height: 50px;
+  margin: 15px 0 15px 40px;
+  flex-direction: row;
+}
+.medias-feed .media-feed__filter-area span {
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.medias-feed .feed-wrapper {
+  margin: 0 40px 0 40px;
+  width: 100%;
 }
 .medias-feed h2 {
   position: relative;
@@ -235,12 +247,12 @@ header .header__keywords span:hover {
   font-size: 15px;
   font-weight: 700;
   line-height: 70px;
+  height: 70px;
+  text-align: center;
 }
 .medias-feed .dropdown {
   position: absolute;
-  left: 75px;
-  top: 50%;
-  margin-top: -28px;
+  left: 140px;
 }
 .medias-feed .media-feed__medias-grid {
   display: grid;
@@ -252,6 +264,7 @@ header .header__keywords span:hover {
 .medias-feed .media-feed__medias-grid .media-card {
   display: flex;
   flex-direction: column;
+  background-color: cadetblue;
 }
 .medias-feed .media-feed__medias-grid .media-card img {
   width: 300px;
