@@ -910,7 +910,8 @@ header .header__keywords span:hover {
   display: grid;
   justify-content: center;
   gap: 50px 100px;
-  grid-template-areas: ". . ." ". . ." ". . .";
+  margin-top: 50px;
+  grid-template-areas: ". . .";
 }
 .medias-feed .media-feed__medias-grid .media-card {
   display: flex;
