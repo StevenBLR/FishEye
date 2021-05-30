@@ -67,9 +67,11 @@
     @keyframes staggerFade{
         0%{
             opacity: 0;
+            bottom: -30px;
         }
         100%{
             opacity: 100;
+            bottom: 0;
         }
     }
   }

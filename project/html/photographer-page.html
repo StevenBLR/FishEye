@@ -30,27 +30,29 @@
     
     <main class="medias-feed">
       <nav class="media-feed__filter-area">
-        <span>Trier par</span>
-        <ul class="dropdown" id="media-filters">
-          <li>
-            <button class="" id="popularity">
-              <p>Popularité</p>
-              <i class="fas fa-chevron-up"></i>
-            </button>
-          </li>
-          <li><div class="dropdown__separator"></div></li>
-          <li>
-            <button class="" id="date">
-              <p>Date</p>
-            </button>
-          </li>
-          <li><div class="dropdown__separator"></div></li>
-          <li>
-            <button class="" id="title">
-              <p>Titre</p>
-            </button>
-          </li>
-        </ul>
+        <div class="dropdown-wrapper">
+          <span>Trier par</span>
+          <ul class="dropdown" id="media-filters">
+            <li>
+              <button class="" id="popularity">
+                <p>Popularité</p>
+                <i class="fas fa-chevron-up"></i>
+              </button>
+            </li>
+            <li><div class="dropdown__separator"></div></li>
+            <li>
+              <button class="" id="date">
+                <p>Date</p>
+              </button>
+            </li>
+            <li><div class="dropdown__separator"></div></li>
+            <li>
+              <button class="" id="title">
+                <p>Titre</p>
+              </button>
+            </li>
+          </ul>
+        </div>
       </nav>
       <div class="feed-wrapper">
         <ul class="media-feed__medias-grid">

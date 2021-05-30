@@ -1,5 +1,6 @@
 $picSize-preview : 175px;
 $lineheight : 20px;
+$page-max-width : 1750px;
 
 .profil__pic{
     border-radius: 100%;
@@ -71,7 +72,9 @@ $lineheight : 20px;
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    margin: 0 40px 0 40px;
+    // margin: 0 40px 0 40px;
+    margin: 0 auto 0 auto;
+    max-width: 1600px;
     padding: 40px;
     //height: 310px;
     background-color: $lightGray;

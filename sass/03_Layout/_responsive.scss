@@ -1,22 +1,37 @@
+@import "../04_Composants/profil";
+
 $mobileBp: 750px;
 $keywordsBp: 1050px;
 
 
 
-@media (max-width: 1700px){
-    .medias-feed{
-         .feed-wrapper .media-feed__medias-grid{
-            grid-template-areas:
-            ". . .";
+@media (max-width: $page-max-width){
+    .page-wrapper{
+        .medias-feed{
+            margin: unset;
+             .feed-wrapper .media-feed__medias-grid{
+                grid-template-areas:
+                ". . .";
+            }
+            .media-feed__filter-area{
+                margin-left: 40px;
+            }
         }
     }
+
+    .page-wrapper .profil-overview{
+        margin: 0 40px 0 40px;
+    }
+    
 }
 
 @media (max-width: 1288px){
-    .medias-feed{
-         .feed-wrapper .media-feed__medias-grid{
-            grid-template-areas:
-            ". .";
+    .page-wrapper{
+        .medias-feed{
+            .feed-wrapper .media-feed__medias-grid{
+                grid-template-areas:
+                ". .";
+            }
         }
     }
 }

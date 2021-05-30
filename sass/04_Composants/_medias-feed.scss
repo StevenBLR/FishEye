@@ -1,26 +1,31 @@
+@import "../04_Composants/profil";
+
 .medias-feed{
-    font-family: DM Sans, sans-serif;
     display: flex;
+    position: relative;
+    font-family: DM Sans, sans-serif;
     flex-direction: column;
+    max-width: 1700px;
+    margin: 0 auto 0 auto;
 
     .media-feed__filter-area{
+        position: absolute;
+        top: 25px;
         display: flex;
         height: 50px;
-        margin: 15px 0 15px 40px;
+        margin-left: 50px;
         flex-direction: row;
+        max-width: $page-max-width;
 
         span{
             font-size: 15px;
             font-weight: 700;
-            margin-right: 20px;
             margin-top: auto;
             margin-bottom: auto;
         }
     }
 
-    // .feed-wrapper{
-
-    // }
+    // .feed-wrapper{}
 
     h2{
         position: relative;
@@ -31,21 +36,16 @@
         height: 70px;
         text-align: center;
     }
-    .dropdown{
-        position: absolute;
-        left: 140px;
-    }
     .media-feed__medias-grid{
         display: grid;
         justify-content: center;
         gap: 50px 100px;
-        margin-top: 50px;
+        margin-top: 100px;
         grid-template-areas:
         ". . . .";
         .media-card{
             display: flex;
             flex-direction: column;
-            // background-color: cadetblue;
         }
     }
 }
