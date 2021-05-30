@@ -60,6 +60,15 @@ $keywordsBp: 1050px;
 }
 // Mobile mode
 @media (max-width: $mobileBp){
+    .page-wrapper{
+        .medias-feed{
+            .feed-wrapper .media-feed__medias-grid{
+                grid-template-areas:
+                ".";
+            }
+        }
+    }
+
     .page-wrapper .photographers{
         .photographers__list{
             margin: 85px auto 0 auto;

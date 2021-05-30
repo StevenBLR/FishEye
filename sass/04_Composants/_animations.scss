@@ -60,7 +60,7 @@
     $elements:100; // Nb elements to animate ( big offset to manage any amount of items )
     @for $i from 0 to $elements {
         &:nth-child(#{$i + 1}) {
-            animation: staggerFade $speed cubic-bezier(.42,.54,.02,1)  $i * $delay forwards;
+            animation: staggerFade $speed cubic-bezier(0,.93,.02,1)  $i * $delay forwards;
         }
     }
 

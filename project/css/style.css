@@ -273,6 +273,10 @@ header .header__keywords span:hover {
   }
 }
 @media (max-width: 750px) {
+  .page-wrapper .medias-feed .feed-wrapper .media-feed__medias-grid {
+    grid-template-areas: ".";
+  }
+
   .page-wrapper .photographers .photographers__list {
     margin: 85px auto 0 auto;
   }
@@ -334,305 +338,305 @@ header .header__keywords span:hover {
   border-radius: 10px;
   background-color: #901C1C;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(1) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0s forwards;
+.dropdown:hover li:not(:first-child):nth-child(1) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(2) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.08s forwards;
+.dropdown:hover li:not(:first-child):nth-child(2) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.08s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(3) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.16s forwards;
+.dropdown:hover li:not(:first-child):nth-child(3) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.16s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(4) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.24s forwards;
+.dropdown:hover li:not(:first-child):nth-child(4) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.24s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(5) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.32s forwards;
+.dropdown:hover li:not(:first-child):nth-child(5) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.32s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(6) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.4s forwards;
+.dropdown:hover li:not(:first-child):nth-child(6) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.4s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(7) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.48s forwards;
+.dropdown:hover li:not(:first-child):nth-child(7) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.48s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(8) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.56s forwards;
+.dropdown:hover li:not(:first-child):nth-child(8) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.56s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(9) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.64s forwards;
+.dropdown:hover li:not(:first-child):nth-child(9) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.64s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(10) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.72s forwards;
+.dropdown:hover li:not(:first-child):nth-child(10) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.72s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(11) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.8s forwards;
+.dropdown:hover li:not(:first-child):nth-child(11) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.8s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(12) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.88s forwards;
+.dropdown:hover li:not(:first-child):nth-child(12) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.88s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(13) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 0.96s forwards;
+.dropdown:hover li:not(:first-child):nth-child(13) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 0.96s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(14) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.04s forwards;
+.dropdown:hover li:not(:first-child):nth-child(14) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.04s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(15) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.12s forwards;
+.dropdown:hover li:not(:first-child):nth-child(15) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.12s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(16) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.2s forwards;
+.dropdown:hover li:not(:first-child):nth-child(16) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.2s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(17) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.28s forwards;
+.dropdown:hover li:not(:first-child):nth-child(17) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.28s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(18) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.36s forwards;
+.dropdown:hover li:not(:first-child):nth-child(18) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.36s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(19) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.44s forwards;
+.dropdown:hover li:not(:first-child):nth-child(19) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.44s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(20) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.52s forwards;
+.dropdown:hover li:not(:first-child):nth-child(20) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.52s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(21) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.6s forwards;
+.dropdown:hover li:not(:first-child):nth-child(21) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.6s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(22) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.68s forwards;
+.dropdown:hover li:not(:first-child):nth-child(22) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.68s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(23) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.76s forwards;
+.dropdown:hover li:not(:first-child):nth-child(23) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.76s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(24) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.84s forwards;
+.dropdown:hover li:not(:first-child):nth-child(24) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.84s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(25) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 1.92s forwards;
+.dropdown:hover li:not(:first-child):nth-child(25) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 1.92s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(26) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2s forwards;
+.dropdown:hover li:not(:first-child):nth-child(26) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(27) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.08s forwards;
+.dropdown:hover li:not(:first-child):nth-child(27) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.08s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(28) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.16s forwards;
+.dropdown:hover li:not(:first-child):nth-child(28) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.16s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(29) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.24s forwards;
+.dropdown:hover li:not(:first-child):nth-child(29) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.24s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(30) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.32s forwards;
+.dropdown:hover li:not(:first-child):nth-child(30) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.32s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(31) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.4s forwards;
+.dropdown:hover li:not(:first-child):nth-child(31) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.4s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(32) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.48s forwards;
+.dropdown:hover li:not(:first-child):nth-child(32) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.48s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(33) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.56s forwards;
+.dropdown:hover li:not(:first-child):nth-child(33) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.56s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(34) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.64s forwards;
+.dropdown:hover li:not(:first-child):nth-child(34) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.64s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(35) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.72s forwards;
+.dropdown:hover li:not(:first-child):nth-child(35) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.72s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(36) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.8s forwards;
+.dropdown:hover li:not(:first-child):nth-child(36) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.8s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(37) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.88s forwards;
+.dropdown:hover li:not(:first-child):nth-child(37) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.88s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(38) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 2.96s forwards;
+.dropdown:hover li:not(:first-child):nth-child(38) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 2.96s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(39) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.04s forwards;
+.dropdown:hover li:not(:first-child):nth-child(39) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.04s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(40) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.12s forwards;
+.dropdown:hover li:not(:first-child):nth-child(40) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.12s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(41) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.2s forwards;
+.dropdown:hover li:not(:first-child):nth-child(41) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.2s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(42) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.28s forwards;
+.dropdown:hover li:not(:first-child):nth-child(42) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.28s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(43) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.36s forwards;
+.dropdown:hover li:not(:first-child):nth-child(43) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.36s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(44) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.44s forwards;
+.dropdown:hover li:not(:first-child):nth-child(44) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.44s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(45) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.52s forwards;
+.dropdown:hover li:not(:first-child):nth-child(45) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.52s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(46) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.6s forwards;
+.dropdown:hover li:not(:first-child):nth-child(46) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.6s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(47) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.68s forwards;
+.dropdown:hover li:not(:first-child):nth-child(47) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.68s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(48) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.76s forwards;
+.dropdown:hover li:not(:first-child):nth-child(48) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.76s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(49) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.84s forwards;
+.dropdown:hover li:not(:first-child):nth-child(49) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.84s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(50) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 3.92s forwards;
+.dropdown:hover li:not(:first-child):nth-child(50) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 3.92s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(51) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4s forwards;
+.dropdown:hover li:not(:first-child):nth-child(51) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(52) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.08s forwards;
+.dropdown:hover li:not(:first-child):nth-child(52) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.08s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(53) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.16s forwards;
+.dropdown:hover li:not(:first-child):nth-child(53) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.16s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(54) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.24s forwards;
+.dropdown:hover li:not(:first-child):nth-child(54) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.24s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(55) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.32s forwards;
+.dropdown:hover li:not(:first-child):nth-child(55) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.32s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(56) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.4s forwards;
+.dropdown:hover li:not(:first-child):nth-child(56) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.4s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(57) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.48s forwards;
+.dropdown:hover li:not(:first-child):nth-child(57) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.48s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(58) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.56s forwards;
+.dropdown:hover li:not(:first-child):nth-child(58) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.56s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(59) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.64s forwards;
+.dropdown:hover li:not(:first-child):nth-child(59) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.64s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(60) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.72s forwards;
+.dropdown:hover li:not(:first-child):nth-child(60) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.72s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(61) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.8s forwards;
+.dropdown:hover li:not(:first-child):nth-child(61) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.8s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(62) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.88s forwards;
+.dropdown:hover li:not(:first-child):nth-child(62) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.88s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(63) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 4.96s forwards;
+.dropdown:hover li:not(:first-child):nth-child(63) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 4.96s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(64) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.04s forwards;
+.dropdown:hover li:not(:first-child):nth-child(64) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.04s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(65) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.12s forwards;
+.dropdown:hover li:not(:first-child):nth-child(65) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.12s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(66) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.2s forwards;
+.dropdown:hover li:not(:first-child):nth-child(66) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.2s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(67) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.28s forwards;
+.dropdown:hover li:not(:first-child):nth-child(67) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.28s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(68) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.36s forwards;
+.dropdown:hover li:not(:first-child):nth-child(68) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.36s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(69) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.44s forwards;
+.dropdown:hover li:not(:first-child):nth-child(69) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.44s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(70) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.52s forwards;
+.dropdown:hover li:not(:first-child):nth-child(70) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.52s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(71) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.6s forwards;
+.dropdown:hover li:not(:first-child):nth-child(71) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.6s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(72) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.68s forwards;
+.dropdown:hover li:not(:first-child):nth-child(72) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.68s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(73) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.76s forwards;
+.dropdown:hover li:not(:first-child):nth-child(73) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.76s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(74) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.84s forwards;
+.dropdown:hover li:not(:first-child):nth-child(74) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.84s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(75) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 5.92s forwards;
+.dropdown:hover li:not(:first-child):nth-child(75) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 5.92s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(76) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6s forwards;
+.dropdown:hover li:not(:first-child):nth-child(76) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(77) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.08s forwards;
+.dropdown:hover li:not(:first-child):nth-child(77) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.08s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(78) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.16s forwards;
+.dropdown:hover li:not(:first-child):nth-child(78) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.16s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(79) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.24s forwards;
+.dropdown:hover li:not(:first-child):nth-child(79) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.24s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(80) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.32s forwards;
+.dropdown:hover li:not(:first-child):nth-child(80) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.32s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(81) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.4s forwards;
+.dropdown:hover li:not(:first-child):nth-child(81) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.4s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(82) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.48s forwards;
+.dropdown:hover li:not(:first-child):nth-child(82) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.48s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(83) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.56s forwards;
+.dropdown:hover li:not(:first-child):nth-child(83) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.56s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(84) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.64s forwards;
+.dropdown:hover li:not(:first-child):nth-child(84) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.64s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(85) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.72s forwards;
+.dropdown:hover li:not(:first-child):nth-child(85) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.72s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(86) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.8s forwards;
+.dropdown:hover li:not(:first-child):nth-child(86) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.8s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(87) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.88s forwards;
+.dropdown:hover li:not(:first-child):nth-child(87) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.88s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(88) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 6.96s forwards;
+.dropdown:hover li:not(:first-child):nth-child(88) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 6.96s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(89) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.04s forwards;
+.dropdown:hover li:not(:first-child):nth-child(89) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.04s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(90) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.12s forwards;
+.dropdown:hover li:not(:first-child):nth-child(90) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.12s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(91) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.2s forwards;
+.dropdown:hover li:not(:first-child):nth-child(91) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.2s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(92) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.28s forwards;
+.dropdown:hover li:not(:first-child):nth-child(92) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.28s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(93) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.36s forwards;
+.dropdown:hover li:not(:first-child):nth-child(93) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.36s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(94) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.44s forwards;
+.dropdown:hover li:not(:first-child):nth-child(94) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.44s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(95) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.52s forwards;
+.dropdown:hover li:not(:first-child):nth-child(95) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.52s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(96) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.6s forwards;
+.dropdown:hover li:not(:first-child):nth-child(96) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.6s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(97) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.68s forwards;
+.dropdown:hover li:not(:first-child):nth-child(97) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.68s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(98) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.76s forwards;
+.dropdown:hover li:not(:first-child):nth-child(98) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.76s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(99) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.84s forwards;
+.dropdown:hover li:not(:first-child):nth-child(99) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.84s forwards;
 }
-.dropdown:hover li:not(:first-child) p:nth-child(100) {
-  animation: staggerFade 500ms cubic-bezier(0.42, 0.54, 0.02, 1) 7.92s forwards;
+.dropdown:hover li:not(:first-child):nth-child(100) {
+  animation: staggerFade 500ms cubic-bezier(0, 0.93, 0.02, 1) 7.92s forwards;
 }
 @keyframes staggerFade {
   0% {
@@ -1000,6 +1004,317 @@ header .header__keywords span:hover {
 
 .media-card {
   position: relative;
+  animation-delay: 0.3s;
+}
+.media-card:nth-child(1) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 0s backwards;
+}
+.media-card:nth-child(2) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 0.3s backwards;
+}
+.media-card:nth-child(3) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 0.6s backwards;
+}
+.media-card:nth-child(4) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 0.9s backwards;
+}
+.media-card:nth-child(5) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 1.2s backwards;
+}
+.media-card:nth-child(6) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 1.5s backwards;
+}
+.media-card:nth-child(7) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 1.8s backwards;
+}
+.media-card:nth-child(8) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 2.1s backwards;
+}
+.media-card:nth-child(9) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 2.4s backwards;
+}
+.media-card:nth-child(10) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 2.7s backwards;
+}
+.media-card:nth-child(11) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 3s backwards;
+}
+.media-card:nth-child(12) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 3.3s backwards;
+}
+.media-card:nth-child(13) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 3.6s backwards;
+}
+.media-card:nth-child(14) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 3.9s backwards;
+}
+.media-card:nth-child(15) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 4.2s backwards;
+}
+.media-card:nth-child(16) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 4.5s backwards;
+}
+.media-card:nth-child(17) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 4.8s backwards;
+}
+.media-card:nth-child(18) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 5.1s backwards;
+}
+.media-card:nth-child(19) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 5.4s backwards;
+}
+.media-card:nth-child(20) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 5.7s backwards;
+}
+.media-card:nth-child(21) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 6s backwards;
+}
+.media-card:nth-child(22) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 6.3s backwards;
+}
+.media-card:nth-child(23) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 6.6s backwards;
+}
+.media-card:nth-child(24) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 6.9s backwards;
+}
+.media-card:nth-child(25) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 7.2s backwards;
+}
+.media-card:nth-child(26) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 7.5s backwards;
+}
+.media-card:nth-child(27) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 7.8s backwards;
+}
+.media-card:nth-child(28) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 8.1s backwards;
+}
+.media-card:nth-child(29) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 8.4s backwards;
+}
+.media-card:nth-child(30) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 8.7s backwards;
+}
+.media-card:nth-child(31) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 9s backwards;
+}
+.media-card:nth-child(32) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 9.3s backwards;
+}
+.media-card:nth-child(33) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 9.6s backwards;
+}
+.media-card:nth-child(34) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 9.9s backwards;
+}
+.media-card:nth-child(35) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 10.2s backwards;
+}
+.media-card:nth-child(36) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 10.5s backwards;
+}
+.media-card:nth-child(37) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 10.8s backwards;
+}
+.media-card:nth-child(38) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 11.1s backwards;
+}
+.media-card:nth-child(39) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 11.4s backwards;
+}
+.media-card:nth-child(40) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 11.7s backwards;
+}
+.media-card:nth-child(41) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 12s backwards;
+}
+.media-card:nth-child(42) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 12.3s backwards;
+}
+.media-card:nth-child(43) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 12.6s backwards;
+}
+.media-card:nth-child(44) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 12.9s backwards;
+}
+.media-card:nth-child(45) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 13.2s backwards;
+}
+.media-card:nth-child(46) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 13.5s backwards;
+}
+.media-card:nth-child(47) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 13.8s backwards;
+}
+.media-card:nth-child(48) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 14.1s backwards;
+}
+.media-card:nth-child(49) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 14.4s backwards;
+}
+.media-card:nth-child(50) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 14.7s backwards;
+}
+.media-card:nth-child(51) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 15s backwards;
+}
+.media-card:nth-child(52) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 15.3s backwards;
+}
+.media-card:nth-child(53) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 15.6s backwards;
+}
+.media-card:nth-child(54) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 15.9s backwards;
+}
+.media-card:nth-child(55) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 16.2s backwards;
+}
+.media-card:nth-child(56) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 16.5s backwards;
+}
+.media-card:nth-child(57) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 16.8s backwards;
+}
+.media-card:nth-child(58) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 17.1s backwards;
+}
+.media-card:nth-child(59) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 17.4s backwards;
+}
+.media-card:nth-child(60) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 17.7s backwards;
+}
+.media-card:nth-child(61) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 18s backwards;
+}
+.media-card:nth-child(62) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 18.3s backwards;
+}
+.media-card:nth-child(63) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 18.6s backwards;
+}
+.media-card:nth-child(64) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 18.9s backwards;
+}
+.media-card:nth-child(65) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 19.2s backwards;
+}
+.media-card:nth-child(66) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 19.5s backwards;
+}
+.media-card:nth-child(67) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 19.8s backwards;
+}
+.media-card:nth-child(68) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 20.1s backwards;
+}
+.media-card:nth-child(69) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 20.4s backwards;
+}
+.media-card:nth-child(70) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 20.7s backwards;
+}
+.media-card:nth-child(71) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 21s backwards;
+}
+.media-card:nth-child(72) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 21.3s backwards;
+}
+.media-card:nth-child(73) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 21.6s backwards;
+}
+.media-card:nth-child(74) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 21.9s backwards;
+}
+.media-card:nth-child(75) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 22.2s backwards;
+}
+.media-card:nth-child(76) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 22.5s backwards;
+}
+.media-card:nth-child(77) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 22.8s backwards;
+}
+.media-card:nth-child(78) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 23.1s backwards;
+}
+.media-card:nth-child(79) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 23.4s backwards;
+}
+.media-card:nth-child(80) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 23.7s backwards;
+}
+.media-card:nth-child(81) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 24s backwards;
+}
+.media-card:nth-child(82) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 24.3s backwards;
+}
+.media-card:nth-child(83) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 24.6s backwards;
+}
+.media-card:nth-child(84) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 24.9s backwards;
+}
+.media-card:nth-child(85) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 25.2s backwards;
+}
+.media-card:nth-child(86) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 25.5s backwards;
+}
+.media-card:nth-child(87) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 25.8s backwards;
+}
+.media-card:nth-child(88) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 26.1s backwards;
+}
+.media-card:nth-child(89) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 26.4s backwards;
+}
+.media-card:nth-child(90) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 26.7s backwards;
+}
+.media-card:nth-child(91) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 27s backwards;
+}
+.media-card:nth-child(92) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 27.3s backwards;
+}
+.media-card:nth-child(93) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 27.6s backwards;
+}
+.media-card:nth-child(94) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 27.9s backwards;
+}
+.media-card:nth-child(95) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 28.2s backwards;
+}
+.media-card:nth-child(96) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 28.5s backwards;
+}
+.media-card:nth-child(97) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 28.8s backwards;
+}
+.media-card:nth-child(98) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 29.1s backwards;
+}
+.media-card:nth-child(99) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 29.4s backwards;
+}
+.media-card:nth-child(100) {
+  animation: staggerAnimation 1500ms cubic-bezier(0.17, 0.67, 0.33, 0.99) 29.7s backwards;
+}
+@keyframes staggerAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
 }
 .media-card img {
   border-radius: 10px;
@@ -1011,7 +1326,7 @@ header .header__keywords span:hover {
   margin: 10px 0 10px 0;
   color: #901C1C;
   line-height: 30px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
 }
 .media-card .media-card__likes {
@@ -1024,6 +1339,7 @@ header .header__keywords span:hover {
 .media-card .media-card__likes .media-card__nb-likes {
   font-size: 24px;
   font-weight: 500;
+  margin-right: 4px;
 }
 .media-card .media-card__likes i {
   font-size: 20px;

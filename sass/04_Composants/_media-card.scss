@@ -1,5 +1,6 @@
 .media-card{
     position: relative;
+    @include staggerAnim(1500ms, 0.3s, 2rem);
     img{
         border-radius: 10px;
         width: 320px;
@@ -10,7 +11,7 @@
         margin: 10px 0 10px 0;
         color: $primaryColor;
         line-height: 30px;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 400;
     }
 
@@ -24,6 +25,7 @@
         .media-card__nb-likes{
             font-size: 24px;
             font-weight: 500;
+            margin-right: 4px;
         }
 
         i{

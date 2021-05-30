@@ -20,10 +20,11 @@ $itemHeight : 40px;
 
     &:hover{
         li:not(:first-child){
-            p{
-                // Anim buttons
-                @include dropdownReveal(500ms, 0.08s);
-            }
+            // Anim buttons
+            @include dropdownReveal(500ms, 0.08s);
+            // p{
+                
+            // }
             
             &:nth-child(2n){
                 // Anim separators

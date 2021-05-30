@@ -628,12 +628,6 @@ class Media{
 
 // URL Parameters
 var urlParams = new URLSearchParams(window.location.search);
-// [ TEST ]  Ajouter des Url params sans reload
-// setTimeout(function(){
-//   window.history.pushState({page: 1}, "title 1", "?page=1");
-//   console.log("hey");
-// }, 5000);
-
 
 // DOM Elements
 var keywordsRoot = document.querySelector(".header__keywords");
@@ -713,10 +707,8 @@ function PopulatePhotographers(tagSelected = ""){
   urlParams = new URLSearchParams(window.location.search);
 
   // Check if URL has parameters 
-  if (urlParams.has('tag')){
-    if (urlParams.has("tag")){
-      tagSelected = urlParams.get("tag");
-    }
+  if (urlParams.has("tag")){
+    tagSelected = urlParams.get("tag");
   }
   // Update profils with tag
   if(tagSelected != ""){
@@ -734,7 +726,7 @@ function PopulatePhotographers(tagSelected = ""){
     var profilPreview = document.createElement("li");
     profilPreview.className = "photographers__profil-preview";
     var linkElt = document.createElement("a");
-    linkElt.href = 'photographer-page.html#profil-id:'+p.id;
+    linkElt.href = 'photographer-page.html?pid='+p.id;
     linkElt.className = 'photographers__profil-link';
     profilPreview.appendChild(linkElt);
     linkElt.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
@@ -760,7 +752,7 @@ function PopulateTag(tagInfo, parent){
   tagLink.setAttribute("class","tag");
   tagLink.setAttribute("data-id",`${tagInfo}`);
   const spanElt = document.createElement("span");
-  spanElt.textContent = `${tagInfo}`;
+  spanElt.textContent = `#${tagInfo}`;
   parent.appendChild(liElt);
   liElt.appendChild(tagLink);
   tagLink.appendChild(spanElt);
