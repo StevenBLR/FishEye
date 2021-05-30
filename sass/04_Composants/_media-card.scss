@@ -2,8 +2,8 @@
     position: relative;
     img{
         border-radius: 10px;
-        width: 300px;
-        height: 300px;
+        width: 320px;
+        height: 320px;
         object-fit: cover;
     }
     .media-card__title{
@@ -18,7 +18,7 @@
         display: inline-block;
         position: absolute;
         right: 0;
-        bottom: -35px;
+        bottom: 12px;
         color: $primaryColor;
 
         .media-card__nb-likes{

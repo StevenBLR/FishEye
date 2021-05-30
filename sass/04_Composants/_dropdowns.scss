@@ -12,7 +12,7 @@ $itemHeight : 40px;
 
     &:hover{
         li:not(:first-child){
-            @include dropdownReveal(600ms, 0.06s);
+            @include dropdownReveal(500ms, 0.08s);
             &:nth-child(2n){
                 @include separatorAnim(400ms, 0.08s);
                 // .dropdown__separator{

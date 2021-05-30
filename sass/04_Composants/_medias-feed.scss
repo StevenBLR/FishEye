@@ -18,10 +18,9 @@
         }
     }
 
-    .feed-wrapper{
-        margin: 0 40px 0 40px;
-        width: 100%;
-    }
+    // .feed-wrapper{
+
+    // }
 
     h2{
         position: relative;
@@ -38,9 +37,10 @@
     }
     .media-feed__medias-grid{
         display: grid;
-        grid-template-columns: 300px 300px 300px;
-        grid-template-rows: 300px 300px 300px;
-        gap: 50px 50px;
+        justify-content: center;
+        // grid-template-columns: 300px 300px 300px;
+        // grid-template-rows: 300px 300px 300px;
+        gap: 50px 100px;
         grid-template-areas:
             ". . ."
             ". . ."
@@ -51,5 +51,5 @@
             // background-color: cadetblue;
         }
     }
-    
+
 }
