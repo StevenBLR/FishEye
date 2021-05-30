@@ -109,6 +109,16 @@ header .header__keywords span:hover {
   border-color: #901C1C;
 }
 
+@media (max-width: 1700px) {
+  .medias-feed .feed-wrapper .media-feed__medias-grid {
+    grid-template-areas: ". . .";
+  }
+}
+@media (max-width: 1288px) {
+  .medias-feed .feed-wrapper .media-feed__medias-grid {
+    grid-template-areas: ". .";
+  }
+}
 @media (max-width: 1050px) {
   .header__keywords-wrapper {
     position: absolute;
@@ -911,7 +921,7 @@ header .header__keywords span:hover {
   justify-content: center;
   gap: 50px 100px;
   margin-top: 50px;
-  grid-template-areas: ". . .";
+  grid-template-areas: ". . . .";
 }
 .medias-feed .media-feed__medias-grid .media-card {
   display: flex;

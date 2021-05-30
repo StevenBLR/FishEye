@@ -41,12 +41,11 @@
         gap: 50px 100px;
         margin-top: 50px;
         grid-template-areas:
-        ". . .";
+        ". . . .";
         .media-card{
             display: flex;
             flex-direction: column;
             // background-color: cadetblue;
         }
     }
-
 }

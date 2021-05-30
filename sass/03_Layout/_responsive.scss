@@ -1,6 +1,26 @@
 $mobileBp: 750px;
 $keywordsBp: 1050px;
 
+
+
+@media (max-width: 1700px){
+    .medias-feed{
+         .feed-wrapper .media-feed__medias-grid{
+            grid-template-areas:
+            ". . .";
+        }
+    }
+}
+
+@media (max-width: 1288px){
+    .medias-feed{
+         .feed-wrapper .media-feed__medias-grid{
+            grid-template-areas:
+            ". .";
+        }
+    }
+}
+
 // Move keyword section
 @media (max-width: 1050px){
     .header__keywords-wrapper{
