@@ -192,7 +192,7 @@ var jsonFile = {
       {
         "id": 725639493,
         "photographerId": 925,
-        "image": "Event_ProductPitchjpg",
+        "image": "Event_ProductPitch.jpg",
         "tags": ["events"],
         "likes": 3,
         "date": "2019-05-20",
@@ -625,9 +625,11 @@ class Media{
       this.price = price;
   }
 }
+
 const ddAnimSpeed = 0.5;
 var photographers = [];
 var medias = [];
+var allTags = [];
 
 // Overview Elements 
 const nameElt = document.querySelector(".profil__name");
@@ -640,6 +642,7 @@ const profilPicElt = document.querySelector(".profil__pic");
 const filterDropdown = document.querySelectorAll(".dropdown");
 const filterBts = document.querySelectorAll(".dropdown button");
 const feedRootElt = document.querySelector(".media-feed__medias-grid");
+
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
     jsonFile.photographers.forEach(u => {
@@ -651,12 +654,18 @@ function GetJsonData(data){
       var newMedia = new Media(m.id, m.photographerId, m.image, m.tags, m.likes, m.date, m.price);
       medias.push(newMedia);
     });
-    // console.log(photographers);
-    // console.log(medias);
 }
 
 
-
+function GetAllTags(){
+    medias.forEach(m => {
+        m.tags.forEach(t => {
+            if (!allTags.includes(t.toString())){
+                allTags.push(t);
+            }
+        })
+    })
+}
 // const ddAnim = gsap.timeline({reversed: true, paused:true})
 // .to(".dropdown", {height: "auto", duration: 1.5})
 
@@ -754,7 +763,7 @@ function PopulateMediaFeed(profilData){
         imgElt.alt = pm.image;
         var spanTitleElt = document.createElement("span");
         spanTitleElt.classList.add("media-card__title");
-        spanTitleElt.textContent = pm.image;
+        spanTitleElt.textContent = CleanTitle(pm.image);
         var divLikesElt = document.createElement("div");
         divLikesElt.classList.add("media-card__likes");
         var spanLikesElt = document.createElement("span");
@@ -765,25 +774,31 @@ function PopulateMediaFeed(profilData){
         iElt.classList.add("fa-heart");
 
         aElt.appendChild(imgElt);
-
         divLikesElt.appendChild(spanLikesElt);
         divLikesElt.appendChild(iElt);
-
         liElt.appendChild(aElt);
         liElt.appendChild(spanTitleElt);
         liElt.appendChild(divLikesElt);
-
         feedRootElt.appendChild(liElt);
-
-        // feedRootElt.innerHTML = `<li class="media-card">`;
-        // feedRootElt.innerHTML = `<a href="#" class="media-card__link">`;
-        // feedRootElt.innerHTML = `<img src="../imgs/${firstName}/${pm.image}" alt="#" class="media-card__img">`;
-        // feedRootElt.innerHTML = "</a>";
-        // feedRootElt.innerHTML = `<span class="media-card__title">${pm.image}</span>`;
-        // feedRootElt.innerHTML =`<div class="media-card__likes"><span class="media-card__nb-likes">${pm.likes}</span><i class="fas fa-heart"></i></div></li>`;
     })
     console.log(pMedias);
 }
 
+function CleanTitle(title){
+    var newTitle;
+    allTags.forEach(t => {
+        if(title.toString().toUpperCase().includes(t.toString().toUpperCase())){
+            console.log(`${title} contains ${t}`);
+            newTitle = title.replace(`${t}_`,'');
+        }
+        else{
+            newTitle = title;
+        }
+    })
+    console.log(newTitle);
+    return newTitle;
+}
+
 GetJsonData();
+GetAllTags();
 PopulateProfilPage();
