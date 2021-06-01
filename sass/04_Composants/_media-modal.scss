@@ -1,6 +1,7 @@
 .media-modal{
     position: fixed;
-    
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 100%;
     top: 0;
@@ -8,9 +9,12 @@
     z-index: 100;
 
     .media-modal__bg{
+        position: fixed;
         width: 100%;
+        top: 0;
+        left: 0;
         height: 100%;
-        opacity: 0.5;
+        opacity: 0.9;
         background-color: white;
     }
 
@@ -22,7 +26,8 @@
         width: 100%;
         height: 100%;
         top:0;
-        // background-color: blue;
+        color: $primaryColor;
+        background-color: blue;
     }
     img
     {
@@ -30,5 +35,14 @@
         border-radius: 10px;
         max-height: 80%;
         max-width: 80%;
+    }
+    .fa-chevron-left{
+        margin-right: 20px;
+    }
+    .fa-chevron-right{
+        margin-left: 20px;
+    }
+    .fa-times{
+        align-self: flex-start;
     }
 }

@@ -1347,6 +1347,8 @@ header .header__keywords span:hover {
 
 .media-modal {
   position: fixed;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 100%;
   top: 0;
@@ -1354,9 +1356,12 @@ header .header__keywords span:hover {
   z-index: 100;
 }
 .media-modal .media-modal__bg {
+  position: fixed;
   width: 100%;
+  top: 0;
+  left: 0;
   height: 100%;
-  opacity: 0.5;
+  opacity: 0.9;
   background-color: white;
 }
 .media-modal .media-modal__wrapper {
@@ -1367,12 +1372,23 @@ header .header__keywords span:hover {
   width: 100%;
   height: 100%;
   top: 0;
+  color: #901C1C;
+  background-color: blue;
 }
 .media-modal img {
   object-fit: contain;
   border-radius: 10px;
   max-height: 80%;
   max-width: 80%;
+}
+.media-modal .fa-chevron-left {
+  margin-right: 20px;
+}
+.media-modal .fa-chevron-right {
+  margin-left: 20px;
+}
+.media-modal .fa-times {
+  align-self: flex-start;
 }
 
 .profil__pic {
