@@ -615,10 +615,11 @@ class Photographer{
 }
 
 class Media{
-  constructor(id, photographerId, image, tags, likes, date, price){
+  constructor(id, photographerId, image, video, tags, likes, date, price){
       this.id = id;
       this.photographerId = photographerId;
       this.image = image;
+      this.video = video;
       this.tags = tags;
       this.likes = likes;
       this.date = date;
@@ -637,6 +638,7 @@ const locationElt = document.querySelector(".profil__location");
 const bioElt = document.querySelector(".profil__bio");
 const tagsRootElt = document.querySelector(".profil__tags");
 const profilPicElt = document.querySelector(".profil__pic");
+const profilContactBtElt = document.querySelector(".profil__contact-bt");
 
 // Media feed Elements
 const filterDropdown = document.querySelectorAll(".dropdown");
@@ -651,7 +653,7 @@ function GetJsonData(data){
     });
 
     jsonFile.media.forEach(m => {
-      var newMedia = new Media(m.id, m.photographerId, m.image, m.tags, m.likes, m.date, m.price);
+      var newMedia = new Media(m.id, m.photographerId, m.image, m.video, m.tags, m.likes, m.date, m.price);
       medias.push(newMedia);
     });
 }
@@ -735,6 +737,8 @@ function PopulateOverview(profilData){
     profilData.tags.forEach(t => { PopulateTag(t,tagsRootElt); });
     console.log(profilData);
     nameElt.textContent = profilData.name;
+    profilContactBtElt.textContent = "Contactez-moi";
+    
     locationElt.textContent = profilData.city;
     bioElt.textContent = profilData.tagline;
     console.log(`"../imgs/Photographers ID Photos/${profilData.portrait}`);
@@ -742,7 +746,8 @@ function PopulateOverview(profilData){
 }
 
 function PopulateMediaFeed(profilData){
-    var pMedias = [];    
+    var pMedias = [];
+    
     feedRootElt.textContent = "";
     let firstName = profilData.name.split(" ")[0];
     medias.forEach(m => {
@@ -751,19 +756,37 @@ function PopulateMediaFeed(profilData){
         }
     })
     pMedias.forEach(pm => {
+        var isVideo = false;
         var liElt = document.createElement("li");
         liElt.classList.add("media-card");
         var aElt = document.createElement("a");
         aElt.classList.add("media-card__link");
         aElt.href = "#";
-        var imgElt = document.createElement("img");
-        imgElt.src = `../imgs/${firstName}/${pm.image}`;
-        console.log(`"../imgs/${firstName}/${pm.image}"`);
-        imgElt.classList.add("media-card__img");
-        imgElt.alt = pm.image;
+        // Check if media is an image or a video
+
+        if(pm.video != undefined){
+          isVideo = true;
+          console.log(`video ${pm.video} found`);
+          //Populate video section
+          var videoElt = document.createElement("video");
+          videoElt.src = `../imgs/${firstName}/${pm.video}`;
+          videoElt.alt = pm.video;
+          videoElt.setAttribute("type","video/mp4");
+        }
+        else if(pm.image != undefined){
+          console.log(`picture ${pm.image} found`);
+          //Populate image section
+          var imgElt = document.createElement("img");
+          imgElt.src = `../imgs/${firstName}/${pm.image}`;
+          //console.log(`"../imgs/${firstName}/${pm.image}"`);
+          //imgElt.classList.add("media-card__img");
+          imgElt.alt = pm.image;
+        }
+
         var spanTitleElt = document.createElement("span");
         spanTitleElt.classList.add("media-card__title");
-        spanTitleElt.textContent = CleanTitle(pm.image);
+        
+        isVideo ? spanTitleElt.textContent = pm.video : spanTitleElt.textContent = pm.image;//CleanTitle(pm.image);
         var divLikesElt = document.createElement("div");
         divLikesElt.classList.add("media-card__likes");
         var spanLikesElt = document.createElement("span");
@@ -773,7 +796,13 @@ function PopulateMediaFeed(profilData){
         iElt.classList.add("fas");
         iElt.classList.add("fa-heart");
 
-        aElt.appendChild(imgElt);
+        isVideo ? aElt.appendChild(videoElt) : aElt.appendChild(imgElt);
+        // if(isVideo){
+        //   aElt.appendChild(videoElt);
+        // }
+        // else{
+        //   aElt.appendChild(imgElt);
+        // }
         divLikesElt.appendChild(spanLikesElt);
         divLikesElt.appendChild(iElt);
         liElt.appendChild(aElt);

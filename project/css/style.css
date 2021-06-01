@@ -1316,7 +1316,7 @@ header .header__keywords span:hover {
     transform: translateY(0);
   }
 }
-.media-card img {
+.media-card img, .media-card video {
   border-radius: 10px;
   width: 320px;
   height: 320px;

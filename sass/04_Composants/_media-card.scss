@@ -1,7 +1,7 @@
 .media-card{
     position: relative;
     @include staggerAnim(1500ms, 0.3s, 2rem);
-    img{
+    img, video{
         border-radius: 10px;
         width: 320px;
         height: 320px;
