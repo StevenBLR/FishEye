@@ -741,7 +741,6 @@ function PopulateOverview(profilData){
     
     locationElt.textContent = profilData.city;
     bioElt.textContent = profilData.tagline;
-    console.log(`"../imgs/Photographers ID Photos/${profilData.portrait}`);
     profilPicElt.setAttribute("src", `../imgs/Photographers ID Photos/${profilData.portrait}`);
 }
 
@@ -763,23 +762,18 @@ function PopulateMediaFeed(profilData){
         aElt.classList.add("media-card__link");
         aElt.href = "#";
         // Check if media is an image or a video
-
         if(pm.video != undefined){
-          isVideo = true;
-          console.log(`video ${pm.video} found`);
           //Populate video section
+          isVideo = true;
           var videoElt = document.createElement("video");
           videoElt.src = `../imgs/${firstName}/${pm.video}`;
           videoElt.alt = pm.video;
           videoElt.setAttribute("type","video/mp4");
         }
         else if(pm.image != undefined){
-          console.log(`picture ${pm.image} found`);
           //Populate image section
           var imgElt = document.createElement("img");
           imgElt.src = `../imgs/${firstName}/${pm.image}`;
-          //console.log(`"../imgs/${firstName}/${pm.image}"`);
-          //imgElt.classList.add("media-card__img");
           imgElt.alt = pm.image;
         }
 
@@ -797,12 +791,6 @@ function PopulateMediaFeed(profilData){
         iElt.classList.add("fa-heart");
 
         isVideo ? aElt.appendChild(videoElt) : aElt.appendChild(imgElt);
-        // if(isVideo){
-        //   aElt.appendChild(videoElt);
-        // }
-        // else{
-        //   aElt.appendChild(imgElt);
-        // }
         divLikesElt.appendChild(spanLikesElt);
         divLikesElt.appendChild(iElt);
         liElt.appendChild(aElt);
