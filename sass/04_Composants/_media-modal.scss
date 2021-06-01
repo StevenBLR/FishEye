@@ -1,12 +1,15 @@
+$modal-items-margin: 50px;
 .media-modal{
     position: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
+    /* top: 0; */
+    /* left: 0; */
     z-index: 100;
+    
 
     .media-modal__bg{
         position: fixed;
@@ -21,12 +24,12 @@
     .media-modal__wrapper{
         display: flex;
         position: fixed;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        width: 100%;
+        width: 80%;
         height: 100%;
-        top:0;
-        color: $primaryColor;
+        top: 0;
+        color: #901C1C;
         background-color: blue;
     }
     img
@@ -34,15 +37,27 @@
         object-fit: contain;
         border-radius: 10px;
         max-height: 80%;
-        max-width: 80%;
+        max-width: 100%;
+    }
+    .fas{
+        position: absolute;
     }
     .fa-chevron-left{
-        margin-right: 20px;
+        left: -$modal-items-margin;
     }
     .fa-chevron-right{
-        margin-left: 20px;
+        right: -$modal-items-margin;
     }
     .fa-times{
+        right: -$modal-items-margin;
+        top: 100px;//$modal-items-margin * 4;
+    }
+    .media-modal__name{
+        margin: 10px 0 10px 0;
+        color: $primaryColor;
+        line-height: 30px;
         align-self: flex-start;
+        font-size: 40px;
+        font-weight: 400;
     }
 }
