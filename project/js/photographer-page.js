@@ -645,6 +645,11 @@ const filterDropdown = document.querySelectorAll(".dropdown");
 const filterBts = document.querySelectorAll(".dropdown button");
 const feedRootElt = document.querySelector(".media-feed__medias-grid");
 
+// Media modal Elements
+const modalImgElt = document.querySelector(".media-modal img");
+const modalElt = document.querySelector(".media-modal");
+const modalBgElt = document.querySelector(".media-modal__bg");
+
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(data){
     jsonFile.photographers.forEach(u => {
@@ -706,7 +711,7 @@ function PopulateProfilPage(pid = ""){
     // (2) Find matching profil data to populate UI  ------------------------------------------------------------------------
             if(p.id == pid){
                 profilFound = true;
-                console.log(`Profil found : ${p.name}`);
+                console.log(`Profil found : ${p.image}`);
                 PopulateOverview(p);
                 PopulateMediaFeed(p);
             }
@@ -714,9 +719,48 @@ function PopulateProfilPage(pid = ""){
         if (!profilFound){
             console.error("No matching profil was found");
         }
-
     }
     else{ console.error("No profil to load");}
+}
+
+function DisplayMedia(mid = ""){
+  // (1) Defining media to display  ------------------------------------------------------------------------
+  urlParams = new URLSearchParams(window.location.search);
+  var mediaFound = false;
+  var isVideo = false;
+  // Check if URL has parameters 
+  if (urlParams.has('mid')){
+  // (2) Find matching profil data to populate UI  ------------------------------------------------------------------------
+    mid = urlParams.get('mid');
+    medias.forEach(m => {
+        if(m.id == mid){
+            let firstName = photographers.find(p => p.id == m.photographerId).name.split(" ")[0];
+            mediaFound = true;
+            // Check if media is an image or a video
+            if(m.video != undefined){
+              //Populate video section
+              isVideo = true;
+              var videoElt = document.createElement("video");
+              videoElt.src = `../imgs/${firstName}/${m.video}`;
+              videoElt.alt = m.video;
+              videoElt.setAttribute("type","video/mp4");
+            }
+            else if(m.image != undefined){
+              //Populate image section
+              var imgElt = document.createElement("img");
+              imgElt.src = `../imgs/${firstName}/${m.image}`;
+              imgElt.alt = m.image;
+            }
+            //modalImgElt.src = `../im`;
+            ShowModal(true);
+            console.log(`Media found : ${m.id}`);
+        }
+    })
+    if (!mediaFound){
+        console.error("No matching profil was found");
+    }
+}
+else{ console.error("No profil to load");}
 }
 
 function PopulateTag(tagInfo, parent){
@@ -760,7 +804,17 @@ function PopulateMediaFeed(profilData){
         liElt.classList.add("media-card");
         var aElt = document.createElement("a");
         aElt.classList.add("media-card__link");
-        aElt.href = "#";
+        aElt.href = `?pid=${pm.photographerId}&mid=${pm.id}`;
+
+        function clickEvent(e){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          // Updating URL params
+          window.history.pushState({page: 1}, "media-id", aElt.href);
+          DisplayMedia(pm.id);
+          console.log(`Open media ${pm.name}`);
+        }
+        aElt.addEventListener("click", clickEvent);
         // Check if media is an image or a video
         if(pm.video != undefined){
           //Populate video section
@@ -814,6 +868,11 @@ function CleanTitle(title){
     })
     console.log(newTitle);
     return newTitle;
+}
+
+function ShowModal(on){
+  on ? modalElt.style.display = "block" : modalElt.style.display = "none"; 
+  on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
 }
 
 GetJsonData();
