@@ -92,7 +92,7 @@ var photographersData = {
       {
         "id": 9275938,
         "photographerId": 82,
-        "image": "Event-_eddingGazebo.jpg",
+        "image": "Event_WeddingGazebo.jpg",
         "tags": ["events"],
         "likes": 69,
         "date": "2018-02-22",
@@ -192,7 +192,7 @@ var photographersData = {
       {
         "id": 725639493,
         "photographerId": 925,
-        "image": "Event_ProductPitchjpg",
+        "image": "Event_ProductPitch.jpg",
         "tags": ["events"],
         "likes": 3,
         "date": "2019-05-20",
@@ -401,7 +401,7 @@ var photographersData = {
       {
         "id": 95234343,
         "photographerId": 243,
-        "image": "Animals_Rainbow.jpg.jpg",
+        "image": "Animals_Rainbow.jpg",
         "tags": ["animals"],
         "likes": 59,
         "date": "2019-07-02",
@@ -600,187 +600,3 @@ var photographersData = {
       }
     ]
 }
-
-class Photographer{
-  constructor(name, id, city, country, tags, tagline, price, portrait){
-      this.name = name;
-      this.id = id;
-      this.city = city;
-      this.country = country;
-      this.tags = tags;
-      this.tagline = tagline;
-      this.price = price;
-      this.portrait = portrait;
-  }
-}
-
-class Media{
-  constructor(id, photographerId, image, tags, likes, date, price){
-      this.id = id;
-      this.photographerId = photographerId;
-      this.image = image;
-      this.tags = tags;
-      this.likes = likes;
-      this.date = date;
-      this.price = price;
-  }
-}
-
-// URL Parameters
-var urlParams = new URLSearchParams(window.location.search);
-
-// DOM Elements
-var keywordsRoot = document.querySelector(".header__keywords");
-var photographersRoot = document.querySelector(".photographers__list");
-var tagsElts;
-
-var photographers = [];
-var medias = [];
-var allTags = new Map();
-
-var tl = gsap.timeline({repeat: 2, repeatDelay: 1});
-tl.to("#header__logo", {x: 100, duration: 1});
-tl.to("#header__logo", {y: 50, duration: 1});
-tl.to("#header__logo", {opacity: 0, duration: 1});
-
-
-// Not Working ------------------------
-// sort by value
-// const mapSort1 = new Map([...allTags.entries()].sort((a, b) => b[1] - a[1]));
-// console.log(mapSort1);
-
-// Store every data from Json into 2 objects --> photographers[] / medias[]
-function GetJsonData(data){
-    photographersData.photographers.forEach(u => {
-      var newUser = new Photographer(u.name, u.id, u.city, u.country, u.tags, u.tagline, u.price, u.portrait);
-      photographers.push(newUser);
-    });
-
-    photographersData.media.forEach(m => {
-      var newMedia = new Media(m.id, m.photographerId, m.image, m.tags, m.likes, m.date, m.price);
-      medias.push(newMedia);
-    });
-    console.log(photographers);
-    console.log(medias);
-}
-
-// Store all tags from data and how much they've been used
-function GetAllTags(){
-  medias.forEach(info => {
-    if(allTags.has(info.tags.toString()) == false){
-      allTags.set(info.tags.toString(), 1);
-    }
-    else{
-      allTags.set(info.tags.toString(), parseInt(allTags.get(info.tags.toString()))+1);
-    }
-  })
-  console.log(allTags);
-}
-
-// Update heading tags with data infos
-function PopulateHeaderTags(){
-  keywordsRoot.innerHTML = "";
-  for (var [key, value] of allTags) {
-    PopulateTag(key,keywordsRoot);
-  }
-}
-
-function Test(text){
-  console.log(text);
-}
-
-// Update page with selected tag (without reloading)
-function RefreshPage(clickedElt){
-  currentTag = clickedElt.getAttribute('data-id');
-  console.log("current tag = ",currentTag);
-  // Reset all tags style and update clicked tag style
-  // To iterate a child object, we need to use Array.prototype
-  Array.prototype.forEach.call(keywordsRoot.getElementsByTagName('span'), elt => {
-    elt.removeAttribute("id");
-  });
-  
-  clickedElt.getElementsByTagName('span')[0].setAttribute("id", "selected");
-  // Update photo
-  PopulatePhotographers(currentTag);
-  // Update style on other similar tags 
-  document.querySelectorAll('a[data-id="'+ currentTag+'"] span').forEach(elt =>{
-    elt.setAttribute("id","selected");
-  }) 
-}
-
-// Update Html with selected photographers previews
-function PopulatePhotographers(tagSelected = ""){
-
-  // (1) Defining profils to display  ------------------------------------------------------------------------
-  photographersRoot.innerHTML= "";
-  var photographersToShow = photographers;
-  urlParams = new URLSearchParams(window.location.search);
-
-  // Check if URL has parameters 
-  if (urlParams.has("tag")){
-    tagSelected = urlParams.get("tag");
-  }
-  // Update profils with tag
-  if(tagSelected != ""){
-    photographersToShow = [];
-    photographers.forEach(p => {
-      if(p.tags.includes(tagSelected.toString())){
-        photographersToShow.push(p);
-      }
-    });
-  }
-
-  // (2) Generation Profil Cards with datas ------------------------------------------------------------------------
-  // Pour chaque profil
-  photographersToShow.forEach(p => {
-    var profilPreview = document.createElement("li");
-    profilPreview.className = "photographers__profil-preview";
-    var linkElt = document.createElement("a");
-    linkElt.href = 'photographer-page.html?pid='+p.id;
-    linkElt.className = 'photographers__profil-link';
-    profilPreview.appendChild(linkElt);
-    linkElt.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
-    linkElt.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
-    profilPreview.innerHTML += '</a>';
-    profilPreview.innerHTML += '<h3 class="profil__location">'+ p.city +', '+ p.country +'</h3>';
-    profilPreview.innerHTML += '<p class="profil__bio">'+ p.tagline +'</p>';
-    profilPreview.innerHTML += '<p class="profil__tjm">'+ p.price +'/jour</p>';
-    profilPreview.innerHTML += '<ul class="profil__tags">';
-    photographersRoot.appendChild(profilPreview);
-    var profilTagsRoot = profilPreview.querySelector(".profil__tags");
-
-    // (3) Add click events and behaviour ------------------------------------------------------------------------
-    // Pour chaque tag inclus dans le profil
-    p.tags.forEach(t => { PopulateTag(t,profilTagsRoot); });
-  });
-}
-
-function PopulateTag(tagInfo, parent){
-  const liElt = document.createElement('li');
-  const tagLink = document.createElement('a');
-  tagLink.href = "#";
-  tagLink.setAttribute("class","tag");
-  tagLink.setAttribute("data-id",`${tagInfo}`);
-  const spanElt = document.createElement("span");
-  spanElt.textContent = `#${tagInfo}`;
-  parent.appendChild(liElt);
-  liElt.appendChild(tagLink);
-  tagLink.appendChild(spanElt);
-
-  function clickEvent(e){
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    // Updating URL params
-    window.history.pushState({page: 1}, "tag", `?tag=${tagInfo}`);
-    RefreshPage(tagLink);
-  }
-  tagLink.addEventListener("click", clickEvent);
-  return spanElt;
-}
-
-
-
-GetJsonData(photographersData);
-GetAllTags();
-PopulateHeaderTags();
-PopulatePhotographers();
