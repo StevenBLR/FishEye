@@ -600,3 +600,61 @@ var photographersData = {
       }
     ]
 }
+
+class Photographer{
+  constructor(name, id, city, country, tags, tagline, price, portrait){
+      this.name = name;
+      this.id = id;
+      this.city = city;
+      this.country = country;
+      this.tags = tags;
+      this.tagline = tagline;
+      this.price = price;
+      this.portrait = portrait;
+  }
+}
+
+class Media{
+  constructor(id, photographerId, image, video, tags, likes, date, price){
+      this.id = id;
+      this.photographerId = photographerId;
+      this.image = image;
+      this.video = video;
+      this.tags = tags;
+      this.likes = likes;
+      this.date = date;
+      this.price = price;
+  }
+}
+
+var photographers = [];
+var medias = [];
+var allTags = [];
+
+// Store every data from Json into 2 objects --> photographers[] / medias[]
+function GetJsonData(){
+  photographersData.photographers.forEach(u => {
+    var newUser = new Photographer(u.name, u.id, u.city, u.country, u.tags, u.tagline, u.price, u.portrait);
+    photographers.push(newUser);
+  });
+  console.log("Photographers = ", photographers);
+  photographersData.media.forEach(m => {
+    var newMedia = new Media(m.id, m.photographerId, m.image, m.video, m.tags, m.likes, m.date, m.price);
+    medias.push(newMedia);
+  });
+  console.log("Medias = ",medias);
+}
+
+function GetAllTags(){
+  medias.forEach(m => {
+      m.tags.forEach(t => {
+          if (!allTags.includes(t.toString())){
+              allTags.push(t);
+          }
+      })
+  })
+  console.log(`All tags = ${allTags}`);
+}
+
+GetJsonData();
+GetAllTags();

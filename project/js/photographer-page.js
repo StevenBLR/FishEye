@@ -1,34 +1,3 @@
-class Photographer{
-  constructor(name, id, city, country, tags, tagline, price, portrait){
-      this.name = name;
-      this.id = id;
-      this.city = city;
-      this.country = country;
-      this.tags = tags;
-      this.tagline = tagline;
-      this.price = price;
-      this.portrait = portrait;
-  }
-}
-
-class Media{
-  constructor(id, photographerId, image, video, tags, likes, date, price){
-      this.id = id;
-      this.photographerId = photographerId;
-      this.image = image;
-      this.video = video;
-      this.tags = tags;
-      this.likes = likes;
-      this.date = date;
-      this.price = price;
-  }
-}
-
-const ddAnimSpeed = 0.5;
-var photographers = [];
-var medias = [];
-var allTags = [];
-
 // Overview Elements 
 const nameElt = document.querySelector(".profil__name");
 const locationElt = document.querySelector(".profil__location");
@@ -47,50 +16,34 @@ const modalImgElt = document.querySelector(".media-modal img");
 const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 
-// Store every data from Json into 2 objects --> photographers[] / medias[]
-function GetJsonData(data){
-    photographersData.photographers.forEach(u => {
-      var newUser = new Photographer(u.name, u.id, u.city, u.country, u.tags, u.tagline, u.price, u.portrait);
-      photographers.push(newUser);
-    });
-
-    photographersData.media.forEach(m => {
-      var newMedia = new Media(m.id, m.photographerId, m.image, m.video, m.tags, m.likes, m.date, m.price);
-      medias.push(newMedia);
-    });
-}
+const ddAnimSpeed = 0.5;
 
 
-function GetAllTags(){
-    medias.forEach(m => {
-        m.tags.forEach(t => {
-            if (!allTags.includes(t.toString())){
-                allTags.push(t);
-            }
-        })
-    })
-}
-const ddAnim = gsap.timeline({reversed: true, paused:true})
-.to(".dropdown", {height: "auto", duration: 1.5})
+// const ddAnim = gsap.timeline({reversed: true, paused:true})
+// .to(".dropdown", {height: "auto", duration: 1.5})
 
 // gsap.timeline()
 // .to(".dropdown", {height: "auto", duration: 1.5});
 
-filterDropdown.forEach(elt => {
-    elt.addEventListener("mouseenter", function(e){
-        toggleDropdown();
-        gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
-        e.stopImmediatePropagation();
-    });
-
-    elt.addEventListener("mouseleave", function(e){
-        //console.log("leave " + elt.id);
-        gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
-            //.to("");
-        // toggleDropdown()
-        e.stopImmediatePropagation();
+function InitFilterDropdown(){
+    filterDropdown.forEach(elt => {
+        elt.addEventListener("mouseenter", function(e){
+            toggleDropdown();
+            gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
+            e.stopImmediatePropagation();
+        });
+    
+        elt.addEventListener("mouseleave", function(e){
+            //console.log("leave " + elt.id);
+            gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
+                //.to("");
+            // toggleDropdown()
+            e.stopImmediatePropagation();
+        })
     })
-})
+}
+
+
 
 function toggleDropdown(){
     //ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
@@ -144,7 +97,6 @@ function DisplayMedia(mid = ""){
             }
             else if(m.image != undefined){
               //Populate image section
-              //conoso
               var imgElt = document.createElement("img");
               imgElt.src = `../imgs/${firstName}/${m.image}`;
               imgElt.alt = m.image;
@@ -164,7 +116,7 @@ else{ console.error("No profil to load");}
 function PopulateTag(tagInfo, parent){
     const liElt = document.createElement('li');
     const tagLink = document.createElement('a');
-    tagLink.href = "#";
+    tagLink.href = `index.html?tag=${tagInfo}`;
     tagLink.setAttribute("class","tag");
     tagLink.setAttribute("data-id",`${tagInfo}`);
     const spanElt = document.createElement("span");
@@ -272,7 +224,5 @@ function ShowModal(on){
   on ? modalElt.style.display = "block" : modalElt.style.display = "none"; 
   on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
 }
-
-GetJsonData();
-GetAllTags();
+InitFilterDropdown();
 PopulateProfilPage();
