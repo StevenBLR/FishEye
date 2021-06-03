@@ -89,14 +89,14 @@ function DisplayMedia(mid = ""){
               //Populate video section
               isVideo = true;
               var videoElt = document.createElement("video");
-              videoElt.src = `../imgs/${firstName}/${m.video}`;
+              videoElt.src = `../imgs/low/${firstName}/${m.video}`;
               videoElt.alt = m.video;
               videoElt.setAttribute("type","video/mp4");
             }
             else if(m.image != undefined){
               //Populate image section
               var imgElt = document.createElement("img");
-              imgElt.src = `../imgs/${firstName}/${m.image}`;
+              imgElt.src = `../imgs/low/${firstName}/${m.image}`;
               imgElt.alt = m.image;
             }
             //modalImgElt.src = `../im`;
@@ -133,7 +133,7 @@ function PopulateOverview(profilData){
     
     locationElt.textContent = profilData.city;
     bioElt.textContent = profilData.tagline;
-    profilPicElt.setAttribute("src", `../imgs/Photographers ID Photos/${profilData.portrait}`);
+    profilPicElt.setAttribute("src", `../imgs/low/Photographers ID Photos/${profilData.portrait}`);
 }
 
 function PopulateMediaFeed(profilData){
@@ -168,14 +168,14 @@ function PopulateMediaFeed(profilData){
           //Populate video section
           isVideo = true;
           var videoElt = document.createElement("video");
-          videoElt.src = `../imgs/${firstName}/${pm.video}`;
+          videoElt.src = `../imgs/low/${firstName}/${pm.video}`;
           videoElt.alt = pm.video;
           videoElt.setAttribute("type","video/mp4");
         }
         else if(pm.image != undefined){
           //Populate image section
           var imgElt = document.createElement("img");
-          imgElt.src = `../imgs/${firstName}/${pm.image}`;
+          imgElt.src = `../imgs/low/${firstName}/${pm.image}`;
           imgElt.alt = pm.image;
         }
 

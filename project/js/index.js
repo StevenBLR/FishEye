@@ -73,7 +73,7 @@ function PopulatePhotographers(tagSelected = ""){
     linkElt.href = 'photographer-page.html?pid='+p.id;
     linkElt.className = 'photographers__profil-link';
     profilPreview.appendChild(linkElt);
-    linkElt.innerHTML += '<img src="../imgs/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
+    linkElt.innerHTML += '<img src="../imgs/low/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
     linkElt.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
     profilPreview.innerHTML += '</a>';
     profilPreview.innerHTML += '<h3 class="profil__location">'+ p.city +', '+ p.country +'</h3>';
