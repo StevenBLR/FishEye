@@ -43,8 +43,6 @@ function InitFilterDropdown(){
     })
 }
 
-
-
 function toggleDropdown(){
     //ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
 }
@@ -125,7 +123,7 @@ function PopulateTag(tagInfo, parent){
     liElt.appendChild(tagLink);
     tagLink.appendChild(spanElt);
     return spanElt;
-  }
+}
 
 function PopulateOverview(profilData){
     profilData.tags.forEach(t => { PopulateTag(t,tagsRootElt); });
@@ -224,5 +222,6 @@ function ShowModal(on){
   on ? modalElt.style.display = "block" : modalElt.style.display = "none"; 
   on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
 }
+
 InitFilterDropdown();
 PopulateProfilPage();
