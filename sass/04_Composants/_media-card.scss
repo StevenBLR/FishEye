@@ -1,10 +1,11 @@
+$card-size: 320px;
 .media-card{
     position: relative;
     @include staggerAnim(1500ms, 0.3s, 2rem);
     img, video{
         border-radius: 10px;
-        width: 320px;
-        height: 320px;
+        width: $card-size;
+        height: $card-size;
         object-fit: cover;
     }
     .media-card__title{
@@ -22,6 +23,7 @@
     .media-card__infos{
         display: flex;
         flex-direction: row;
+        max-width: $card-size;
     }
 
     .media-card__likes{
