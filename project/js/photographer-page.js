@@ -179,10 +179,14 @@ function PopulateMediaFeed(profilData){
           imgElt.alt = pm.image;
         }
 
-        var spanTitleElt = document.createElement("span");
-        spanTitleElt.classList.add("media-card__title");
+        var infoRootElt = document.createElement("div");
+        infoRootElt.classList.add("media-card__infos");
+
+
+        var titleElt = document.createElement("p");
+        titleElt.classList.add("media-card__title");
         
-        isVideo ? spanTitleElt.textContent = pm.video : spanTitleElt.textContent = pm.image;//CleanTitle(pm.image);
+        isVideo ? titleElt.textContent = pm.video : titleElt.textContent = pm.image;//CleanTitle(pm.image);
         var divLikesElt = document.createElement("div");
         divLikesElt.classList.add("media-card__likes");
         var spanLikesElt = document.createElement("span");
@@ -195,9 +199,10 @@ function PopulateMediaFeed(profilData){
         isVideo ? aElt.appendChild(videoElt) : aElt.appendChild(imgElt);
         divLikesElt.appendChild(spanLikesElt);
         divLikesElt.appendChild(iElt);
+        infoRootElt.appendChild(titleElt);
+        infoRootElt.appendChild(divLikesElt);
         liElt.appendChild(aElt);
-        liElt.appendChild(spanTitleElt);
-        liElt.appendChild(divLikesElt);
+        liElt.appendChild(infoRootElt);
         feedRootElt.appendChild(liElt);
     })
     console.log(pMedias);

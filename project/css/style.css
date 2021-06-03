@@ -1321,6 +1321,14 @@ header .header__keywords span:hover {
   line-height: 30px;
   font-size: 20px;
   font-weight: 400;
+  max-width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.media-card .media-card__infos {
+  display: flex;
+  flex-direction: row;
 }
 .media-card .media-card__likes {
   display: inline-block;
@@ -1360,7 +1368,7 @@ header .header__keywords span:hover {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.media-modal .fas {
+.media-modal .media-modal__bt {
   position: absolute;
 }
 .media-modal .fa-chevron-left {

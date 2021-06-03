@@ -28,9 +28,13 @@ $modal-items-margin: 50px;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    
+    .media-modal__bt{
+        position: absolute;
+    }
 
     .fas{
-        position: absolute;
+        
     }
     .fa-chevron-left{
         left: -$modal-items-margin;
