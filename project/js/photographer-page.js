@@ -17,13 +17,20 @@ const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 
 const ddAnimSpeed = 0.5;
-
+const filters = ["Popularity", "Date", "Title"];
+var currentProfil;
+var mediaCarousel = [];
 
 // const ddAnim = gsap.timeline({reversed: true, paused:true})
 // .to(".dropdown", {height: "auto", duration: 1.5})
 
 // gsap.timeline()
 // .to(".dropdown", {height: "auto", duration: 1.5});
+
+function Init(){
+    GetProfilInfo();
+    InitFilterDropdown();
+}
 
 function InitFilterDropdown(){
     filterDropdown.forEach(elt => {
@@ -43,25 +50,35 @@ function InitFilterDropdown(){
     })
 }
 
+function FilterMedias(filter = ""){
+    switch(filter){
+        case "Popularity":
+            break;
+        case "Date":
+            break;
+        case "Title":
+            break;
+        default:
+    }
+}
+
 function toggleDropdown(){
     //ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
 }
 
-function PopulateProfilPage(pid = ""){
+function GetProfilInfo(){
     // (1) Defining profils to display  ------------------------------------------------------------------------
     urlParams = new URLSearchParams(window.location.search);
     tagsRootElt.textContent = "";
     var profilFound = false;
-    // Check if URL has parameters 
-    if (urlParams.has('pid')){
+     // Check if URL has parameters 
+     if (urlParams.has('pid')){
         pid = urlParams.get('pid');
         photographers.forEach(p => {
     // (2) Find matching profil data to populate UI  ------------------------------------------------------------------------
             if(p.id == pid){
                 profilFound = true;
-                console.log(`Profil found : ${p.image}`);
-                PopulateOverview(p);
-                PopulateMediaFeed(p);
+                currentProfil = p;
             }
         })
         if (!profilFound){
@@ -69,6 +86,38 @@ function PopulateProfilPage(pid = ""){
         }
     }
     else{ console.error("No profil to load");}
+}
+
+function PopulateModal(parent){
+    var modalElt = document.createElement("div");
+    modalElt.classList.add("media-modal");
+
+    var leftBtElt = document.createElement("button");
+    leftBtElt.classList.add("media-modal__bt");
+    leftBtElt.innerHTML += '<i class="fas fa-chevron-left fa-3x"></i>';
+
+    var rightBtElt = document.createElement("button");
+    rightBtElt.classList.add("media-modal__bt");
+    rightBtElt.innerHTML += '<i class="fas fa-chevron-right fa-3x"></i>';
+
+    var imgElt = document.createElement("img");
+    imgElt.classList.add("media-modal__img");
+    //imgElt.src = "";
+
+    var titleElt = document.createElement("span");
+    titleElt.classList.add("media-modal__name");
+    //titleElt.textContent = "";
+
+}
+
+function PopulateProfilPage(){
+    if (currentProfil != undefined){
+        PopulateOverview(currentProfil);
+        PopulateMediaFeed(currentProfil);
+    }
+    else{
+        // Error Page
+    }
 }
 
 function DisplayMedia(mid = ""){
@@ -182,7 +231,6 @@ function PopulateMediaFeed(profilData){
         var infoRootElt = document.createElement("div");
         infoRootElt.classList.add("media-card__infos");
 
-
         var titleElt = document.createElement("p");
         titleElt.classList.add("media-card__title");
         
@@ -228,5 +276,5 @@ function ShowModal(on){
   on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
 }
 
-InitFilterDropdown();
+Init();
 PopulateProfilPage();
