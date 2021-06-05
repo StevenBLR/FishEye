@@ -53,6 +53,8 @@ function InitFilterDropdown(){
 function FilterMedias(filter = ""){
     switch(filter){
         case "Popularity":
+            // sort by value
+            mediaCarousel.sort(function(a,b){a - b});
             break;
         case "Date":
             break;

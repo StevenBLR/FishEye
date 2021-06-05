@@ -656,5 +656,9 @@ function GetAllTags(){
   console.log(`All tags = ${allTags}`);
 }
 
+function GetOrderedMedias(){
+
+}
+
 GetJsonData();
-GetAllTags();
+GetAllTags();S
