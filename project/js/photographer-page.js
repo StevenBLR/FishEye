@@ -176,16 +176,11 @@ function PopulateOverview(profilData){
     profilPicElt.setAttribute("src", `../imgs/low/Photographers ID Photos/${profilData.portrait}`);
 }
 
-function PopulateMediaFeed(profilData){
-    var pMedias = [];
+function PopulateMediaFeed(profilData, filter = "Popularity"){
+    var pMedias = GetOrderedMedias(filter,profilData.id);
     
     feedRootElt.textContent = "";
     let firstName = profilData.name.split(" ")[0];
-    medias.forEach(m => {
-        if(m.photographerId == profilData.id){
-            pMedias.push(m);
-        }
-    })
     pMedias.forEach(pm => {
         var isVideo = false;
         var liElt = document.createElement("li");
@@ -244,7 +239,6 @@ function PopulateMediaFeed(profilData){
         liElt.appendChild(infoRootElt);
         feedRootElt.appendChild(liElt);
     })
-    console.log(pMedias);
 }
 
 function CleanTitle(title){
@@ -269,4 +263,4 @@ function ShowModal(on){
 
 Init();
 PopulateProfilPage();
-GetOrderedMedias("Title", currentProfil.id);
+//GetOrderedMedias("Title", "", "Asc");

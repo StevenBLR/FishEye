@@ -660,6 +660,7 @@ function GetAllTags(){
   console.log(`All tags = ${allTags}`);
 }
 
+
 function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
 {
   var orderedMedias = [];
@@ -668,8 +669,17 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
   if (profilId == "") orderedMedias = medias.slice(); // Create a indepent copy of medias
   else if (medias.find(m => m.photographerId == profilId)) orderedMedias = medias.filter(m => m.photographerId == profilId);
   else console.error(`Profil ${profilId} not found`);
-  
   direction == "Asc" ? console.log("Ascendant mode") : console.log("Descendant mode");
+
+  // METHODE COMDENSEE ( Not working ) --------------------------------------------------------
+  // console.log(`Sort by ${filter.toString()}`);
+  // orderedMedias.sort(function(m1,m2){
+  //   if(m1.filter < m2.filter) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
+  //   if(m1.filter > m2.filter) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
+  //   return returnedValue;
+  // });
+  // ------------------------------------------------------------------------------------------
+
   switch(filter)
   {
     // Manage order in array depending on direction
@@ -704,7 +714,6 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
       break;
     default:
   }
-  console.log(orderedMedias);
   return orderedMedias;
 }
 
