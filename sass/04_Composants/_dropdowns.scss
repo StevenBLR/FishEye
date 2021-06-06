@@ -1,82 +1,65 @@
 $itemHeight : 40px;
 
-.dropdown-wrapper{
+.dropdown{
     display: flex;
-    position: absolute;
     justify-content: space-between;
-    width: 230px;
+    align-items: center;
+    width: 600px;
     height: 50px;
+    
+    p{
+        position: relative;
+        
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+    } 
+
 }
 
-.dropdown{
+.dropdown__main-bt{
+    position: relative;
     overflow: hidden;
+    border: none;
     z-index: 5;
-    height: 40px;
+    height: 100%;
     width: 135px;
     color: white;
     padding: 5px;
     border-radius: 10px;
     background-color: $primaryColor;
 
-    &:hover{
-        li:not(:first-child){
-            // Anim buttons
-            @include dropdownReveal(500ms, 0.08s);
-            // p{
-                
-            // }
-            
-            &:nth-child(2n){
-                // Anim separators
-                @include separatorAnim(400ms, 0.08s);
-            }
-        }
-    }
-
-    li{
-        display: flex;
-        align-items: center;
-        transition: all 1s;
-        &:not(:first-child){
-            // dropdown items are hidden by default (except 1st child)
-            opacity: 0;
-        }
-    }
-
-
-    button{
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        position: relative;
-        text-align: left;
-        border: none;
-        background-color: unset;
-        height: $itemHeight;
-        width: 100%;
-        cursor: pointer;
-        transition: .4s;
-    }
-    .dropdown__separator{
-        margin: 0 5px 0 5px;
-        height: 1px;
-        width: 100%;
-        background-color: white;
-    }
-    p{
-        position: relative;
-        
-        color: white;
-        line-height: 50px;
-        font-size: 15px;
-        font-weight: 700;
-        padding: 0 10px 0 10px;
-    } 
     i{
         position: absolute;
-        right: 11px;
-        top: 50%;
-        margin-top: -7px;
-        color: white;
+        right: 10px;
+        top: 20px;
+    }
+    p{
+        margin-right: 20px;
     }
 }
+
+// &:hover{
+//     li:not(:first-child){
+//         // Anim buttons
+//         @include dropdownReveal(500ms, 0.08s);
+//         // p{
+            
+//         // }
+        
+//         &:nth-child(2n){
+//             // Anim separators
+//             @include separatorAnim(400ms, 0.08s);
+//         }
+//     }
+// }
+
+// li{
+//     display: flex;
+//     align-items: center;
+//     transition: all 1s;
+//     &:not(:first-child){
+//         // dropdown items are hidden by default (except 1st child)
+//         opacity: 0;
+//     }
+// }

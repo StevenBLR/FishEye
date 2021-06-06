@@ -28,7 +28,7 @@ var currentProfil;
 
 function Init(){
     GetUrlParams();
-    InitFilterDropdown();
+    //InitFilterDropdown();
 }
 
 function InitFilterDropdown(){
