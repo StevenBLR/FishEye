@@ -631,6 +631,10 @@ var photographers = [];
 var medias = [];
 var allTags = [];
 
+
+const filters = ["Popularity", "Date", "Title"];
+const direction = ["Asc", "Desc"];
+
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(){
   photographersData.photographers.forEach(u => {
@@ -656,9 +660,53 @@ function GetAllTags(){
   console.log(`All tags = ${allTags}`);
 }
 
-function GetOrderedMedias(){
+function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
+{
+  var orderedMedias = [];
+  var returnedValue = 0;
 
+  if (profilId == "") orderedMedias = medias.slice(); // Create a indepent copy of medias
+  else if (medias.find(m => m.photographerId == profilId)) orderedMedias = medias.filter(m => m.photographerId == profilId);
+  else console.error(`Profil ${profilId} not found`);
+  
+  direction == "Asc" ? console.log("Ascendant mode") : console.log("Descendant mode");
+  switch(filter)
+  {
+    // Manage order in array depending on direction
+    case "Popularity":
+      console.log("Sort by popularity");
+      orderedMedias.sort(function(m1,m2){
+        if(m1.likes < m2.likes) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
+        if(m1.likes > m2.likes) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
+        return returnedValue;
+      });
+      break;
+
+    case "Date":
+      console.log("Sort by date");
+      orderedMedias.sort(function(m1,m2){
+        if(m1.date < m2.date) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
+        if(m1.date > m2.date) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
+        return returnedValue;
+      });
+      break;
+
+    case "Title":
+      console.log("Sort by title");
+      orderedMedias.sort(function(m1,m2){
+        var m1Img = "", m2Img = "";
+        m1.image == undefined ? m1Img = m1.video : m1Img = m1.image;
+        m2.image == undefined ? m2Img = m2.video : m2Img = m2.image;
+        if(m1Img < m2Img) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
+        if(m1Img > m2Img) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
+        return returnedValue;
+      });
+      break;
+    default:
+  }
+  console.log(orderedMedias);
+  return orderedMedias;
 }
 
 GetJsonData();
-GetAllTags();S
+GetAllTags();

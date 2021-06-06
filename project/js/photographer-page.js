@@ -17,9 +17,8 @@ const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 
 const ddAnimSpeed = 0.5;
-const filters = ["Popularity", "Date", "Title"];
 var currentProfil;
-var mediaCarousel = [];
+//var mediaCarousel = [];
 
 // const ddAnim = gsap.timeline({reversed: true, paused:true})
 // .to(".dropdown", {height: "auto", duration: 1.5})
@@ -51,17 +50,7 @@ function InitFilterDropdown(){
 }
 
 function FilterMedias(filter = ""){
-    switch(filter){
-        case "Popularity":
-            // sort by value
-            mediaCarousel.sort(function(a,b){a - b});
-            break;
-        case "Date":
-            break;
-        case "Title":
-            break;
-        default:
-    }
+    
 }
 
 function toggleDropdown(){
@@ -280,3 +269,4 @@ function ShowModal(on){
 
 Init();
 PopulateProfilPage();
+GetOrderedMedias("Title", currentProfil.id);
