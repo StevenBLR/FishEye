@@ -27,7 +27,7 @@ var currentProfil;
 // .to(".dropdown", {height: "auto", duration: 1.5});
 
 function Init(){
-    GetProfilInfo();
+    GetUrlParams();
     InitFilterDropdown();
 }
 
@@ -57,7 +57,7 @@ function toggleDropdown(){
     //ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
 }
 
-function GetProfilInfo(){
+function GetUrlParams(){
     // (1) Defining profils to display  ------------------------------------------------------------------------
     urlParams = new URLSearchParams(window.location.search);
     tagsRootElt.textContent = "";
@@ -178,8 +178,8 @@ function PopulateOverview(profilData){
 
 function PopulateMediaFeed(profilData, filter = "Popularity"){
     var pMedias = GetOrderedMedias(filter,profilData.id);
-    
     feedRootElt.textContent = "";
+
     let firstName = profilData.name.split(" ")[0];
     pMedias.forEach(pm => {
         var isVideo = false;

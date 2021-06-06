@@ -648,7 +648,7 @@ function GetJsonData(){
   });
   console.log("Medias = ",medias);
 }
-
+          
 function GetAllTags(){
   medias.forEach(m => {
       m.tags.forEach(t => {
@@ -660,13 +660,13 @@ function GetAllTags(){
   console.log(`All tags = ${allTags}`);
 }
 
-
+// Return filtered media array
 function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
 {
   var orderedMedias = [];
   var returnedValue = 0;
 
-  if (profilId == "") orderedMedias = medias.slice(); // Create a indepent copy of medias
+  if (profilId == "") orderedMedias = medias.slice(); // Create a indepent copy of medias[]
   else if (medias.find(m => m.photographerId == profilId)) orderedMedias = medias.filter(m => m.photographerId == profilId);
   else console.error(`Profil ${profilId} not found`);
   direction == "Asc" ? console.log("Ascendant mode") : console.log("Descendant mode");
@@ -680,9 +680,9 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
   // });
   // ------------------------------------------------------------------------------------------
 
+// Manage order in array depending on direction
   switch(filter)
   {
-    // Manage order in array depending on direction
     case "Popularity":
       console.log("Sort by popularity");
       orderedMedias.sort(function(m1,m2){
