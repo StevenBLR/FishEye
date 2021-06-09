@@ -314,6 +314,23 @@ header .header__keywords span:hover {
     transform: rotateX(0deg);
   }
 }
+.info-label {
+  position: fixed;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  right: 50px;
+  bottom: 0;
+  width: 325px;
+  height: 60px;
+  padding: 15px 25px;
+  border-radius: 5px 5px 0 0;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #D3573C;
+}
+
 .dropdown {
   display: flex;
   justify-content: space-between;
