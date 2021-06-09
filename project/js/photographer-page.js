@@ -16,6 +16,10 @@ const modalImgElt = document.querySelector(".media-modal img");
 const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 
+// Info label Elements
+const spanInfoLabelElt = document.querySelector(".info-label__likes");
+const txtInfoLabelElt = document.querySelector(".info-label__tjm");
+
 const ddAnimSpeed = 0.5;
 var currentProfil;
 //var mediaCarousel = [];
@@ -105,6 +109,7 @@ function PopulateProfilPage(){
     if (currentProfil != undefined){
         PopulateOverview(currentProfil);
         PopulateMediaFeed(currentProfil);
+        PopulateInfoLabel(currentProfil);
     }
     else{
         // Error Page
@@ -164,6 +169,7 @@ function PopulateTag(tagInfo, parent){
     tagLink.appendChild(spanElt);
     return spanElt;
 }
+
 
 function PopulateOverview(profilData){
     profilData.tags.forEach(t => { PopulateTag(t,tagsRootElt); });
@@ -239,6 +245,10 @@ function PopulateMediaFeed(profilData, filter = "Popularity"){
         liElt.appendChild(infoRootElt);
         feedRootElt.appendChild(liElt);
     })
+}
+
+function PopulateInfoLabel(profilData){
+    spanInfoLabelElt.textContent = GetTotalLikes(profilData.id);
 }
 
 function CleanTitle(title){

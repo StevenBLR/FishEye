@@ -660,6 +660,21 @@ function GetAllTags(){
   console.log(`All tags = ${allTags}`);
 }
 
+function GetTotalLikes(profilId){
+  var nbLikes = 0;
+  if (medias.find(m => m.photographerId == profilId)){
+    nbLikes = medias.filter(m => m.photographerId == profilId).forEach(n =>{
+      nbLikes += n.likes;
+      console.log ("adding " + n.likes);
+      console.log("NB likes = " + nbLikes);
+      console.log(`${photographers.find(p => p.id == profilId).name} has ${nbLikes} total likes`);
+    });
+    // return nbLikes;
+  }
+  console.log(`${photographers.find(p => p.id == profilId).name} has ${nbLikes} total likes`);
+  return nbLikes;
+}
+
 // Return filtered media array
 function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
 {
