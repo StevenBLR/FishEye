@@ -713,7 +713,7 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
       default:
     }
   });
-
+  console.log(orderedMedias);
   return orderedMedias;
 }
 
