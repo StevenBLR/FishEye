@@ -17,8 +17,8 @@ const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 
 // Info label Elements
-const spanInfoLabelElt = document.querySelector(".info-label__likes");
-const txtInfoLabelElt = document.querySelector(".info-label__tjm");
+const txtNbLikesElt = document.querySelector(".info-label__nb-likes");
+const txtTjmElt = document.querySelector(".info-label__tjm");
 
 const ddAnimSpeed = 0.5;
 var currentProfil;
@@ -173,7 +173,7 @@ function PopulateTag(tagInfo, parent){
 
 function PopulateOverview(profilData){
     profilData.tags.forEach(t => { PopulateTag(t,tagsRootElt); });
-    console.log(profilData);
+    //console.log(profilData);
     nameElt.textContent = profilData.name;
     profilContactBtElt.textContent = "Contactez-moi";
     
@@ -248,7 +248,8 @@ function PopulateMediaFeed(profilData, filter = "Popularity"){
 }
 
 function PopulateInfoLabel(profilData){
-    spanInfoLabelElt.textContent = GetTotalLikes(profilData.id);
+    txtNbLikesElt.textContent = GetTotalLikes(profilData.id);
+    txtTjmElt.textContent = `${GetTJM(profilData.id)}€/jour`;
 }
 
 function CleanTitle(title){
@@ -273,4 +274,4 @@ function ShowModal(on){
 
 Init();
 PopulateProfilPage();
-GetOrderedMedias("Title", currentProfil.id, "Asc");
+//GetOrderedMedias("Title", currentProfil.id, "Asc");

@@ -631,7 +631,6 @@ var photographers = [];
 var medias = [];
 var allTags = [];
 
-
 const filters = ["Popularity", "Date", "Title"];
 const direction = ["Asc", "Desc"];
 
@@ -641,12 +640,12 @@ function GetJsonData(){
     var newUser = new Photographer(u.name, u.id, u.city, u.country, u.tags, u.tagline, u.price, u.portrait);
     photographers.push(newUser);
   });
-  console.log("Photographers = ", photographers);
+  //console.log("Photographers = ", photographers);
   photographersData.media.forEach(m => {
     var newMedia = new Media(m.id, m.photographerId, m.image, m.video, m.tags, m.likes, m.date, m.price);
     medias.push(newMedia);
   });
-  console.log("Medias = ",medias);
+  //console.log("Medias = ",medias);
 }
           
 function GetAllTags(){
@@ -657,22 +656,22 @@ function GetAllTags(){
           }
       })
   })
-  console.log(`All tags = ${allTags}`);
+  //console.log(`All tags = ${allTags}`);
 }
 
 function GetTotalLikes(profilId){
   var nbLikes = 0;
   if (medias.find(m => m.photographerId == profilId)){
-    medias.filter(m => m.photographerId == profilId).forEach(n =>{
-      nbLikes += n.likes;
-      console.log ("adding " + n.likes);
-      console.log("NB likes = " + nbLikes);
-      console.log(`${photographers.find(p => p.id == profilId).name} has ${nbLikes} total likes`);
-    });
-    // return nbLikes;
+    medias.filter(m => m.photographerId == profilId).forEach(n => nbLikes += n.likes);
   }
   console.log(`${photographers.find(p => p.id == profilId).name} has ${nbLikes} total likes`);
   return nbLikes;
+}
+
+function GetTJM(profilId){
+  if (photographers.find(p => p.id == profilId)){
+    return photographers.find(p => p.id == profilId).price;
+  }
 }
 
 // Return filtered media array
@@ -688,24 +687,13 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
   
   direction == "Asc" ? console.log("Ascendant mode") : console.log("Descendant mode");
 
-  // METHODE COMDENSEE ( Not working ) --------------------------------------------------------
-  // console.log(`Sort by ${filter.toString()}`);
-  // orderedMedias.sort(function(m1,m2){
-  //   if(m1.filter < m2.filter) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
-  //   if(m1.filter > m2.filter) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
-  //   return returnedValue;
-  // });
-  // ------------------------------------------------------------------------------------------
-
-// Manage order in array depending on direction
-
-
+// Manage order in array depending on d-irection
   orderedMedias.sort(function(m1,m2){
-    
     switch(filter)
     {
       case "Popularity":
-        // Attend un resultat egal à 0 / négatif / positif peut importe sa valeur ( )
+        // Attend un resultat egal à 0 / négatif / positif peut importe sa valeur ()
+        //direction == "Asc" ? console.log(m1.likes - m2.likes) : console.log(m2.likes - m1.likes);
         return direction == "Asc" ? m1.likes - m2.likes : m2.likes - m1.likes;
         break;
 
@@ -724,8 +712,9 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
         break;
       default:
     }
-
   });
+
+  return orderedMedias;
 }
 
 GetJsonData();

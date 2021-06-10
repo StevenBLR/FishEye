@@ -330,6 +330,12 @@ header .header__keywords span:hover {
   font-weight: 500;
   background-color: #D3573C;
 }
+.info-label .info-label__likes {
+  display: flex;
+}
+.info-label .info-label__nb-likes {
+  margin-right: 5px;
+}
 
 .dropdown {
   display: flex;
