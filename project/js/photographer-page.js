@@ -7,7 +7,7 @@ const profilPicElt = document.querySelector(".profil__pic");
 const profilContactBtElt = document.querySelector(".profil__contact-bt");
 
 // Media feed Elements
-const filterDropdown = document.querySelectorAll(".dropdown");
+//const filterDropdown = document.querySelectorAll(".dropdown");
 const filterBts = document.querySelectorAll(".dropdown button");
 const feedRootElt = document.querySelector(".media-feed__medias-grid");
 
@@ -20,41 +20,74 @@ const modalBgElt = document.querySelector(".media-modal__bg");
 const txtNbLikesElt = document.querySelector(".info-label__nb-likes");
 const txtTjmElt = document.querySelector(".info-label__tjm");
 
+const filters = ["Popularity", "Date", "Title"];
+const direction = ["Asc", "Desc"];
+
 const ddAnimSpeed = 0.5;
 var currentProfil;
-//var mediaCarousel = [];
+var currentFilter;
 
-// const ddAnim = gsap.timeline({reversed: true, paused:true})
-// .to(".dropdown", {height: "auto", duration: 1.5})
+const ddAnim = gsap.timeline({reversed: true, paused:true})
+    .to(".dropdown", {height: "auto", duration: 1.5})
 
 // gsap.timeline()
 // .to(".dropdown", {height: "auto", duration: 1.5});
 
 function Init(){
+    currentFilter = "Popularity";
     GetUrlParams();
-    //InitFilterDropdown();
+    InitFilterDropdown();
 }
 
 function InitFilterDropdown(){
-    filterDropdown.forEach(elt => {
-        elt.addEventListener("mouseenter", function(e){
+    var openingEvents = ["focus","mouseenter"];
+    var closingEvents = ["blur","mouseleave"];
+    filterBts.forEach(elt => {
+
+        for(let i=0; i < openingEvents.length; i++){
+            elt.addEventListener(openingEvents[i], function(e){
             toggleDropdown();
+            
             gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
             e.stopImmediatePropagation();
-        });
+            });
+        }
+        for(let y=0; y < closingEvents.length; y++){
+            elt.addEventListener(closingEvents[y], function(e){
+                gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
+                e.stopImmediatePropagation();
+            })
+        }
+        // elt.addEventListener("focus", function(e){
+        //     toggleDropdown();
+        //     console.log(`focused on ${elt}`);
+        //     gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
+        //     e.stopImmediatePropagation();
+        // });
+
+        // elt.addEventListener("mouseenter", function(e){
+        //     toggleDropdown();
+        //     gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
+        //     e.stopImmediatePropagation();
+        // });
     
-        elt.addEventListener("mouseleave", function(e){
-            //console.log("leave " + elt.id);
-            gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
-                //.to("");
-            // toggleDropdown()
-            e.stopImmediatePropagation();
-        })
+        // elt.addEventListener("mouseleave", function(e){
+        //     gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
+        //     e.stopImmediatePropagation();
+        // })
+
+        // elt.addEventListener("blur", function(e){
+        //     console.log(`stop focusing on ${elt}`);
+        //     gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
+        //     e.stopImmediatePropagation();
+        // })
     })
 }
 
-function FilterMedias(filter = ""){
-    
+function SetMediaFilter(filter){
+    if(filters.find(f => filter)){
+
+    }
 }
 
 function toggleDropdown(){
@@ -170,7 +203,6 @@ function PopulateTag(tagInfo, parent){
     return spanElt;
 }
 
-
 function PopulateOverview(profilData){
     profilData.tags.forEach(t => { PopulateTag(t,tagsRootElt); });
     //console.log(profilData);
@@ -182,7 +214,8 @@ function PopulateOverview(profilData){
     profilPicElt.setAttribute("src", `../imgs/low/Photographers ID Photos/${profilData.portrait}`);
 }
 
-function PopulateMediaFeed(profilData, filter = "Popularity"){
+function PopulateMediaFeed(profilData, filter = ""){
+    if(filter == "") filter = currentFilter;
     var pMedias = GetOrderedMedias(filter,profilData.id);
     feedRootElt.textContent = "";
 

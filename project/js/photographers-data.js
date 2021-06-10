@@ -631,9 +631,6 @@ var photographers = [];
 var medias = [];
 var allTags = [];
 
-const filters = ["Popularity", "Date", "Title"];
-const direction = ["Asc", "Desc"];
-
 // Store every data from Json into 2 objects --> photographers[] / medias[]
 function GetJsonData(){
   photographersData.photographers.forEach(u => {
@@ -647,7 +644,8 @@ function GetJsonData(){
   });
   //console.log("Medias = ",medias);
 }
-          
+
+// Store all tags
 function GetAllTags(){
   medias.forEach(m => {
       m.tags.forEach(t => {
@@ -659,6 +657,7 @@ function GetAllTags(){
   //console.log(`All tags = ${allTags}`);
 }
 
+// Return profil total likes
 function GetTotalLikes(profilId){
   var nbLikes = 0;
   if (medias.find(m => m.photographerId == profilId)){
@@ -668,6 +667,7 @@ function GetTotalLikes(profilId){
   return nbLikes;
 }
 
+// Return profil price by day
 function GetTJM(profilId){
   if (photographers.find(p => p.id == profilId)){
     return photographers.find(p => p.id == profilId).price;
