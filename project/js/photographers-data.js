@@ -681,9 +681,11 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
   var orderedMedias = [];
   var returnedValue = 0;
 
+  // Getting input list
   if (profilId == "") orderedMedias = medias.slice(); // Create a indepent copy of medias[]
   else if (medias.find(m => m.photographerId == profilId)) orderedMedias = medias.filter(m => m.photographerId == profilId);
   else console.error(`Profil ${profilId} not found`);
+  
   direction == "Asc" ? console.log("Ascendant mode") : console.log("Descendant mode");
 
   // METHODE COMDENSEE ( Not working ) --------------------------------------------------------
@@ -696,40 +698,33 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
   // ------------------------------------------------------------------------------------------
 
 // Manage order in array depending on direction
-  switch(filter)
-  {
-    case "Popularity":
-      console.log("Sort by popularity");
-      orderedMedias.sort(function(m1,m2){
-        if(m1.likes < m2.likes) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
-        if(m1.likes > m2.likes) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
-        return returnedValue;
-      });
-      break;
 
-    case "Date":
-      console.log("Sort by date");
-      orderedMedias.sort(function(m1,m2){
-        if(m1.date < m2.date) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
-        if(m1.date > m2.date) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
-        return returnedValue;
-      });
-      break;
 
-    case "Title":
-      console.log("Sort by title");
-      orderedMedias.sort(function(m1,m2){
+  orderedMedias.sort(function(m1,m2){
+    
+    switch(filter)
+    {
+      case "Popularity":
+        return direction == "Asc" ? m1.likes - m2.likes : m2.likes - m1.likes;
+        break;
+
+      case "Date":
+        return direction == "Asc" ? m1.date - m2.date : m2.date - m1.date;
+        break;
+
+      case "Title":
+        console.log("Sort by title");
         var m1Img = "", m2Img = "";
         m1.image == undefined ? m1Img = m1.video : m1Img = m1.image;
         m2.image == undefined ? m2Img = m2.video : m2Img = m2.image;
         if(m1Img < m2Img) direction == "Asc" ? returnedValue = -1 : returnedValue = 1;
         if(m1Img > m2Img) direction == "Asc" ? returnedValue = 1 : returnedValue = -1;
         return returnedValue;
-      });
-      break;
-    default:
-  }
-  return orderedMedias;
+        break;
+      default:
+    }
+
+  });
 }
 
 GetJsonData();

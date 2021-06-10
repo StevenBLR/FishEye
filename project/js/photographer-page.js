@@ -273,4 +273,4 @@ function ShowModal(on){
 
 Init();
 PopulateProfilPage();
-//GetOrderedMedias("Title", "", "Asc");
+GetOrderedMedias("Title", currentProfil.id, "Asc");
