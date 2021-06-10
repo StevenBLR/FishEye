@@ -705,6 +705,7 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
     switch(filter)
     {
       case "Popularity":
+        // Attend un resultat egal à 0 / négatif / positif peut importe sa valeur ( )
         return direction == "Asc" ? m1.likes - m2.likes : m2.likes - m1.likes;
         break;
 
