@@ -53,7 +53,7 @@ $itemHeight : 40px;
     }
     p{
         position: relative;
-        
+        z-index: -1;
         color: white;
         line-height: $itemHeight;
         font-size: 15px;

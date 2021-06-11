@@ -7,8 +7,8 @@ const profilPicElt = document.querySelector(".profil__pic");
 const profilContactBtElt = document.querySelector(".profil__contact-bt");
 
 // Media feed Elements
-//const filterDropdown = document.querySelectorAll(".dropdown");
-const filterBts = document.querySelectorAll(".dropdown button");
+const filterDropdown = document.querySelector(".dropdown");
+var filterBts = document.querySelectorAll(".dropdown button");
 const feedRootElt = document.querySelector(".media-feed__medias-grid");
 
 // Media modal Elements
@@ -41,7 +41,7 @@ function Init(){
 
 function InitFilterDropdown(){
     var openingEvents = ["focus","mouseenter"];
-    var closingEvents = ["blur","mouseleave"];
+    var closingEvents = ["blur","mouseleave","click"];
     filterBts.forEach(elt => {
 
         for(let i=0; i < openingEvents.length; i++){
@@ -54,40 +54,45 @@ function InitFilterDropdown(){
         }
         for(let y=0; y < closingEvents.length; y++){
             elt.addEventListener(closingEvents[y], function(e){
-                gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
+                gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"});
+                if(closingEvents[y] == "click"){
+                    SetMediaFilter(e.target.id)
+                }
                 e.stopImmediatePropagation();
             })
         }
-        // elt.addEventListener("focus", function(e){
-        //     toggleDropdown();
-        //     console.log(`focused on ${elt}`);
-        //     gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
-        //     e.stopImmediatePropagation();
-        // });
-
-        // elt.addEventListener("mouseenter", function(e){
-        //     toggleDropdown();
-        //     gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
-        //     e.stopImmediatePropagation();
-        // });
-    
-        // elt.addEventListener("mouseleave", function(e){
-        //     gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
-        //     e.stopImmediatePropagation();
-        // })
-
-        // elt.addEventListener("blur", function(e){
-        //     console.log(`stop focusing on ${elt}`);
-        //     gsap.to(".dropdown", {height: 40, duration: ddAnimSpeed, ease: "expo"})
-        //     e.stopImmediatePropagation();
-        // })
     })
 }
 
 function SetMediaFilter(filter){
     if(filters.find(f => filter)){
-
+        PopulateMediaFeed(currentProfil, filter);
+        ResetFilterDropdown(filter);
     }
+}
+
+function ResetFilterDropdown(currentFilter){
+    filterDropdown.innerHTML = "";
+    const newFilters = [];
+    newFilters.push(currentFilter);
+    filters.filter(f => f != currentFilter).forEach(f => newFilters.push(f));
+    
+    console.log(newFilters);
+    console.log("reset dd ui");
+    for (var i =0; i < filters.length; i++){
+        filterDropdown.innerHTML += 
+        `
+            <li>
+                <button class="" id="${newFilters[i]}">
+                <p>${newFilters[i]}</p>
+                ${i == 0 ? '<i class="fas fa-chevron-up"></i>' : ""};
+                </button>
+            </li>
+        `;
+    }
+    filterBts = document.querySelectorAll(".dropdown button");
+    InitFilterDropdown();
+
 }
 
 function toggleDropdown(){
@@ -217,8 +222,9 @@ function PopulateOverview(profilData){
 function PopulateMediaFeed(profilData, filter = ""){
     if(filter == "") filter = currentFilter;
     var pMedias = GetOrderedMedias(filter,profilData.id);
+    
     feedRootElt.textContent = "";
-
+    console.log(profilData.name);
     let firstName = profilData.name.split(" ")[0];
     pMedias.forEach(pm => {
         var isVideo = false;

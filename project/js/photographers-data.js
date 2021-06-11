@@ -693,11 +693,12 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
     {
       case "Popularity":
         // Attend un resultat egal à 0 / négatif / positif peut importe sa valeur ()
-        //direction == "Asc" ? console.log(m1.likes - m2.likes) : console.log(m2.likes - m1.likes);
+        console.log("Sort by popularity");
         return direction == "Asc" ? m1.likes - m2.likes : m2.likes - m1.likes;
         break;
 
       case "Date":
+        console.log("Sort by date");
         return direction == "Asc" ? m1.date - m2.date : m2.date - m1.date;
         break;
 

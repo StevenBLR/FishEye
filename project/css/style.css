@@ -386,6 +386,7 @@ header .header__keywords span:hover {
 }
 .dropdown-wrapper p {
   position: relative;
+  z-index: -1;
   color: white;
   line-height: 40px;
   font-size: 15px;
