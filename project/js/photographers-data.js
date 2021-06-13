@@ -657,12 +657,18 @@ function GetAllTags(){
   //console.log(`All tags = ${allTags}`);
 }
 
-function GetImagePath(mediaId){
-  var imagePath = "";
+// Return media path
+function GetMediaPath(mediaId, res = "high"){
+  var mediaPath = "";
+  var firstName = ""; 
   if (medias.find(m => m.id == mediaId)){
-    imagePath = ``;
+    var m = medias.find(m => m.id == mediaId);
+    firstName = photographers.find(p => p.id == m.photographerId).name.split(" ")[0];
+    if(res == "high") mediaPath = `../imgs/high/${firstName}/${m.image}`;
+    else if (res == "low") mediaPath = `../imgs/low/${firstName}/${m.image}`;
+    else console.error(`Error when trying to get image path on ${m}`);
   }
-  return imagePath;
+  return mediaPath;
 }
 
 // Return profil total likes

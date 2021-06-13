@@ -185,24 +185,23 @@ function DisplayMedia(mid = ""){
     mid = urlParams.get('mid');
     medias.forEach(m => {
         if(m.id == mid){
-            let firstName = photographers.find(p => p.id == m.photographerId).name.split(" ")[0];
             mediaFound = true;
             // Check if media is an image or a video
             if(m.video != undefined){
               //Populate video section
               isVideo = true;
               var videoElt = document.createElement("video");
-              videoElt.src = `../imgs/low/${firstName}/${m.video}`;
+              videoElt.src = GetMediaPath(mid, "low");
               videoElt.alt = m.video;
               videoElt.setAttribute("type","video/mp4");
             }
             else if(m.image != undefined){
               //Populate image section
               var imgElt = document.createElement("img");
-              imgElt.src = `../imgs/low/${firstName}/${m.image}`;
+              imgElt.src = GetMediaPath(mid, "low");
               imgElt.alt = m.image;
             }
-            //modalImgElt.src = `../im`;
+            modalImgElt.src = GetMediaPath(mid);
             ShowModal(true);
             console.log(`Media found : ${m.id}`);
         }
