@@ -657,6 +657,14 @@ function GetAllTags(){
   //console.log(`All tags = ${allTags}`);
 }
 
+function GetImagePath(mediaId){
+  var imagePath = "";
+  if (medias.find(m => m.id == mediaId)){
+    imagePath = ``;
+  }
+  return imagePath;
+}
+
 // Return profil total likes
 function GetTotalLikes(profilId){
   var nbLikes = 0;
@@ -717,6 +725,8 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
   console.log(orderedMedias);
   return orderedMedias;
 }
+
+
 
 GetJsonData();
 GetAllTags();

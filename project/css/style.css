@@ -365,6 +365,12 @@ header .header__keywords span:hover {
   align-items: center;
   transition: all 1s;
 }
+.dropdown-wrapper .dropdown ul::after {
+  display: block;
+  content: "";
+  height: 1px;
+  width: 100%;
+}
 .dropdown-wrapper span {
   white-space: pre;
   margin-right: 10px;
@@ -383,6 +389,9 @@ header .header__keywords span:hover {
   width: 100%;
   cursor: pointer;
   transition: 0.4s;
+}
+.dropdown-wrapper button:focus {
+  background-color: #D3573C;
 }
 .dropdown-wrapper p {
   position: relative;
@@ -778,13 +787,24 @@ header .header__keywords span:hover {
 .media-modal .media-modal__bt {
   position: absolute;
 }
-.media-modal .fa-chevron-left {
-  left: -50px;
+.media-modal button {
+  border: none;
+  z-index: 101;
+  cursor: pointer;
+  color: #901C1C;
+  background-color: unset;
+}
+.media-modal #left-bt {
+  left: 5px;
   top: 50%;
 }
-.media-modal .fa-chevron-right {
-  right: -50px;
+.media-modal #right-bt {
+  right: 5px;
   top: 50%;
+}
+.media-modal #close-bt {
+  right: 5px;
+  top: 5px;
 }
 .media-modal .fa-times {
   right: -50px;

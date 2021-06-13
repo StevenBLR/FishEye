@@ -31,19 +31,38 @@ $modal-items-margin: 50px;
     
     .media-modal__bt{
         position: absolute;
-    }
-
-    .fas{
         
     }
-    .fa-chevron-left{
-        left: -$modal-items-margin;
+
+    button{
+        border: none;
+        z-index: 101;
+        cursor: pointer;
+        color: $primaryColor;
+        background-color: unset;
+    }
+    #left-bt{
+        left: 5px;
         top: 50%;
     }
-    .fa-chevron-right{
-        right: -$modal-items-margin;
+    #right-bt{
+        right: 5px;
         top: 50%;
     }
+
+    #close-bt{
+        right: 5px;
+        top: 5px;
+    }
+
+    // .fa-chevron-left{
+    //     left: -$modal-items-margin;
+    //     top: 50%;
+    // }
+    // .fa-chevron-right{
+    //     right: -$modal-items-margin;
+    //     top: 50%;
+    // }
     .fa-times{
         right: -$modal-items-margin;
         top: 0;

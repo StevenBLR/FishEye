@@ -15,6 +15,9 @@ const feedRootElt = document.querySelector(".media-feed__medias-grid");
 const modalImgElt = document.querySelector(".media-modal img");
 const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
+const modalLeftBtElt = document.querySelector(".media-modal #left-bt");
+const modalRightBtElt = document.querySelector(".media-modal #right-bt");
+const modalCloseBtElt = document.querySelector(".media-modal #close-bt");
 
 // Info label Elements
 const txtNbLikesElt = document.querySelector(".info-label__nb-likes");
@@ -37,6 +40,7 @@ function Init(){
     currentFilter = "Popularity";
     GetUrlParams();
     InitFilterDropdown();
+    InitMediaModal();
 }
 
 function InitFilterDropdown(){
@@ -46,10 +50,9 @@ function InitFilterDropdown(){
 
         for(let i=0; i < openingEvents.length; i++){
             elt.addEventListener(openingEvents[i], function(e){
-            toggleDropdown();
-            
-            gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
-            e.stopImmediatePropagation();
+                //toggleDropdown();
+                gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
+                e.stopImmediatePropagation();
             });
         }
         for(let y=0; y < closingEvents.length; y++){
@@ -64,6 +67,42 @@ function InitFilterDropdown(){
     })
 }
 
+function InitMediaModal(){
+    modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
+    modalRightBtElt.addEventListener("click", function(e){NextMedia()});
+    modalCloseBtElt.addEventListener("click", function(e){ShowModal(false)});
+}
+
+function PreviousMedia(){
+    console.log("previous");
+}
+
+function NextMedia(){
+    console.log("next");
+}
+
+// function PopulateModal(parent){
+//     var modalElt = document.createElement("div");
+//     modalElt.classList.add("media-modal");
+
+//     var leftBtElt = document.createElement("button");
+//     leftBtElt.classList.add("media-modal__bt");
+//     leftBtElt.innerHTML += '<i class="fas fa-chevron-left fa-3x"></i>';
+
+//     var rightBtElt = document.createElement("button");
+//     rightBtElt.classList.add("media-modal__bt");
+//     rightBtElt.innerHTML += '<i class="fas fa-chevron-right fa-3x"></i>';
+
+//     var imgElt = document.createElement("img");
+//     imgElt.classList.add("media-modal__img");
+//     //imgElt.src = "";
+
+//     var titleElt = document.createElement("span");
+//     titleElt.classList.add("media-modal__name");
+//     //titleElt.textContent = "";
+
+// }
+
 function SetMediaFilter(filter){
     if(filters.find(f => filter)){
         PopulateMediaFeed(currentProfil, filter);
@@ -72,6 +111,7 @@ function SetMediaFilter(filter){
 }
 
 function ResetFilterDropdown(currentFilter){
+    //filterDropdown.insertBefore(filterBts.find(f => f.id == currentFilter),filterDropdown);
     filterDropdown.innerHTML = "";
     const newFilters = [];
     newFilters.push(currentFilter);
@@ -85,19 +125,19 @@ function ResetFilterDropdown(currentFilter){
             <li>
                 <button class="" id="${newFilters[i]}">
                 <p>${newFilters[i]}</p>
-                ${i == 0 ? '<i class="fas fa-chevron-up"></i>' : ""};
+                ${i == 0 ? '<i class="fas fa-chevron-up"></i>' : ""}
                 </button>
             </li>
-        `;
+        `
     }
     filterBts = document.querySelectorAll(".dropdown button");
     InitFilterDropdown();
 
 }
 
-function toggleDropdown(){
-    //ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
-}
+// function toggleDropdown(){
+//     ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
+// }
 
 function GetUrlParams(){
     // (1) Defining profils to display  ------------------------------------------------------------------------
@@ -121,27 +161,7 @@ function GetUrlParams(){
     else{ console.error("No profil to load");}
 }
 
-function PopulateModal(parent){
-    var modalElt = document.createElement("div");
-    modalElt.classList.add("media-modal");
 
-    var leftBtElt = document.createElement("button");
-    leftBtElt.classList.add("media-modal__bt");
-    leftBtElt.innerHTML += '<i class="fas fa-chevron-left fa-3x"></i>';
-
-    var rightBtElt = document.createElement("button");
-    rightBtElt.classList.add("media-modal__bt");
-    rightBtElt.innerHTML += '<i class="fas fa-chevron-right fa-3x"></i>';
-
-    var imgElt = document.createElement("img");
-    imgElt.classList.add("media-modal__img");
-    //imgElt.src = "";
-
-    var titleElt = document.createElement("span");
-    titleElt.classList.add("media-modal__name");
-    //titleElt.textContent = "";
-
-}
 
 function PopulateProfilPage(){
     if (currentProfil != undefined){
