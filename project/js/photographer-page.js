@@ -25,10 +25,12 @@ const txtTjmElt = document.querySelector(".info-label__tjm");
 
 const filters = ["Popularity", "Date", "Title"];
 const direction = ["Asc", "Desc"];
+var mediaCarousel = [];
 
 const ddAnimSpeed = 0.5;
 var currentProfil;
 var currentFilter;
+var currentMedia;
 
 const ddAnim = gsap.timeline({reversed: true, paused:true})
     .to(".dropdown", {height: "auto", duration: 1.5})
@@ -73,12 +75,20 @@ function InitMediaModal(){
     modalCloseBtElt.addEventListener("click", function(e){ShowModal(false)});
 }
 
+// Display previous media
 function PreviousMedia(){
     console.log("previous");
+    var currentIndex = mediaCarousel.indexOf(currentMedia);
+    if (currentIndex > 0) DisplayMedia(mediaCarousel[currentIndex-1].id);
+    else DisplayMedia(mediaCarousel[mediaCarousel.length-1].id);
 }
 
+// Display next media
 function NextMedia(){
     console.log("next");
+    var currentIndex = mediaCarousel.indexOf(currentMedia);
+    if (currentIndex < mediaCarousel.length-1) DisplayMedia(mediaCarousel[currentIndex+1].id);
+    else DisplayMedia(mediaCarousel[0].id);
 }
 
 // function PopulateModal(parent){
@@ -177,15 +187,22 @@ function PopulateProfilPage(){
 function DisplayMedia(mid = ""){
   // (1) Defining media to display  ------------------------------------------------------------------------
   urlParams = new URLSearchParams(window.location.search);
+  console.log(`mid = ${mid}`);
   var mediaFound = false;
   var isVideo = false;
-  // Check if URL has parameters 
-  if (urlParams.has('mid')){
+
+  // Check if an id has been received
+  if(mid != ""){
+
+  }
+  // If not Check if URL has parameters 
+  else if (urlParams.has('mid')) mid = urlParams.get('mid');
+
   // (2) Find matching profil data to populate UI  ------------------------------------------------------------------------
-    mid = urlParams.get('mid');
     medias.forEach(m => {
         if(m.id == mid){
             mediaFound = true;
+            currentMedia = m;
             // Check if media is an image or a video
             if(m.video != undefined){
               //Populate video section
@@ -209,7 +226,7 @@ function DisplayMedia(mid = ""){
     if (!mediaFound){
         console.error("No matching profil was found");
     }
-}
+
 else{ console.error("No profil to load");}
 }
 
@@ -241,6 +258,7 @@ function PopulateOverview(profilData){
 function PopulateMediaFeed(profilData, filter = ""){
     if(filter == "") filter = currentFilter;
     var pMedias = GetOrderedMedias(filter,profilData.id);
+    mediaCarousel = pMedias;
     
     feedRootElt.textContent = "";
     console.log(profilData.name);
