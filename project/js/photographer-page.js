@@ -18,6 +18,7 @@ const modalBgElt = document.querySelector(".media-modal__bg");
 const modalLeftBtElt = document.querySelector(".media-modal #left-bt");
 const modalRightBtElt = document.querySelector(".media-modal #right-bt");
 const modalCloseBtElt = document.querySelector(".media-modal #close-bt");
+const modalTitleElt = document.querySelector(".media-modal__name");
 
 // Info label Elements
 const txtNbLikesElt = document.querySelector(".info-label__nb-likes");
@@ -77,7 +78,6 @@ function InitMediaModal(){
 
 // Display previous media
 function PreviousMedia(){
-    console.log("previous");
     var currentIndex = mediaCarousel.indexOf(currentMedia);
     if (currentIndex > 0) DisplayMedia(mediaCarousel[currentIndex-1].id);
     else DisplayMedia(mediaCarousel[mediaCarousel.length-1].id);
@@ -85,33 +85,10 @@ function PreviousMedia(){
 
 // Display next media
 function NextMedia(){
-    console.log("next");
     var currentIndex = mediaCarousel.indexOf(currentMedia);
     if (currentIndex < mediaCarousel.length-1) DisplayMedia(mediaCarousel[currentIndex+1].id);
     else DisplayMedia(mediaCarousel[0].id);
 }
-
-// function PopulateModal(parent){
-//     var modalElt = document.createElement("div");
-//     modalElt.classList.add("media-modal");
-
-//     var leftBtElt = document.createElement("button");
-//     leftBtElt.classList.add("media-modal__bt");
-//     leftBtElt.innerHTML += '<i class="fas fa-chevron-left fa-3x"></i>';
-
-//     var rightBtElt = document.createElement("button");
-//     rightBtElt.classList.add("media-modal__bt");
-//     rightBtElt.innerHTML += '<i class="fas fa-chevron-right fa-3x"></i>';
-
-//     var imgElt = document.createElement("img");
-//     imgElt.classList.add("media-modal__img");
-//     //imgElt.src = "";
-
-//     var titleElt = document.createElement("span");
-//     titleElt.classList.add("media-modal__name");
-//     //titleElt.textContent = "";
-
-// }
 
 function SetMediaFilter(filter){
     if(filters.find(f => filter)){
@@ -171,8 +148,6 @@ function GetUrlParams(){
     else{ console.error("No profil to load");}
 }
 
-
-
 function PopulateProfilPage(){
     if (currentProfil != undefined){
         PopulateOverview(currentProfil);
@@ -192,11 +167,13 @@ function DisplayMedia(mid = ""){
   var isVideo = false;
 
   // Check if an id has been received
-  if(mid != ""){
-
-  }
+  if(mid != ""){}
   // If not Check if URL has parameters 
   else if (urlParams.has('mid')) mid = urlParams.get('mid');
+  else {
+    console.error("No profil to load");
+    return;
+  }
 
   // (2) Find matching profil data to populate UI  ------------------------------------------------------------------------
     medias.forEach(m => {
@@ -219,6 +196,7 @@ function DisplayMedia(mid = ""){
               imgElt.alt = m.image;
             }
             modalImgElt.src = GetMediaPath(mid);
+            modalTitleElt.textContent = GetMediaPath(mid, "low");
             ShowModal(true);
             console.log(`Media found : ${m.id}`);
         }
@@ -226,8 +204,6 @@ function DisplayMedia(mid = ""){
     if (!mediaFound){
         console.error("No matching profil was found");
     }
-
-else{ console.error("No profil to load");}
 }
 
 function PopulateTag(tagInfo, parent){
@@ -329,17 +305,19 @@ function PopulateInfoLabel(profilData){
 }
 
 function CleanTitle(title){
-    var newTitle;
-    allTags.forEach(t => {
-        if(title.toString().toUpperCase().includes(t.toString().toUpperCase())){
-            console.log(`${title} contains ${t}`);
-            newTitle = title.replace(`${t}_`,'');
-        }
-        else{
-            newTitle = title;
-        }
-    })
-    console.log(newTitle);
+    var newTitle = "";
+    newTitle = title.split("_")[0] = "";
+    console.log(newTitle)
+    // allTags.forEach(t => {
+    //     if(title.toString().toUpperCase().includes(t.toString().toUpperCase())){
+    //         console.log(`${title} contains ${t}`);
+    //         newTitle = title.replace(`${t}_`,'');
+    //     }
+    //     else{
+    //         newTitle = title;
+    //     }
+    // })
+    // console.log(newTitle);
     return newTitle;
 }
 

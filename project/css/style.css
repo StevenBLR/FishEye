@@ -787,6 +787,15 @@ header .header__keywords span:hover {
 .media-modal .media-modal__bt {
   position: absolute;
 }
+.media-modal .media-modal__name {
+  z-index: 101;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  font-size: clamp(20px, 4vw, 45px);
+  font-weight: 500;
+  color: #901C1C;
+}
 .media-modal button {
   border: none;
   z-index: 101;
