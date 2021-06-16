@@ -1,0 +1,15 @@
+.contact-modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 600px;//clamp(500px, 50%, 600px);
+    height: clamp(400px, 80%, 900px);
+    background-color: $secondaryColor;
+
+    #close-bt{
+        right: 5px;
+        top: 5px;
+    }
+}
