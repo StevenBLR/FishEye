@@ -394,8 +394,8 @@ header .header__keywords span:hover {
   background-color: #D3573C;
 }
 .dropdown-wrapper p {
+  pointer-events: none;
   position: relative;
-  z-index: -1;
   color: white;
   line-height: 40px;
   font-size: 15px;

@@ -55,7 +55,7 @@ function InitFilterDropdown(){
             elt.addEventListener(openingEvents[i], function(e){
                 //toggleDropdown();
                 gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
-                e.stopImmediatePropagation();
+                //e.stopImmediatePropagation();
             });
         }
         for(let y=0; y < closingEvents.length; y++){
@@ -64,7 +64,7 @@ function InitFilterDropdown(){
                 if(closingEvents[y] == "click"){
                     SetMediaFilter(e.target.id)
                 }
-                e.stopImmediatePropagation();
+                //e.stopImmediatePropagation();
             })
         }
     })
