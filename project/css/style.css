@@ -772,7 +772,6 @@ header .header__keywords span:hover {
   width: 80%;
   text-align: center;
   display: none;
-  background-color: aqua;
 }
 .media-modal img, .media-modal video {
   position: fixed;
@@ -835,17 +834,26 @@ header .header__keywords span:hover {
 
 .contact-modal {
   position: fixed;
+  display: none;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  width: 600px;
+  width: 500px;
   height: clamp(400px, 80%, 900px);
+  font-size: 3rem;
+  font-weight: 100;
+  padding: 30px;
   background-color: #D3573C;
 }
 .contact-modal #close-bt {
+  position: absolute;
   right: 5px;
   top: 5px;
+}
+.contact-modal h2 {
+  font-weight: 100;
+  width: 80%;
 }
 
 .profil__pic {

@@ -1,0 +1,7 @@
+@mixin modal-buttons($color){
+    border: none;
+    z-index: 101;
+    cursor: pointer;
+    color: $color;
+    background-color: unset;
+}
