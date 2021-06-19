@@ -166,19 +166,16 @@ header .header__keywords span:hover {
 }
 
 .profil__contact-bt {
-  position: absolute;
   transition: all 0.1s ease-in;
-  left: 380px;
-  bottom: 50%;
-  margin-bottom: 35px;
   padding: 0 10px 0 10px;
   height: 50px;
-  color: white;
-  font-weight: bold;
-  background-color: #901C1C;
-  border: none;
   border-radius: 8px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  margin-left: 25px;
 }
 .profil__contact-bt:hover {
   color: black;
@@ -195,6 +192,9 @@ header .header__keywords span:hover {
   max-width: 1600px;
   padding: 40px;
   background-color: #FAFAFA;
+}
+.profil-overview__title-wrapper {
+  display: flex;
 }
 .profil-overview .profil__name {
   position: relative;
@@ -390,7 +390,7 @@ header .header__keywords span:hover {
   cursor: pointer;
   transition: 0.4s;
 }
-.dropdown-wrapper button:focus {
+.dropdown-wrapper button:focus, .dropdown-wrapper button:hover {
   background-color: #D3573C;
 }
 .dropdown-wrapper p {
@@ -772,6 +772,7 @@ header .header__keywords span:hover {
   width: 80%;
   text-align: center;
   display: none;
+  top: 50%;
 }
 .media-modal img, .media-modal video {
   object-fit: contain;
@@ -787,7 +788,6 @@ header .header__keywords span:hover {
   flex-direction: column;
   justify-content: center;
   position: fixed;
-  background: yellow;
   padding: 2px;
   height: 100%;
   left: 50%;
@@ -801,9 +801,11 @@ header .header__keywords span:hover {
   z-index: 101;
   bottom: 2%;
   left: 2%;
-  font-size: 2rem;
+  font-size: clamp(20px,5vw, 2rem);
   width: inherit;
   font-weight: 500;
+  text-align: initial;
+  overflow-wrap: anywhere;
   color: #901C1C;
 }
 .media-modal button {
@@ -846,8 +848,10 @@ header .header__keywords span:hover {
 .contact-modal {
   position: fixed;
   display: none;
+  flex-direction: column;
   top: 50%;
   left: 50%;
+  border-radius: 4px;
   transform: translate(-50%, -50%);
   z-index: 100;
   width: 500px;
@@ -857,10 +861,54 @@ header .header__keywords span:hover {
   padding: 30px;
   background-color: #D3573C;
 }
+.contact-modal .label {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.contact-modal__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  height: 100%;
+}
+.contact-modal__submit-bt {
+  transition: all 0.1s ease-in;
+  padding: 0 10px 0 10px;
+  height: 50px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  flex-shrink: 0;
+  margin-top: 20px;
+  width: 25%;
+  justify-self: flex-end;
+}
+.contact-modal__submit-bt:hover {
+  color: black;
+  background-color: #D3573C;
+}
+.contact-modal input, .contact-modal textarea {
+  border: none;
+  border-radius: 4px;
+  min-height: 40px;
+  margin-bottom: 10px;
+  padding: 5px 10px 5px 10px;
+  font-size: 30%;
+}
+.contact-modal textarea {
+  flex: 1 1 auto;
+}
 .contact-modal #close-bt {
   position: absolute;
   right: 5px;
   top: 5px;
+  margin: 30px;
+  border: none;
+  color: white;
+  background: unset;
 }
 .contact-modal h2 {
   font-weight: 100;
@@ -929,19 +977,16 @@ header .header__keywords span:hover {
 }
 
 .profil__contact-bt {
-  position: absolute;
   transition: all 0.1s ease-in;
-  left: 380px;
-  bottom: 50%;
-  margin-bottom: 35px;
   padding: 0 10px 0 10px;
   height: 50px;
-  color: white;
-  font-weight: bold;
-  background-color: #901C1C;
-  border: none;
   border-radius: 8px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  margin-left: 25px;
 }
 .profil__contact-bt:hover {
   color: black;
@@ -958,6 +1003,9 @@ header .header__keywords span:hover {
   max-width: 1600px;
   padding: 40px;
   background-color: #FAFAFA;
+}
+.profil-overview__title-wrapper {
+  display: flex;
 }
 .profil-overview .profil__name {
   position: relative;
@@ -1757,19 +1805,16 @@ header .header__keywords span:hover {
 }
 
 .profil__contact-bt {
-  position: absolute;
   transition: all 0.1s ease-in;
-  left: 380px;
-  bottom: 50%;
-  margin-bottom: 35px;
   padding: 0 10px 0 10px;
   height: 50px;
-  color: white;
-  font-weight: bold;
-  background-color: #901C1C;
-  border: none;
   border-radius: 8px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  margin-left: 25px;
 }
 .profil__contact-bt:hover {
   color: black;
@@ -1786,6 +1831,9 @@ header .header__keywords span:hover {
   max-width: 1600px;
   padding: 40px;
   background-color: #FAFAFA;
+}
+.profil-overview__title-wrapper {
+  display: flex;
 }
 .profil-overview .profil__name {
   position: relative;

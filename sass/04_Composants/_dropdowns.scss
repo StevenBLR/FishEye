@@ -61,7 +61,7 @@ $itemHeight : 40px;
         cursor: pointer;
         transition: .4s;
         
-        &:focus{
+        &:focus, &:hover{
             background-color: $secondaryColor;
         }
     }

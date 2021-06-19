@@ -14,11 +14,11 @@
       <a href="index.html"><img src="../imgs/logo.png" alt="Fisheye Home page" class="header__logo"></a>
     </header>
     <div class="profil-overview">
-      <h2 class="profil__name">Mimi Keel</h2>
-      <span>
-        <h3 class="profil__location">London, UK</h3>
+      <span class="profil-overview__title-wrapper">
+        <h2 class="profil__name">Mimi Keel</h2>
         <button type="button" class="profil__contact-bt">Contactez-moi</button>
       </span>
+        <h3 class="profil__location">London, UK</h3>
       <p class="profil__bio">Voir le beau dans le quotidien</p>
       <ul class="profil__tags">
         <li><a href="#"><span>#portrait</span></a></li>
@@ -98,7 +98,7 @@
         </button>
         <div class="media-modal__wrapper">
           <img src="../imgs/low/Ellie-Rose/sport_water_tunnel.jpg" alt="" class="media-modal__img" />
-          <video src="" alt="" class="media-modal__video" controls></video>
+          <video src="" alt="" class="media-modal__video" controls autoplay></video>
           <span class="media-modal__name">Name</span>
         </div>
     </div>
@@ -109,11 +109,15 @@
         <i class="fas fa-times fa-3x"></i>
       </button>
       <form action="submit" class="contact-modal__form">
+        <p class="contact-modal__first-name label">Prénom</p>
         <input class="contact-modal__first-name" type="text">
+        <p class="contact-modal__last-name label">Nom</p>
         <input class="contact-modal__last-name" type="text">
+        <p class="contact-modal__email label">Email</p>
         <input class="contact-modal__email" type="text">
-        <input class="contact-modal__message" type="text">
-        <button></button>
+        <p class="contact-modal__message label">Votre message</p>
+        <textarea class="contact-modal__message" type="text"></textarea>
+        <button class="contact-modal__submit-bt">Envoyer</button>
       </form>
     </div>
 

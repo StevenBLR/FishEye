@@ -21,6 +21,10 @@ const modalRightBtElt = document.querySelector(".media-modal #right-bt");
 const modalCloseBtElt = document.querySelector(".media-modal #close-bt");
 const modalTitleElt = document.querySelector(".media-modal__name");
 
+// Contact modal Elements
+const contactModalElt = document.querySelector(".contact-modal");
+const contactCloseBtElt = document.querySelector(".contact-modal #close-bt");
+
 // Info label Elements
 const txtNbLikesElt = document.querySelector(".info-label__nb-likes");
 const txtTjmElt = document.querySelector(".info-label__tjm");
@@ -45,6 +49,7 @@ function Init(){
     GetUrlParams();
     InitFilterDropdown();
     InitMediaModal();
+    InitContactBt();
 }
 
 function InitFilterDropdown(){
@@ -74,7 +79,12 @@ function InitFilterDropdown(){
 function InitMediaModal(){
     modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
     modalRightBtElt.addEventListener("click", function(e){NextMedia()});
-    modalCloseBtElt.addEventListener("click", function(e){ShowModal(false)});
+    modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
+}
+
+function InitContactBt(){
+    profilContactBtElt.addEventListener("click",function(e){ShowContactModal(true)});
+    contactCloseBtElt.addEventListener("click", function(e){ShowContactModal(false)});
 }
 
 // Display previous media
@@ -180,6 +190,7 @@ function DisplayMedia(mid = ""){
     medias.forEach(m => {
         if(m.id == mid){
             mediaFound = true;
+            title = "";
             currentMedia = m;
             // Check if media is an image or a video
             if(m.video != undefined){
@@ -200,6 +211,7 @@ function DisplayMedia(mid = ""){
                 modalImgElt.style.display = "none";
                 modalVideoElt.style.display = "block";
                 modalVideoElt.src = GetMediaPath(mid);
+                title = GetMediaPath(mid);
             }
             else{
                 modalVideoElt.style.display = "none";
@@ -207,7 +219,7 @@ function DisplayMedia(mid = ""){
                 modalImgElt.src = GetMediaPath(mid);
             }
             modalTitleElt.textContent = GetMediaPath(mid, "low");
-            ShowModal(true);
+            ShowMediaModal(true);
             console.log(`Media found : ${m.id}`);
         }
     })
@@ -331,9 +343,14 @@ function CleanTitle(title){
     return newTitle;
 }
 
-function ShowModal(on){
+function ShowMediaModal(on){
   on ? modalElt.style.display = "block" : modalElt.style.display = "none"; 
   on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
+}
+
+function ShowContactModal(on){
+    on ? contactModalElt.style.display = "flex" : contactModalElt.style.display = "none"
+    on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
 }
 
 Init();
