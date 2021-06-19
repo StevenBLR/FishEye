@@ -75,11 +75,10 @@ $modal-items-margin: 50px;
     }
 
     #close-bt{
+        cursor: pointer;
         right: 5px;
         top: 5px;
     }
- top: 50%;
-    // }
     .fa-times{
         right: -$modal-items-margin;
         top: 0;

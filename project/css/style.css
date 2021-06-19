@@ -772,7 +772,6 @@ header .header__keywords span:hover {
   width: 80%;
   text-align: center;
   display: none;
-  top: 50%;
 }
 .media-modal img, .media-modal video {
   object-fit: contain;
@@ -824,6 +823,7 @@ header .header__keywords span:hover {
   top: 50%;
 }
 .media-modal #close-bt {
+  cursor: pointer;
   right: 5px;
   top: 5px;
 }
@@ -903,6 +903,7 @@ header .header__keywords span:hover {
 }
 .contact-modal #close-bt {
   position: absolute;
+  cursor: pointer;
   right: 5px;
   top: 5px;
   margin: 30px;
