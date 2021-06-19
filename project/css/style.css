@@ -182,6 +182,19 @@ header .header__keywords span:hover {
   background-color: #D3573C;
 }
 
+.floating {
+  position: fixed;
+  display: none;
+  margin: unset;
+  z-index: 1;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
 .profil-overview {
   display: flex;
   position: relative;
@@ -245,7 +258,19 @@ header .header__keywords span:hover {
     grid-template-areas: ". .";
   }
 }
-@media (max-width: 1050px) {
+@media (max-width: 1030px) {
+  .profil-overview .profil__contact-bt {
+    display: none;
+  }
+  .profil-overview .floating {
+    display: block;
+  }
+
+  .page-wrapper .info-label {
+    display: none;
+  }
+}
+@media (min-width: 1050px) {
   .header__keywords-wrapper {
     position: absolute;
     bottom: -30px;
@@ -992,6 +1017,19 @@ header .header__keywords span:hover {
 .profil__contact-bt:hover {
   color: black;
   background-color: #D3573C;
+}
+
+.floating {
+  position: fixed;
+  display: none;
+  margin: unset;
+  z-index: 1;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  font-size: 2rem;
+  font-weight: 100;
 }
 
 .profil-overview {
@@ -1820,6 +1858,19 @@ header .header__keywords span:hover {
 .profil__contact-bt:hover {
   color: black;
   background-color: #D3573C;
+}
+
+.floating {
+  position: fixed;
+  display: none;
+  margin: unset;
+  z-index: 1;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  font-size: 2rem;
+  font-weight: 100;
 }
 
 .profil-overview {

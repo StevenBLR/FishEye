@@ -51,6 +51,18 @@ $page-max-width : 1750px;
     @include profil-bt;
     margin-left: 25px;
 }
+.floating{
+    position: fixed;
+    display: none;
+    margin: unset;
+    z-index: 1;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    font-size: 2rem;
+    font-weight: 100;
+}
 
 .profil-overview{
     display: flex;

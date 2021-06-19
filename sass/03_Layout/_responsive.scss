@@ -36,8 +36,23 @@ $keywordsBp: 1050px;
     }
 }
 
+// Photographer page - Overview breakpoint 1/2
+@media (max-width: 1030px){
+    .profil-overview{
+        .profil__contact-bt{
+            display: none;
+        }
+        .floating{
+            display: block;
+        }
+    }
+    .page-wrapper .info-label{
+        display: none;
+    }
+}
+
 // Move keyword section
-@media (max-width: 1050px){
+@media (min-width: 1050px){
     .header__keywords-wrapper{
         position: absolute;
         bottom: -30px;
