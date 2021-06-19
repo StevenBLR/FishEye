@@ -661,11 +661,13 @@ function GetAllTags(){
 function GetMediaPath(mediaId, res = "high"){
   var mediaPath = "";
   var firstName = ""; 
+  var isVideo;
   if (medias.find(m => m.id == mediaId)){
     var m = medias.find(m => m.id == mediaId);
+    if(m.image == undefined) isVideo = true;
     firstName = photographers.find(p => p.id == m.photographerId).name.split(" ")[0];
-    if(res == "high") mediaPath = `../imgs/high/${firstName}/${m.image}`;
-    else if (res == "low") mediaPath = `../imgs/low/${firstName}/${m.image}`;
+    if(res == "high") mediaPath = `../imgs/high/${firstName}/${isVideo ? m.video : m.image}`;
+    else if (res == "low") mediaPath = `../imgs/low/${firstName}/${isVideo ? m.video : m.image}`;
     else console.error(`Error when trying to get image path on ${m}`);
   }
   return mediaPath;

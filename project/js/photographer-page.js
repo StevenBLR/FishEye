@@ -13,6 +13,7 @@ const feedRootElt = document.querySelector(".media-feed__medias-grid");
 
 // Media modal Elements
 const modalImgElt = document.querySelector(".media-modal img");
+const modalVideoElt = document.querySelector(".media-modal video")
 const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 const modalLeftBtElt = document.querySelector(".media-modal #left-bt");
@@ -195,7 +196,16 @@ function DisplayMedia(mid = ""){
               imgElt.src = GetMediaPath(mid, "low");
               imgElt.alt = m.image;
             }
-            modalImgElt.src = GetMediaPath(mid);
+            if (isVideo){
+                modalImgElt.style.display = "none";
+                modalVideoElt.style.display = "block";
+                modalVideoElt.src = GetMediaPath(mid);
+            }
+            else{
+                modalVideoElt.style.display = "none";
+                modalImgElt.style.display = "block";
+                modalImgElt.src = GetMediaPath(mid);
+            }
             modalTitleElt.textContent = GetMediaPath(mid, "low");
             ShowModal(true);
             console.log(`Media found : ${m.id}`);

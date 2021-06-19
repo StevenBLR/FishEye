@@ -774,13 +774,24 @@ header .header__keywords span:hover {
   display: none;
 }
 .media-modal img, .media-modal video {
-  position: fixed;
   object-fit: contain;
   border-radius: 10px;
-  max-height: 100%;
+  max-height: calc(100% - 40px);
   max-width: 100%;
-  top: 50%;
+}
+.media-modal video {
+  display: none;
+}
+.media-modal__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  background: yellow;
+  padding: 2px;
+  height: 100%;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
 }
 .media-modal .media-modal__bt {
@@ -788,10 +799,10 @@ header .header__keywords span:hover {
 }
 .media-modal .media-modal__name {
   z-index: 101;
-  position: absolute;
   bottom: 2%;
   left: 2%;
-  font-size: clamp(20px, 4vw, 45px);
+  font-size: 2rem;
+  width: inherit;
   font-weight: 500;
   color: #901C1C;
 }

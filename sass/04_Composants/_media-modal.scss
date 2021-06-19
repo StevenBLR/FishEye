@@ -19,13 +19,26 @@ $modal-items-margin: 50px;
 
     img, video
     {
-        position: fixed;
         object-fit: contain;
         border-radius: 10px;
-        max-height: 100%;
+        max-height: calc(100% - 40px);
         max-width: 100%;
-        top: 50%;
+    }
+
+    video{
+        display: none;
+    }
+
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        background: yellow;
+        padding: 2px;
+        height: 100%;
         left: 50%;
+        top: 50%;
         transform: translate(-50%, -50%);
     }
 
@@ -35,10 +48,10 @@ $modal-items-margin: 50px;
 
     .media-modal__name{
         z-index: 101;
-        position: absolute;
         bottom: 2%;
         left: 2%;
-        font-size: clamp(20px, 4vw, 45px); // min / current / max
+        font-size: 2rem;
+        width: inherit;
         font-weight: 500;
         color: $primaryColor;
     }
