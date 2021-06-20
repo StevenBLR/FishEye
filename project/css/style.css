@@ -370,6 +370,11 @@ header .header__keywords span:hover {
     width: clamp(0px, 27vw, 150px);
     right: 0;
   }
+
+  .page-wrapper .contact-modal {
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+  }
 }
 @media (max-width: 750px) {
   .profil__pic {

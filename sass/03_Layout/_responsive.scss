@@ -165,6 +165,10 @@ $keywordsBp: 1050px;
             }
         }
     }
+    .page-wrapper .contact-modal{
+        width: calc(100% - 60px);
+        height: calc(100% - 60px);
+    }
 }
 // Mobile mode
 @media (max-width: $mobileBp){
