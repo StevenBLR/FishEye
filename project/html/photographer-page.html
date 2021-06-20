@@ -16,8 +16,8 @@
     <div class="profil-overview">
       <span class="profil-overview__title-wrapper">
         <h1 class="profil__name">Mimi Keel</h1>
-        <button type="button" class="profil__contact-bt">Contactez-moi</button>
-        <button type="button" class="profil__contact-bt floating">Contactez-moi</button>
+        <button type="button" class="profil__contact-bt" alt="Contact Me">Contactez-moi</button>
+        <button type="button" class="profil__contact-bt floating" alt="Contact Me">Contactez-moi</button>
       </span>
         <h2 class="profil__location">London, UK</h2>
       <p class="profil__bio">Voir le beau dans le quotidien</p>
@@ -34,9 +34,9 @@
       <nav class="media-feed__filter-area">
         <div class="dropdown-wrapper">
           <span>Trier par</span>
-          <ul class="dropdown" id="media-filters">
+          <ul class="dropdown" id="media-filters" role="button" aria-haspopup="listbox" aria-expanded="true">
             <li>
-              <button class="" id="Popularity">
+              <button class="" id="Popularity" role="listbox" aria-activedescendant="true" aria-selected="true">
                 <p>Popularité</p>
                 <i class="fas fa-chevron-up"></i>
               </button>

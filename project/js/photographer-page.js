@@ -256,6 +256,7 @@ function PopulateOverview(profilData){
     locationElt.textContent = profilData.city;
     bioElt.textContent = profilData.tagline;
     profilPicElt.setAttribute("src", `../imgs/low/Photographers ID Photos/${profilData.portrait}`);
+    profilPicElt.setAttribute("alt", profilData.name);
 }
 
 function PopulateMediaFeed(profilData, filter = ""){
