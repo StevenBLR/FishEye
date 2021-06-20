@@ -24,6 +24,7 @@ const modalTitleElt = document.querySelector(".media-modal__name");
 // Contact modal Elements
 const contactModalElt = document.querySelector(".contact-modal");
 const contactCloseBtElt = document.querySelector(".contact-modal #close-bt");
+const contactModalTitleElt = document.querySelector(".contact-modal__title");
 
 // Info label Elements
 const txtNbLikesElt = document.querySelector(".info-label__nb-likes");
@@ -49,7 +50,7 @@ function Init(){
     GetUrlParams();
     InitFilterDropdown();
     InitMediaModal();
-    InitContactBt();
+    InitContactModal();
 }
 
 function InitFilterDropdown(){
@@ -80,9 +81,10 @@ function InitMediaModal(){
     modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
 }
 
-function InitContactBt(){
+function InitContactModal(){
     profilContactBtElt.forEach(elt => elt.addEventListener("click",function(e){ShowContactModal(true)}));
     contactCloseBtElt.addEventListener("click", function(e){ShowContactModal(false)});
+    contactModalTitleElt.textContent = `Contactez-moi ${currentProfil.name}`;
 }
 
 // Display previous media
