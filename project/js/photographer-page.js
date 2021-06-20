@@ -82,7 +82,7 @@ function InitMediaModal(){
 
 function InitContactBt(){
     profilContactBtElt.forEach(elt => elt.addEventListener("click",function(e){ShowContactModal(true)}));
-    contactCloseBtElt.addEventListener("click", function(e){e.preventDefault; ShowContactModal(false)});
+    contactCloseBtElt.addEventListener("click", function(e){ShowContactModal(false)});
 }
 
 // Display previous media
