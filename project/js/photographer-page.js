@@ -18,12 +18,12 @@ const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 const modalLeftBtElt = document.querySelector(".media-modal #left-bt");
 const modalRightBtElt = document.querySelector(".media-modal #right-bt");
-const modalCloseBtElt = document.querySelector(".media-modal #close-bt");
+const modalCloseBtElt = document.querySelector("#media-md-close-bt");
 const modalTitleElt = document.querySelector(".media-modal__name");
 
 // Contact modal Elements
 const contactModalElt = document.querySelector(".contact-modal");
-const contactCloseBtElt = document.querySelector(".contact-modal #close-bt");
+const contactCloseBtElt = document.querySelector("#contact-close-bt");
 const contactModalTitleElt = document.querySelector(".contact-modal__title");
 
 // Info label Elements
@@ -45,6 +45,7 @@ const ddAnim = gsap.timeline({reversed: true, paused:true})
 // gsap.timeline()
 // .to(".dropdown", {height: "auto", duration: 1.5});
 
+//#region Init
 function Init(){
     currentFilter = "Popularity";
     GetUrlParams();
@@ -86,6 +87,7 @@ function InitContactModal(){
     contactCloseBtElt.addEventListener("click", function(e){ShowContactModal(false)});
     contactModalTitleElt.textContent = `Contactez-moi ${currentProfil.name}`;
 }
+//#endregion
 
 // Display previous media
 function PreviousMedia(){
@@ -228,11 +230,14 @@ function DisplayMedia(mid = ""){
     }
 }
 
+////#region 
+
 function PopulateTag(tagInfo, parent){
     const liElt = document.createElement('li');
     const tagLink = document.createElement('a');
     tagLink.href = `index.html?tag=${tagInfo}`;
     tagLink.setAttribute("class","tag");
+    tagLink.setAttribute("alt","tag");
     tagLink.setAttribute("data-id",`${tagInfo}`);
     const spanElt = document.createElement("span");
     spanElt.textContent = `#${tagInfo}`;
@@ -268,6 +273,7 @@ function PopulateMediaFeed(profilData, filter = ""){
         var aElt = document.createElement("a");
         aElt.classList.add("media-card__link");
         aElt.href = `?pid=${pm.photographerId}&mid=${pm.id}`;
+        //aElt.setAttribute("alt",profilData.name)
 
         function clickEvent(e){
           e.preventDefault();

@@ -833,7 +833,7 @@ header .header__keywords span:hover {
   color: #901C1C;
   line-height: 30px;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 700;
   max-width: 260px;
   overflow: hidden;
   white-space: nowrap;
@@ -920,7 +920,7 @@ header .header__keywords span:hover {
   right: 5px;
   top: 50%;
 }
-.media-modal #close-bt {
+.media-modal #media-md-close-bt {
   cursor: pointer;
   right: 5px;
   top: 5px;
@@ -1000,7 +1000,7 @@ header .header__keywords span:hover {
 .contact-modal textarea {
   flex: 1 1 auto;
 }
-.contact-modal #close-bt {
+.contact-modal #contact-close-bt {
   position: absolute;
   cursor: pointer;
   right: 5px;
