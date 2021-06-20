@@ -4,7 +4,7 @@ const locationElt = document.querySelector(".profil__location");
 const bioElt = document.querySelector(".profil__bio");
 const tagsRootElt = document.querySelector(".profil__tags");
 const profilPicElt = document.querySelector(".profil__pic");
-const profilContactBtElt = document.querySelector(".profil__contact-bt");
+const profilContactBtElt = document.querySelectorAll(".profil__contact-bt");
 
 // Media feed Elements
 const filterDropdown = document.querySelector(".dropdown");
@@ -81,7 +81,7 @@ function InitMediaModal(){
 }
 
 function InitContactBt(){
-    profilContactBtElt.addEventListener("click",function(e){ShowContactModal(true)});
+    profilContactBtElt.forEach(elt => elt.addEventListener("click",function(e){ShowContactModal(true)}));
     contactCloseBtElt.addEventListener("click", function(e){ShowContactModal(false)});
 }
 

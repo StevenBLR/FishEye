@@ -52,15 +52,18 @@ $page-max-width : 1750px;
     margin-left: 25px;
 }
 .floating{
+    font-family: "DM SANS";
     position: fixed;
     display: none;
     margin: unset;
     z-index: 1;
-    top: 95%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    font-size: 2rem;
+    padding: 10px;
+    height: fit-content;
+    width: clamp(0px,50vw,350px);
+    font-size: clamp(0px,4vw,30px);
     font-weight: 100;
 }
 
@@ -85,6 +88,8 @@ $page-max-width : 1750px;
         margin: unset;
         font-size: 60px;
         text-align: unset;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .profil__location{
         font-size: 22px;

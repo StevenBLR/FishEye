@@ -36,7 +36,7 @@ $keywordsBp: 1050px;
     }
 }
 
-// Photographer page - Overview breakpoint 1/2
+// Photographer page breakpoint 1/2
 @media (max-width: 1030px){
     .profil-overview{
         .profil__contact-bt{
@@ -73,21 +73,20 @@ $keywordsBp: 1050px;
         }
     }
 }
-// Mobile photographer page
+// Photographer page breakpoint 2/2
 @media (max-width: 900px){
-    
-}
-// Mobile mode
-@media (max-width: $mobileBp){
+    header{
+        margin: unset;
+    }
     .page-wrapper{
         .medias-feed{
             .feed-wrapper .media-feed__medias-grid{
                 grid-template-areas:
                 ".";
+                margin: unset
             }
         }
     }
-
     .page-wrapper .photographers{
         .photographers__list{
             margin: 85px auto 0 auto;
@@ -97,6 +96,51 @@ $keywordsBp: 1050px;
             }
         }
     }
+    .media-feed__medias-grid{
+        .media-card{
+            img,video{
+                width: 100%;
+                height: 200px;
+            }
+        }
+    }
+
+    .page-wrapper{
+        .medias-feed{
+            .media-feed__filter-area{
+                display: none;
+            }
+        }
+    }
+
+    .page-wrapper{
+        .profil-overview{
+            background-color: unset;
+            margin: unset;
+            padding: unset;
+
+            .profil__name{
+                font-size: 10vw;
+            }
+            .profil__location{
+                font-size: 4vw;
+                line-height: normal;
+            }
+            .profil__bio{
+                font-size: 4vw;
+                line-height: normal;
+            }
+            
+            .profil__pic{
+                height: clamp(0px, 30vw, 150px);
+                width: clamp(0px, 30vw, 150px);
+            }
+        }
+    }
+}
+// Mobile mode
+@media (max-width: $mobileBp){
+    
     .profil__pic{
         height: 25vh;
         width: 25vh;
@@ -104,7 +148,8 @@ $keywordsBp: 1050px;
     
     header .header__keywords{
         position: absolute;
-        top: 0;
+        top: 126px;
+        //top: 0;
         width: 110%;
         margin: auto;
         transform:translate(-50%,-50%);

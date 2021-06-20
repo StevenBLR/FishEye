@@ -183,15 +183,18 @@ header .header__keywords span:hover {
 }
 
 .floating {
+  font-family: "DM SANS";
   position: fixed;
   display: none;
   margin: unset;
   z-index: 1;
-  top: 95%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  font-size: 2rem;
+  padding: 10px;
+  height: fit-content;
+  width: clamp(0px,50vw,350px);
+  font-size: clamp(0px,4vw,30px);
   font-weight: 100;
 }
 
@@ -214,6 +217,8 @@ header .header__keywords span:hover {
   margin: unset;
   font-size: 60px;
   text-align: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .profil-overview .profil__location {
   font-size: 22px;
@@ -291,9 +296,14 @@ header .header__keywords span:hover {
     margin: 50px auto 0 auto;
   }
 }
-@media (max-width: 750px) {
+@media (max-width: 900px) {
+  header {
+    margin: unset;
+  }
+
   .page-wrapper .medias-feed .feed-wrapper .media-feed__medias-grid {
     grid-template-areas: ".";
+    margin: unset;
   }
 
   .page-wrapper .photographers .photographers__list {
@@ -304,6 +314,37 @@ header .header__keywords span:hover {
     height: auto;
   }
 
+  .media-feed__medias-grid .media-card img, .media-feed__medias-grid .media-card video {
+    width: 100%;
+    height: 200px;
+  }
+
+  .page-wrapper .medias-feed .media-feed__filter-area {
+    display: none;
+  }
+
+  .page-wrapper .profil-overview {
+    background-color: unset;
+    margin: unset;
+    padding: unset;
+  }
+  .page-wrapper .profil-overview .profil__name {
+    font-size: 10vw;
+  }
+  .page-wrapper .profil-overview .profil__location {
+    font-size: 4vw;
+    line-height: normal;
+  }
+  .page-wrapper .profil-overview .profil__bio {
+    font-size: 4vw;
+    line-height: normal;
+  }
+  .page-wrapper .profil-overview .profil__pic {
+    height: clamp(0px, 30vw, 150px);
+    width: clamp(0px, 30vw, 150px);
+  }
+}
+@media (max-width: 750px) {
   .profil__pic {
     height: 25vh;
     width: 25vh;
@@ -311,7 +352,7 @@ header .header__keywords span:hover {
 
   header .header__keywords {
     position: absolute;
-    top: 0;
+    top: 126px;
     width: 110%;
     margin: auto;
     transform: translate(-50%, -50%);
@@ -1020,15 +1061,18 @@ header .header__keywords span:hover {
 }
 
 .floating {
+  font-family: "DM SANS";
   position: fixed;
   display: none;
   margin: unset;
   z-index: 1;
-  top: 95%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  font-size: 2rem;
+  padding: 10px;
+  height: fit-content;
+  width: clamp(0px,50vw,350px);
+  font-size: clamp(0px,4vw,30px);
   font-weight: 100;
 }
 
@@ -1051,6 +1095,8 @@ header .header__keywords span:hover {
   margin: unset;
   font-size: 60px;
   text-align: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .profil-overview .profil__location {
   font-size: 22px;
@@ -1861,15 +1907,18 @@ header .header__keywords span:hover {
 }
 
 .floating {
+  font-family: "DM SANS";
   position: fixed;
   display: none;
   margin: unset;
   z-index: 1;
-  top: 95%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  font-size: 2rem;
+  padding: 10px;
+  height: fit-content;
+  width: clamp(0px,50vw,350px);
+  font-size: clamp(0px,4vw,30px);
   font-weight: 100;
 }
 
@@ -1892,6 +1941,8 @@ header .header__keywords span:hover {
   margin: unset;
   font-size: 60px;
   text-align: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .profil-overview .profil__location {
   font-size: 22px;
