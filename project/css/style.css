@@ -166,23 +166,36 @@ header .header__keywords span:hover {
 }
 
 .profil__contact-bt {
-  position: absolute;
   transition: all 0.1s ease-in;
-  left: 380px;
-  bottom: 50%;
-  margin-bottom: 35px;
   padding: 0 10px 0 10px;
   height: 50px;
-  color: white;
-  font-weight: bold;
-  background-color: #901C1C;
-  border: none;
   border-radius: 8px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  margin-left: 25px;
 }
 .profil__contact-bt:hover {
   color: black;
   background-color: #D3573C;
+}
+
+.floating {
+  font-family: "DM SANS";
+  position: fixed;
+  display: none;
+  margin: unset;
+  z-index: 1;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  height: fit-content;
+  width: clamp(0px,50vw,350px);
+  font-size: clamp(0px,4vw,30px);
+  font-weight: 100;
 }
 
 .profil-overview {
@@ -196,11 +209,16 @@ header .header__keywords span:hover {
   padding: 40px;
   background-color: #FAFAFA;
 }
+.profil-overview__title-wrapper {
+  display: flex;
+}
 .profil-overview .profil__name {
   position: relative;
   margin: unset;
   font-size: 60px;
   text-align: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .profil-overview .profil__location {
   font-size: 22px;
@@ -245,7 +263,19 @@ header .header__keywords span:hover {
     grid-template-areas: ". .";
   }
 }
-@media (max-width: 1050px) {
+@media (max-width: 1030px) {
+  .profil-overview .profil__contact-bt {
+    display: none;
+  }
+  .profil-overview .floating {
+    display: block;
+  }
+
+  .page-wrapper .info-label {
+    display: none;
+  }
+}
+@media (min-width: 1050px) {
   .header__keywords-wrapper {
     position: absolute;
     bottom: -30px;
@@ -266,9 +296,15 @@ header .header__keywords span:hover {
     margin: 50px auto 0 auto;
   }
 }
-@media (max-width: 750px) {
+@media (max-width: 900px) {
+  header {
+    margin: unset;
+  }
+
   .page-wrapper .medias-feed .feed-wrapper .media-feed__medias-grid {
     grid-template-areas: ".";
+    margin-top: 30px;
+    gap: unset;
   }
 
   .page-wrapper .photographers .photographers__list {
@@ -279,6 +315,68 @@ header .header__keywords span:hover {
     height: auto;
   }
 
+  .media-feed__medias-grid .media-card img, .media-feed__medias-grid .media-card video {
+    width: 100%;
+    height: 200px;
+  }
+  .media-feed__medias-grid .media-card .media-card__infos {
+    width: 100%;
+    max-width: unset;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .media-feed__medias-grid .media-card .media-card__title {
+    font-size: clamp(0px,3.5vw,20px);
+    margin: unset;
+    max-width: unset;
+  }
+  .media-feed__medias-grid .media-card .media-card__likes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: unset;
+    right: unset;
+  }
+  .media-feed__medias-grid .media-card .media-card__likes .media-card__nb-likes {
+    font-size: clamp(0px,3.5vw,24px);
+  }
+  .media-feed__medias-grid .media-card .media-card__likes i {
+    font-size: clamp(0px,3.5vw,20px);
+  }
+
+  .page-wrapper .medias-feed .media-feed__filter-area {
+    display: none;
+  }
+
+  .page-wrapper .profil-overview {
+    background-color: unset;
+    margin: unset;
+    padding: unset;
+  }
+  .page-wrapper .profil-overview .profil__name {
+    font-size: clamp(0px,8vw,55px);
+  }
+  .page-wrapper .profil-overview .profil__location {
+    font-size: clamp(0px,4vw,22px);
+    line-height: normal;
+  }
+  .page-wrapper .profil-overview .profil__bio {
+    font-size: clamp(0px,3.5vw,13px);
+    line-height: normal;
+  }
+  .page-wrapper .profil-overview .profil__pic {
+    height: clamp(0px, 27vw, 150px);
+    width: clamp(0px, 27vw, 150px);
+    right: 0;
+  }
+
+  .page-wrapper .contact-modal {
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+  }
+}
+@media (max-width: 750px) {
   .profil__pic {
     height: 25vh;
     width: 25vh;
@@ -286,7 +384,7 @@ header .header__keywords span:hover {
 
   header .header__keywords {
     position: absolute;
-    top: 0;
+    top: 126px;
     width: 110%;
     margin: auto;
     transform: translate(-50%, -50%);
@@ -390,12 +488,12 @@ header .header__keywords span:hover {
   cursor: pointer;
   transition: 0.4s;
 }
-.dropdown-wrapper button:focus {
+.dropdown-wrapper button:focus, .dropdown-wrapper button:hover {
   background-color: #D3573C;
 }
 .dropdown-wrapper p {
+  pointer-events: none;
   position: relative;
-  z-index: -1;
   color: white;
   line-height: 40px;
   font-size: 15px;
@@ -735,7 +833,7 @@ header .header__keywords span:hover {
   color: #901C1C;
   line-height: 30px;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 700;
   max-width: 260px;
   overflow: hidden;
   white-space: nowrap;
@@ -774,13 +872,23 @@ header .header__keywords span:hover {
   display: none;
 }
 .media-modal img, .media-modal video {
-  position: fixed;
   object-fit: contain;
   border-radius: 10px;
-  max-height: 100%;
+  max-height: calc(100% - 40px);
   max-width: 100%;
-  top: 50%;
+}
+.media-modal video {
+  display: none;
+}
+.media-modal__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  padding: 2px;
+  height: 100%;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
 }
 .media-modal .media-modal__bt {
@@ -788,11 +896,13 @@ header .header__keywords span:hover {
 }
 .media-modal .media-modal__name {
   z-index: 101;
-  position: absolute;
   bottom: 2%;
   left: 2%;
-  font-size: clamp(20px, 4vw, 45px);
+  font-size: clamp(20px,5vw, 2rem);
+  width: inherit;
   font-weight: 500;
+  text-align: initial;
+  overflow-wrap: anywhere;
   color: #901C1C;
 }
 .media-modal button {
@@ -810,7 +920,8 @@ header .header__keywords span:hover {
   right: 5px;
   top: 50%;
 }
-.media-modal #close-bt {
+.media-modal #media-md-close-bt {
+  cursor: pointer;
   right: 5px;
   top: 5px;
 }
@@ -835,8 +946,10 @@ header .header__keywords span:hover {
 .contact-modal {
   position: fixed;
   display: none;
+  flex-direction: column;
   top: 50%;
   left: 50%;
+  border-radius: 4px;
   transform: translate(-50%, -50%);
   z-index: 100;
   width: 500px;
@@ -844,12 +957,58 @@ header .header__keywords span:hover {
   font-size: 3rem;
   font-weight: 100;
   padding: 30px;
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
   background-color: #D3573C;
 }
-.contact-modal #close-bt {
+.contact-modal .label {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.contact-modal__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  height: 100%;
+}
+.contact-modal__submit-bt {
+  transition: all 0.1s ease-in;
+  padding: 0 10px 0 10px;
+  height: 50px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  flex-shrink: 0;
+  margin-top: 20px;
+  width: 25%;
+  justify-self: flex-end;
+}
+.contact-modal__submit-bt:hover {
+  color: black;
+  background-color: #D3573C;
+}
+.contact-modal input, .contact-modal textarea {
+  border: none;
+  border-radius: 4px;
+  min-height: 40px;
+  margin-bottom: 10px;
+  padding: 5px 10px 5px 10px;
+  font-size: 30%;
+}
+.contact-modal textarea {
+  flex: 1 1 auto;
+}
+.contact-modal #contact-close-bt {
   position: absolute;
+  cursor: pointer;
   right: 5px;
   top: 5px;
+  margin: 30px;
+  border: none;
+  color: white;
+  background: unset;
 }
 .contact-modal h2 {
   font-weight: 100;
@@ -918,23 +1077,36 @@ header .header__keywords span:hover {
 }
 
 .profil__contact-bt {
-  position: absolute;
   transition: all 0.1s ease-in;
-  left: 380px;
-  bottom: 50%;
-  margin-bottom: 35px;
   padding: 0 10px 0 10px;
   height: 50px;
-  color: white;
-  font-weight: bold;
-  background-color: #901C1C;
-  border: none;
   border-radius: 8px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  margin-left: 25px;
 }
 .profil__contact-bt:hover {
   color: black;
   background-color: #D3573C;
+}
+
+.floating {
+  font-family: "DM SANS";
+  position: fixed;
+  display: none;
+  margin: unset;
+  z-index: 1;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  height: fit-content;
+  width: clamp(0px,50vw,350px);
+  font-size: clamp(0px,4vw,30px);
+  font-weight: 100;
 }
 
 .profil-overview {
@@ -948,11 +1120,16 @@ header .header__keywords span:hover {
   padding: 40px;
   background-color: #FAFAFA;
 }
+.profil-overview__title-wrapper {
+  display: flex;
+}
 .profil-overview .profil__name {
   position: relative;
   margin: unset;
   font-size: 60px;
   text-align: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .profil-overview .profil__location {
   font-size: 22px;
@@ -1746,23 +1923,36 @@ header .header__keywords span:hover {
 }
 
 .profil__contact-bt {
-  position: absolute;
   transition: all 0.1s ease-in;
-  left: 380px;
-  bottom: 50%;
-  margin-bottom: 35px;
   padding: 0 10px 0 10px;
   height: 50px;
-  color: white;
-  font-weight: bold;
-  background-color: #901C1C;
-  border: none;
   border-radius: 8px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
+  color: white;
+  background-color: #901C1C;
+  margin-left: 25px;
 }
 .profil__contact-bt:hover {
   color: black;
   background-color: #D3573C;
+}
+
+.floating {
+  font-family: "DM SANS";
+  position: fixed;
+  display: none;
+  margin: unset;
+  z-index: 1;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  height: fit-content;
+  width: clamp(0px,50vw,350px);
+  font-size: clamp(0px,4vw,30px);
+  font-weight: 100;
 }
 
 .profil-overview {
@@ -1776,11 +1966,16 @@ header .header__keywords span:hover {
   padding: 40px;
   background-color: #FAFAFA;
 }
+.profil-overview__title-wrapper {
+  display: flex;
+}
 .profil-overview .profil__name {
   position: relative;
   margin: unset;
   font-size: 60px;
   text-align: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .profil-overview .profil__location {
   font-size: 22px;

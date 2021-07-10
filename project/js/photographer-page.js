@@ -4,7 +4,7 @@ const locationElt = document.querySelector(".profil__location");
 const bioElt = document.querySelector(".profil__bio");
 const tagsRootElt = document.querySelector(".profil__tags");
 const profilPicElt = document.querySelector(".profil__pic");
-const profilContactBtElt = document.querySelector(".profil__contact-bt");
+const profilContactBtElt = document.querySelectorAll(".profil__contact-bt");
 
 // Media feed Elements
 const filterDropdown = document.querySelector(".dropdown");
@@ -13,12 +13,18 @@ const feedRootElt = document.querySelector(".media-feed__medias-grid");
 
 // Media modal Elements
 const modalImgElt = document.querySelector(".media-modal img");
+const modalVideoElt = document.querySelector(".media-modal video")
 const modalElt = document.querySelector(".media-modal");
 const modalBgElt = document.querySelector(".media-modal__bg");
 const modalLeftBtElt = document.querySelector(".media-modal #left-bt");
 const modalRightBtElt = document.querySelector(".media-modal #right-bt");
-const modalCloseBtElt = document.querySelector(".media-modal #close-bt");
+const modalCloseBtElt = document.querySelector("#media-md-close-bt");
 const modalTitleElt = document.querySelector(".media-modal__name");
+
+// Contact modal Elements
+const contactModalElt = document.querySelector(".contact-modal");
+const contactCloseBtElt = document.querySelector("#contact-close-bt");
+const contactModalTitleElt = document.querySelector(".contact-modal__title");
 
 // Info label Elements
 const txtNbLikesElt = document.querySelector(".info-label__nb-likes");
@@ -39,11 +45,13 @@ const ddAnim = gsap.timeline({reversed: true, paused:true})
 // gsap.timeline()
 // .to(".dropdown", {height: "auto", duration: 1.5});
 
+//#region Init
 function Init(){
     currentFilter = "Popularity";
     GetUrlParams();
     InitFilterDropdown();
     InitMediaModal();
+    InitContactModal();
 }
 
 function InitFilterDropdown(){
@@ -55,7 +63,6 @@ function InitFilterDropdown(){
             elt.addEventListener(openingEvents[i], function(e){
                 //toggleDropdown();
                 gsap.to(".dropdown", {height: 120, duration: ddAnimSpeed, ease: "expo"});
-                e.stopImmediatePropagation();
             });
         }
         for(let y=0; y < closingEvents.length; y++){
@@ -64,7 +71,6 @@ function InitFilterDropdown(){
                 if(closingEvents[y] == "click"){
                     SetMediaFilter(e.target.id)
                 }
-                e.stopImmediatePropagation();
             })
         }
     })
@@ -73,8 +79,15 @@ function InitFilterDropdown(){
 function InitMediaModal(){
     modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
     modalRightBtElt.addEventListener("click", function(e){NextMedia()});
-    modalCloseBtElt.addEventListener("click", function(e){ShowModal(false)});
+    modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
 }
+
+function InitContactModal(){
+    profilContactBtElt.forEach(elt => elt.addEventListener("click",function(e){ShowContactModal(true)}));
+    contactCloseBtElt.addEventListener("click", function(e){ShowContactModal(false)});
+    contactModalTitleElt.textContent = `Contactez-moi ${currentProfil.name}`;
+}
+//#endregion
 
 // Display previous media
 function PreviousMedia(){
@@ -179,6 +192,7 @@ function DisplayMedia(mid = ""){
     medias.forEach(m => {
         if(m.id == mid){
             mediaFound = true;
+            title = "";
             currentMedia = m;
             // Check if media is an image or a video
             if(m.video != undefined){
@@ -195,9 +209,19 @@ function DisplayMedia(mid = ""){
               imgElt.src = GetMediaPath(mid, "low");
               imgElt.alt = m.image;
             }
-            modalImgElt.src = GetMediaPath(mid);
+            if (isVideo){
+                modalImgElt.style.display = "none";
+                modalVideoElt.style.display = "block";
+                modalVideoElt.src = GetMediaPath(mid);
+                title = GetMediaPath(mid);
+            }
+            else{
+                modalVideoElt.style.display = "none";
+                modalImgElt.style.display = "block";
+                modalImgElt.src = GetMediaPath(mid);
+            }
             modalTitleElt.textContent = GetMediaPath(mid, "low");
-            ShowModal(true);
+            ShowMediaModal(true);
             console.log(`Media found : ${m.id}`);
         }
     })
@@ -206,11 +230,14 @@ function DisplayMedia(mid = ""){
     }
 }
 
+////#region 
+
 function PopulateTag(tagInfo, parent){
     const liElt = document.createElement('li');
     const tagLink = document.createElement('a');
     tagLink.href = `index.html?tag=${tagInfo}`;
     tagLink.setAttribute("class","tag");
+    tagLink.setAttribute("alt","tag");
     tagLink.setAttribute("data-id",`${tagInfo}`);
     const spanElt = document.createElement("span");
     spanElt.textContent = `#${tagInfo}`;
@@ -229,6 +256,7 @@ function PopulateOverview(profilData){
     locationElt.textContent = profilData.city;
     bioElt.textContent = profilData.tagline;
     profilPicElt.setAttribute("src", `../imgs/low/Photographers ID Photos/${profilData.portrait}`);
+    profilPicElt.setAttribute("alt", profilData.name);
 }
 
 function PopulateMediaFeed(profilData, filter = ""){
@@ -246,6 +274,7 @@ function PopulateMediaFeed(profilData, filter = ""){
         var aElt = document.createElement("a");
         aElt.classList.add("media-card__link");
         aElt.href = `?pid=${pm.photographerId}&mid=${pm.id}`;
+        //aElt.setAttribute("alt",profilData.name)
 
         function clickEvent(e){
           e.preventDefault();
@@ -321,9 +350,19 @@ function CleanTitle(title){
     return newTitle;
 }
 
-function ShowModal(on){
+function ShowMediaModal(on){
   on ? modalElt.style.display = "block" : modalElt.style.display = "none"; 
   on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
+  if(on) {
+    modalLeftBtElt.focus();
+  }
+  
+}
+
+function ShowContactModal(on){
+    on ? contactModalElt.style.display = "flex" : contactModalElt.style.display = "none"
+    on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
+    if(on) contactCloseBtElt.focus();
 }
 
 Init();

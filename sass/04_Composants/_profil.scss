@@ -1,6 +1,9 @@
+@import "../04_Composants/buttons";
+
 $picSize-preview : 175px;
 $lineheight : 20px;
 $page-max-width : 1750px;
+
 
 .profil__pic{
     border-radius: 100%;
@@ -45,25 +48,23 @@ $page-max-width : 1750px;
 }
 
 .profil__contact-bt{
-    position: absolute;
-    transition: all 0.1s ease-in;
-    
-    left: 380px;
-    bottom: 50%;
-    margin-bottom: 35px;
-    padding: 0 10px 0 10px;
-    height: 50px;
-    color: white;
-    font-weight: bold;
-    background-color: #901C1C;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-
-    &:hover{
-        color: black;
-        background-color: $secondaryColor;
-    }
+    @include profil-bt;
+    margin-left: 25px;
+}
+.floating{
+    font-family: "DM SANS";
+    position: fixed;
+    display: none;
+    margin: unset;
+    z-index: 1;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    height: fit-content;
+    width: clamp(0px,50vw,350px);
+    font-size: clamp(0px,4vw,30px);
+    font-weight: 100;
 }
 
 .profil-overview{
@@ -78,11 +79,17 @@ $page-max-width : 1750px;
     padding: 40px;
     //height: 310px;
     background-color: $lightGray;
+
+    &__title-wrapper{
+        display: flex;
+    }
     .profil__name{
         position: relative;
         margin: unset;
         font-size: 60px;
         text-align: unset;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .profil__location{
         font-size: 22px;

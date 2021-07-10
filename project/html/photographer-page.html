@@ -14,11 +14,12 @@
       <a href="index.html"><img src="../imgs/logo.png" alt="Fisheye Home page" class="header__logo"></a>
     </header>
     <div class="profil-overview">
-      <h2 class="profil__name">Mimi Keel</h2>
-      <span>
-        <h3 class="profil__location">London, UK</h3>
-        <button type="button" class="profil__contact-bt">Contactez-moi</button>
+      <span class="profil-overview__title-wrapper">
+        <h1 class="profil__name">Mimi Keel</h1>
+        <button type="button" class="profil__contact-bt" alt="Contact Me">Contactez-moi</button>
+        <button type="button" class="profil__contact-bt floating" alt="Contact Me">Contactez-moi</button>
       </span>
+        <h2 class="profil__location">London, UK</h2>
       <p class="profil__bio">Voir le beau dans le quotidien</p>
       <ul class="profil__tags">
         <li><a href="#"><span>#portrait</span></a></li>
@@ -33,9 +34,9 @@
       <nav class="media-feed__filter-area">
         <div class="dropdown-wrapper">
           <span>Trier par</span>
-          <ul class="dropdown" id="media-filters">
+          <ul class="dropdown" id="media-filters" role="button" aria-haspopup="listbox" aria-expanded="true">
             <li>
-              <button class="" id="Popularity">
+              <button class="" id="Popularity" role="listbox" aria-activedescendant="true" aria-selected="true">
                 <p>Popularité</p>
                 <i class="fas fa-chevron-up"></i>
               </button>
@@ -93,24 +94,31 @@
         <button class="media-modal__bt" id="right-bt">
           <i class="fas fa-chevron-right fa-3x"></i>
         </button>
-        <button class="media-modal__bt" id="close-bt">
+        <button class="media-modal__bt" id="media-md-close-bt">
           <i class="fas fa-times fa-3x"></i>
         </button>
-        <img src="../imgs/low/Ellie-Rose/sport_water_tunnel.jpg" alt="" class="media-modal__img">
-        <span class="media-modal__name">Name</span>
+        <div class="media-modal__wrapper">
+          <img src="../imgs/low/Ellie-Rose/sport_water_tunnel.jpg" alt="" class="media-modal__img" />
+          <video src="" alt="" class="media-modal__video" controls autoplay></video>
+          <span class="media-modal__name">Name</span>
+        </div>
     </div>
 
     <div class="contact-modal">
       <h2 class="contact-modal__title">Contactez-moi Mimi Keel</h2>
-      <button class="media-modal__bt" id="close-bt">
-        <i class="fas fa-times fa-3x"></i>
-      </button>
       <form action="submit" class="contact-modal__form">
+        <button class="contact-modal__bt" id="contact-close-bt" type="button">
+          <i class="fas fa-times fa-3x"></i>
+        </button>
+        <p class="contact-modal__first-name label">Prénom</p>
         <input class="contact-modal__first-name" type="text">
+        <p class="contact-modal__last-name label">Nom</p>
         <input class="contact-modal__last-name" type="text">
+        <p class="contact-modal__email label">Email</p>
         <input class="contact-modal__email" type="text">
-        <input class="contact-modal__message" type="text">
-        <button></button>
+        <p class="contact-modal__message label">Votre message</p>
+        <textarea class="contact-modal__message" type="text"></textarea>
+        <button class="contact-modal__submit-bt">Envoyer</button>
       </form>
     </div>
 
@@ -126,7 +134,5 @@
   <script src="../js/photographers-data.js"></script>
   <script src="../js/photographer-page.js"></script>
   <script src="https://kit.fontawesome.com/3dfad0cb79.js" crossorigin="anonymous"></script>
-  
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script> -->
 </body>
 </html>   

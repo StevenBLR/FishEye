@@ -72,6 +72,7 @@ function PopulatePhotographers(tagSelected = ""){
     var linkElt = document.createElement("a");
     linkElt.href = 'photographer-page.html?pid='+p.id;
     linkElt.className = 'photographers__profil-link';
+    linkElt.setAttribute("alt", p.name);
     profilPreview.appendChild(linkElt);
     linkElt.innerHTML += '<img src="../imgs/low/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
     linkElt.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
@@ -94,6 +95,7 @@ function PopulateTag(tagInfo, parent){
   const tagLink = document.createElement('a');
   tagLink.href = "#";
   tagLink.setAttribute("class","tag");
+  tagLink.setAttribute("alt","tag");
   tagLink.setAttribute("data-id",`${tagInfo}`);
   const spanElt = document.createElement("span");
   spanElt.textContent = `#${tagInfo}`;

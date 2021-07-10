@@ -5,3 +5,20 @@
     color: $color;
     background-color: unset;
 }
+
+@mixin profil-bt{
+    transition: all 0.1s ease-in;
+    padding: 0 10px 0 10px;
+    height: 50px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: $primaryColor;
+
+    &:hover{
+        color: black;
+        background-color: $secondaryColor;
+    }
+}

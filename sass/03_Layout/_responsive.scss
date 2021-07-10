@@ -36,8 +36,23 @@ $keywordsBp: 1050px;
     }
 }
 
+// Photographer page breakpoint 1/2
+@media (max-width: 1030px){
+    .profil-overview{
+        .profil__contact-bt{
+            display: none;
+        }
+        .floating{
+            display: block;
+        }
+    }
+    .page-wrapper .info-label{
+        display: none;
+    }
+}
+
 // Move keyword section
-@media (max-width: 1050px){
+@media (min-width: 1050px){
     .header__keywords-wrapper{
         position: absolute;
         bottom: -30px;
@@ -58,21 +73,21 @@ $keywordsBp: 1050px;
         }
     }
 }
-// Mobile photographer page
+// Photographer page breakpoint 2/2
 @media (max-width: 900px){
-    
-}
-// Mobile mode
-@media (max-width: $mobileBp){
+    header{
+        margin: unset;
+    }
     .page-wrapper{
         .medias-feed{
             .feed-wrapper .media-feed__medias-grid{
                 grid-template-areas:
                 ".";
+                margin-top: 30px;
+                gap: unset;
             }
         }
     }
-
     .page-wrapper .photographers{
         .photographers__list{
             margin: 85px auto 0 auto;
@@ -82,6 +97,82 @@ $keywordsBp: 1050px;
             }
         }
     }
+    .media-feed__medias-grid{
+        .media-card{
+            img,video{
+                width: 100%;
+                height: 200px;
+            }
+            .media-card__infos{
+                width: 100%;
+                max-width: unset;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+            .media-card__title{
+                font-size: clamp(0px,3.5vw,20px);
+                margin: unset;
+                max-width: unset;
+            }
+            .media-card__likes{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                bottom: unset;
+                right: unset;
+
+                .media-card__nb-likes{
+                    font-size: clamp(0px,3.5vw,24px);
+                }
+                i{
+                    font-size: clamp(0px,3.5vw,20px);
+                }
+            }
+        }
+    }
+
+    .page-wrapper{
+        .medias-feed{
+            .media-feed__filter-area{
+                display: none;
+            }
+        }
+    }
+
+    .page-wrapper{
+        .profil-overview{
+            background-color: unset;
+            margin: unset;
+            padding: unset;
+
+            .profil__name{
+                font-size: clamp(0px,8vw,55px);
+            }
+            .profil__location{
+                font-size: clamp(0px,4vw,22px);
+                line-height: normal;
+            }
+            .profil__bio{
+                font-size: clamp(0px,3.5vw,13px);
+                line-height: normal;
+            }
+            
+            .profil__pic{
+                height: clamp(0px, 27vw, 150px);
+                width: clamp(0px, 27vw, 150px);
+                right: 0;
+            }
+        }
+    }
+    .page-wrapper .contact-modal{
+        width: calc(100% - 60px);
+        height: calc(100% - 60px);
+    }
+}
+// Mobile mode
+@media (max-width: $mobileBp){
+    
     .profil__pic{
         height: 25vh;
         width: 25vh;
@@ -89,7 +180,8 @@ $keywordsBp: 1050px;
     
     header .header__keywords{
         position: absolute;
-        top: 0;
+        top: 126px;
+        //top: 0;
         width: 110%;
         margin: auto;
         transform:translate(-50%,-50%);

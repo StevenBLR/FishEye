@@ -61,13 +61,14 @@ $itemHeight : 40px;
         cursor: pointer;
         transition: .4s;
         
-        &:focus{
+        &:focus, &:hover{
             background-color: $secondaryColor;
         }
     }
     p{
+        pointer-events: none;
         position: relative;
-        z-index: -1;
+        //z-index: -1;
         color: white;
         line-height: $itemHeight;
         font-size: 15px;

@@ -1,8 +1,10 @@
 .contact-modal{
     position: fixed;
     display: none;
+    flex-direction: column;
     top: 50%;
     left: 50%;
+    border-radius: 4px;
     transform: translate(-50%, -50%);
     z-index: 100;
     width: 500px;//clamp(500px, 50%, 600px);
@@ -10,12 +12,50 @@
     font-size: 3rem;
     font-weight: 100;
     padding: 30px;
+    transition : all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
     background-color: $secondaryColor;
+    .label{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
 
-    #close-bt{
+    &__form{
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        height: 100%;
+    }
+
+    &__submit-bt{
+        @include profil-bt;
+        flex-shrink: 0;
+        margin-top: 20px;
+        width: 25%;
+        justify-self: flex-end;
+    }
+
+    input, textarea{
+        border: none;
+        border-radius: 4px;
+        min-height: 40px;
+        margin-bottom: 10px;
+        padding: 5px 10px 5px 10px;
+        font-size: 30%;
+    }
+
+    textarea{
+        flex: 1 1 auto;
+    }
+
+    #contact-close-bt{
         position: absolute;
+        cursor: pointer;
         right: 5px;
         top: 5px;
+        margin: 30px;
+        border: none;
+        color: white;
+        background: unset;
     }
 
     h2{
