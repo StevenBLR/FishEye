@@ -33,8 +33,8 @@
     <main class="medias-feed">
       <nav class="media-feed__filter-area">
         <div class="dropdown-wrapper">
-          <span>Trier par</span>
-          <ul class="dropdown" id="media-filters" role="button" aria-haspopup="listbox" aria-expanded="true">
+          <span id="dropdown-label">Trier par</span>
+          <ul class="dropdown" id="media-filters" role="button" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="dropdown-label">
             <li>
               <button class="" id="Popularity" role="listbox" aria-activedescendant="true" aria-selected="true">
                 <p>Popularité</p>
@@ -87,18 +87,18 @@
 
     <div class="media-modal__bg"></div>
 
-    <div class="media-modal">
-        <button class="media-modal__bt" id="left-bt">
+    <div class="media-modal" aria-label="image closeup view">
+        <button class="media-modal__bt" id="left-bt" aria-label="Previous image">
           <i class="fas fa-chevron-left fa-3x"></i>
         </button>
-        <button class="media-modal__bt" id="right-bt">
+        <button class="media-modal__bt" id="right-bt" aria-label="Next image">
           <i class="fas fa-chevron-right fa-3x"></i>
         </button>
-        <button class="media-modal__bt" id="media-md-close-bt">
+        <button class="media-modal__bt" id="media-md-close-bt" aria-label="Close dialog">
           <i class="fas fa-times fa-3x"></i>
         </button>
         <div class="media-modal__wrapper">
-          <img src="../imgs/low/Ellie-Rose/sport_water_tunnel.jpg" alt="" class="media-modal__img" />
+          <img src="../imgs/low/Ellie-Rose/sport_water_tunnel.jpg" alt="Lilac breasted roller" aria-label="Lilac breasted roller" class="media-modal__img" />
           <video src="" alt="" class="media-modal__video" controls autoplay></video>
           <span class="media-modal__name">Name</span>
         </div>

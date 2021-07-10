@@ -161,17 +161,6 @@ function GetUrlParams(){
     else{ console.error("No profil to load");}
 }
 
-function PopulateProfilPage(){
-    if (currentProfil != undefined){
-        PopulateOverview(currentProfil);
-        PopulateMediaFeed(currentProfil);
-        PopulateInfoLabel(currentProfil);
-    }
-    else{
-        // Error Page
-    }
-}
-
 function DisplayMedia(mid = ""){
   // (1) Defining media to display  ------------------------------------------------------------------------
   urlParams = new URLSearchParams(window.location.search);
@@ -200,14 +189,15 @@ function DisplayMedia(mid = ""){
               isVideo = true;
               var videoElt = document.createElement("video");
               videoElt.src = GetMediaPath(mid, "low");
-              videoElt.alt = m.video;
+              videoElt.alt = "Lilac breasted roller";
               videoElt.setAttribute("type","video/mp4");
+              videoElt.setAttribute("aria-label","Lilac breasted roller");
             }
             else if(m.image != undefined){
               //Populate image section
               var imgElt = document.createElement("img");
               imgElt.src = GetMediaPath(mid, "low");
-              imgElt.alt = m.image;
+              imgElt.alt = "Lilac breasted roller";
             }
             if (isVideo){
                 modalImgElt.style.display = "none";
@@ -230,7 +220,16 @@ function DisplayMedia(mid = ""){
     }
 }
 
-////#region 
+//#region Populate systems
+
+function PopulateProfilPage(){
+    if (currentProfil != undefined){
+        PopulateOverview(currentProfil);
+        PopulateMediaFeed(currentProfil);
+        PopulateInfoLabel(currentProfil);
+    }
+    // Error Page
+}
 
 function PopulateTag(tagInfo, parent){
     const liElt = document.createElement('li');
@@ -299,6 +298,7 @@ function PopulateMediaFeed(profilData, filter = ""){
           var imgElt = document.createElement("img");
           imgElt.src = `../imgs/low/${firstName}/${pm.image}`;
           imgElt.alt = pm.image;
+          console.log(pm.image.toString().split(firstName));
         }
 
         var infoRootElt = document.createElement("div");
@@ -314,6 +314,7 @@ function PopulateMediaFeed(profilData, filter = ""){
         spanLikesElt.classList.add("media-card__nb-likes");
         spanLikesElt.textContent = pm.likes;
         var iElt = document.createElement("i");
+        iElt.setAttribute("aria-label","likes");
         iElt.classList.add("fas");
         iElt.classList.add("fa-heart");
 
@@ -332,6 +333,8 @@ function PopulateInfoLabel(profilData){
     txtNbLikesElt.textContent = GetTotalLikes(profilData.id);
     txtTjmElt.textContent = `${GetTJM(profilData.id)}€/jour`;
 }
+
+//#endregion
 
 function CleanTitle(title){
     var newTitle = "";
@@ -356,7 +359,6 @@ function ShowMediaModal(on){
   if(on) {
     modalLeftBtElt.focus();
   }
-  
 }
 
 function ShowContactModal(on){
