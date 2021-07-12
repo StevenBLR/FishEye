@@ -105,21 +105,21 @@
         </div>
     </div>
 
-    <div class="contact-modal">
+    <div class="contact-modal" aria-labelledby="contact-modal__title">
       <h2 class="contact-modal__title">Contactez-moi Mimi Keel</h2>
       <form action="submit" class="contact-modal__form">
-        <button class="contact-modal__bt" id="contact-close-bt" type="button">
+        <button class="contact-modal__bt" id="contact-close-bt" type="button" aria-label="Close Contact form">
           <i class="fas fa-times fa-3x"></i>
         </button>
         <p class="contact-modal__first-name label">Prénom</p>
-        <input class="contact-modal__first-name" type="text">
+        <input class="contact-modal__first-name" type="text" aria-labelledby="contact-modal__first-name label">
         <p class="contact-modal__last-name label">Nom</p>
-        <input class="contact-modal__last-name" type="text">
+        <input class="contact-modal__last-name" type="text" aria-labelledby="contact-modal__last-name label">
         <p class="contact-modal__email label">Email</p>
-        <input class="contact-modal__email" type="text">
+        <input class="contact-modal__email" type="text" aria-labelledby="contact-modal__email label">
         <p class="contact-modal__message label">Votre message</p>
-        <textarea class="contact-modal__message" type="text"></textarea>
-        <button class="contact-modal__submit-bt">Envoyer</button>
+        <textarea class="contact-modal__message" type="text" aria-labelledby="contact-modal__message label"></textarea>
+        <button class="contact-modal__submit-bt" aria-label="Send">Envoyer</button>
       </form>
     </div>
 
