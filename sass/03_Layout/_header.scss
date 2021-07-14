@@ -3,10 +3,10 @@
 header{
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
-    height: 100px;
-    margin: 0 40px 0 40px;
+    //height: 100px;
+    margin: 30px 40px 30px 40px;
      //[TODO] Move to root
     color: $primaryColor;
     //background-color: cadetblue;

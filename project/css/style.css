@@ -66,10 +66,9 @@ a {
 header {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
-  height: 100px;
-  margin: 0 40px 0 40px;
+  margin: 30px 40px 30px 40px;
   color: #901C1C;
 }
 header .header__logo {
@@ -274,31 +273,18 @@ header .header__keywords span:hover {
   .page-wrapper .info-label {
     display: none;
   }
-}
-@media (min-width: 1050px) {
-  .header__keywords-wrapper {
-    position: absolute;
-    bottom: -30px;
-    width: 100%;
-    margin: auto;
-  }
 
-  header .header__keywords {
-    position: absolute;
-    top: -40px;
-    left: 50%;
-    width: 100%;
-    margin: auto;
-    transform: translateX(-50%);
+  header {
+    flex-wrap: wrap;
   }
-
-  .page-wrapper .photographers .photographers__list {
-    margin: 50px auto 0 auto;
+  header .header__keywords-wrapper {
+    order: 3;
+    width: 100%;
   }
 }
 @media (max-width: 900px) {
   header {
-    margin: unset;
+    margin: 30px 0 0 0;
   }
 
   .page-wrapper .medias-feed .feed-wrapper .media-feed__medias-grid {
@@ -308,7 +294,7 @@ header .header__keywords span:hover {
   }
 
   .page-wrapper .photographers .photographers__list {
-    margin: 85px auto 0 auto;
+    margin: 20px auto 0 auto;
   }
   .page-wrapper .photographers .photographers__list .photographers__profil-preview {
     width: 100%;
@@ -380,14 +366,6 @@ header .header__keywords span:hover {
   .profil__pic {
     height: 25vh;
     width: 25vh;
-  }
-
-  header .header__keywords {
-    position: absolute;
-    top: 126px;
-    width: 110%;
-    margin: auto;
-    transform: translate(-50%, -50%);
   }
 
   header .header__title {

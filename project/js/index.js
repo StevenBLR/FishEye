@@ -74,7 +74,7 @@ function PopulatePhotographers(tagSelected = ""){
     linkElt.className = 'photographers__profil-link';
     linkElt.setAttribute("alt", p.name);
     profilPreview.appendChild(linkElt);
-    linkElt.innerHTML += '<img src="../imgs/low/Photographers ID Photos/'+ p.portrait +'" alt="" class="profil__pic">';
+    linkElt.innerHTML += '<img src="../imgs/low/Photographers ID Photos/'+ p.portrait +'" alt="profil picture" class="profil__pic">';
     linkElt.innerHTML += '<h2 class="profil__name">'+ p.name +'</h2>';
     profilPreview.innerHTML += '</a>';
     profilPreview.innerHTML += '<h3 class="profil__location">'+ p.city +', '+ p.country +'</h3>';

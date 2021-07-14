@@ -49,34 +49,20 @@ $keywordsBp: 1050px;
     .page-wrapper .info-label{
         display: none;
     }
+    header{
+        flex-wrap: wrap;
+        .header__keywords-wrapper{
+            order:3;
+            width: 100%;
+        }       
+    }
 }
 
-// Move keyword section
-@media (min-width: 1050px){
-    .header__keywords-wrapper{
-        position: absolute;
-        bottom: -30px;
-        width: 100%;
-        margin: auto;
-    }
-    header .header__keywords{
-        position: absolute;
-        top: -40px;
-        left: 50%;
-        width: 100%;
-        margin: auto;
-        transform:translateX(-50%);
-    }
-    .page-wrapper .photographers{
-        .photographers__list{
-            margin: 50px auto 0 auto;
-        }
-    }
-}
+
 // Photographer page breakpoint 2/2
 @media (max-width: 900px){
     header{
-        margin: unset;
+        margin : 30px 0 0 0;
     }
     .page-wrapper{
         .medias-feed{
@@ -90,7 +76,7 @@ $keywordsBp: 1050px;
     }
     .page-wrapper .photographers{
         .photographers__list{
-            margin: 85px auto 0 auto;
+            margin: 20px auto 0 auto;
             .photographers__profil-preview{
                 width: 100%;
                 height: auto;
@@ -178,14 +164,14 @@ $keywordsBp: 1050px;
         width: 25vh;
     }
     
-    header .header__keywords{
-        position: absolute;
-        top: 126px;
-        //top: 0;
-        width: 110%;
-        margin: auto;
-        transform:translate(-50%,-50%);
-    }
+    // header .header__keywords{
+    //     position: absolute;
+    //     top: 126px;
+    //     //top: 0;
+    //     width: 110%;
+    //     margin: auto;
+    //     transform:translate(-50%,-50%);
+    // }
 
     header .header__title {
         font-size: 4vw;
