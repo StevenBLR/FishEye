@@ -112,6 +112,7 @@ function InitContactModal(){
 }
 //#endregion
 
+//#region Modal controls
 // Display previous media
 function PreviousMedia(){
     var currentIndex = mediaCarousel.indexOf(currentMedia);
@@ -125,6 +126,22 @@ function NextMedia(){
     if (currentIndex < mediaCarousel.length-1) DisplayMedia(mediaCarousel[currentIndex+1].id);
     else DisplayMedia(mediaCarousel[0].id);
 }
+
+function ShowMediaModal(on){
+    on ? modalElt.style.display = "block" : modalElt.style.display = "none";
+    on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none";
+    if(on) {
+      modalLeftBtElt.focus();
+    }
+    mediaModalOpened = on;
+}
+
+function ShowContactModal(on){
+    on ? contactModalElt.style.display = "flex" : contactModalElt.style.display = "none"
+    on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none";
+    if(on) contactCloseBtElt.focus();
+}
+//#endregion
 
 function SetMediaFilter(filter){
     if(filters.find(f => filter)){
@@ -200,36 +217,36 @@ function DisplayMedia(mid = ""){
     medias.forEach(m => {
         if(m.id == mid){
             mediaFound = true;
-            title = "";
+            //title = "";
             currentMedia = m;
             // Check if media is an image or a video
             if(m.video != undefined){
               //Populate video section
               isVideo = true;
-              var videoElt = document.createElement("video");
+              videoElt = document.querySelector(".media-modal__video");
               videoElt.src = GetMediaPath(mid, "low");
-              videoElt.alt = "Lilac breasted roller";
               videoElt.setAttribute("type","video/mp4");
-              videoElt.setAttribute("aria-label","Lilac breasted roller");
+              videoElt.setAttribute("aria-label",CleanTitle(GetMediaName(mid)));
             }
             else if(m.image != undefined){
               //Populate image section
-              var imgElt = document.createElement("img");
+              imgElt = document.querySelector(".media-modal__img");
               imgElt.src = GetMediaPath(mid, "low");
-              imgElt.alt = "Lilac breasted roller";
+              imgElt.setAttribute("alt", CleanTitle(GetMediaName(mid)));
+              imgElt.setAttribute("aria-label",CleanTitle(GetMediaName(mid)));
             }
             if (isVideo){
                 modalImgElt.style.display = "none";
                 modalVideoElt.style.display = "block";
                 modalVideoElt.src = GetMediaPath(mid);
-                title = GetMediaPath(mid);
+                //title = CleanTitle(GetMediaName(mid));
             }
             else{
                 modalVideoElt.style.display = "none";
                 modalImgElt.style.display = "block";
                 modalImgElt.src = GetMediaPath(mid);
             }
-            modalTitleElt.textContent = GetMediaPath(mid, "low");
+            modalTitleElt.textContent = CleanTitle(GetMediaName(mid));
             ShowMediaModal(true);
             console.log(`Media found : ${m.id}`);
         }
@@ -316,7 +333,7 @@ function PopulateMediaFeed(profilData, filter = ""){
           //Populate image section
           var imgElt = document.createElement("img");
           imgElt.src = `../imgs/low/${firstName}/${pm.image}`;
-          imgElt.alt = pm.image;
+          imgElt.alt = CleanTitle(pm.image);
           //console.log(pm.image.toString().split(firstName));
         }
 
@@ -364,23 +381,6 @@ function CleanTitle(title){
     newTitle = newTitle.replace(reg2," ");
     return newTitle;
 }
-
-function ShowMediaModal(on){
-  on ? modalElt.style.display = "block" : modalElt.style.display = "none";
-  on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none";
-  if(on) {
-    modalLeftBtElt.focus();
-  }
-  mediaModalOpened = on;
-}
-
-function ShowContactModal(on){
-    on ? contactModalElt.style.display = "flex" : contactModalElt.style.display = "none"
-    on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none";
-    if(on) contactCloseBtElt.focus();
-}
-
-
 
 Init();
 PopulateProfilPage();

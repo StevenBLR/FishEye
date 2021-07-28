@@ -673,6 +673,19 @@ function GetMediaPath(mediaId, res = "high"){
   return mediaPath;
 }
 
+function GetMediaName(mediaId){
+  var mediaName = "";
+  var firstName = ""; 
+  var isVideo;
+  if (medias.find(m => m.id == mediaId)){
+    var m = medias.find(m => m.id == mediaId);
+    if(m.image == undefined) isVideo = true;
+    firstName = photographers.find(p => p.id == m.photographerId).name.split(" ")[0];
+    mediaName = `${isVideo ? m.video : m.image}`;
+  }
+  return mediaName;
+}
+
 // Return profil total likes
 function GetTotalLikes(profilId){
   var nbLikes = 0;
