@@ -834,14 +834,13 @@ header .header__keywords span:hover {
   max-width: 320px;
 }
 .media-card .media-card__likes {
-  display: inline-block;
+  display: flex;
   position: absolute;
   right: 0;
   bottom: 12px;
   color: #901C1C;
 }
 .media-card .media-card__likes .like-wrapper {
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -862,7 +861,6 @@ header .header__keywords span:hover {
 }
 .media-card .media-card__likes .like-wrapper .like-switch:not(:checked) ~ .like {
   font-weight: 400;
-  color: black;
 }
 .media-card .media-card__likes .media-card__nb-likes {
   font-size: 24px;

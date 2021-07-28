@@ -349,10 +349,19 @@ function PopulateMediaFeed(profilData, filter = ""){
         var spanLikesElt = document.createElement("span");
         spanLikesElt.classList.add("media-card__nb-likes");
         spanLikesElt.textContent = pm.likes;
+
+        var divLikeWrapper = document.createElement("div");
+        divLikeWrapper.classList.add("like-wrapper");
+
+        var likeBt = document.createElement("input");
+        likeBt.setAttribute("type","checkbox");
+        likeBt.classList.add("like-switch");
+
         var iElt = document.createElement("i");
         iElt.setAttribute("aria-label","likes");
         iElt.classList.add("fas");
         iElt.classList.add("fa-heart");
+        iElt.classList.add("like");
 
         isVideo ? aElt.appendChild(videoElt) : aElt.appendChild(imgElt);
         divLikesElt.appendChild(spanLikesElt);
@@ -361,7 +370,11 @@ function PopulateMediaFeed(profilData, filter = ""){
         infoRootElt.appendChild(divLikesElt);
         liElt.appendChild(aElt);
         liElt.appendChild(infoRootElt);
+        divLikeWrapper.appendChild(likeBt);
+        divLikeWrapper.appendChild(iElt);
+        divLikesElt.appendChild(divLikeWrapper);
         feedRootElt.appendChild(liElt);
+        
     })
 }
 

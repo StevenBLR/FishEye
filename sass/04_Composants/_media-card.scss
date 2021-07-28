@@ -27,7 +27,7 @@ $card-size: 320px;
     }
 
     .media-card__likes{
-        display: inline-block;
+        display: flex;
         position: absolute;
         right: 0;
         bottom: 12px;

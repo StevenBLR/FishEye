@@ -23,7 +23,6 @@
     }
 }
 @mixin likeBt {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +42,6 @@
         }
         &:not(:checked) ~ .like{
             font-weight: 400;
-            color:black;
         }
     } 
 }
