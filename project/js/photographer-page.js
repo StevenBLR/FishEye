@@ -356,36 +356,12 @@ function PopulateInfoLabel(profilData){
 //#endregion
 
 function CleanTitle(title){
-    var newTitle = "";
+    var reg1 = /^\w+?_/ig; // First elt of words separated by "_"
+    var reg2 = /_/gm;
+    var newTitle = title.replace(reg1,"");
     // Delete extension - Split avec ".", suppression avec -1 pour prendre le . et raccordement du str join
-    newTitle = title.split('.').slice(0,-1).join('.');
-    // if(title.includes("jpg")){
-    //     newTitle = title.split(".jpg");
-    // }
-    // if(title.includes("mp4")){
-    //     newTitle = title.split(".mp4");
-    // }
-    // Clean tag
-    //newTitle = newTitle.split("_").splice(0,);
-
-    //var tmp1 = newTitle.toString().split("_").shift();
-    //tmp1.join(" ");
-    //newTitle.shift(); // Delete first element
-    //console.log(tmp1);
-    //newTitle.pop();
-    // Space between words
-    //newTitle = newTitle.join(' ');
-    //
-    // newTitle.join(" ");
-    // console.log(newTitle)
-    // allTags.forEach(t => {
-    //     if(title.toUpperCase().includes(t.toString().toUpperCase())){
-    //         console.log(`${title} contains ${t}`);
-    //         newTitle = newTitle.split('_').splice(0,t.length+1).join('_');
-    //         //newTitle = title.replace(`${t}_`,'');
-    //     }
-    // })
-    // console.log(newTitle);
+    newTitle = newTitle.split('.').slice(0,-1).join('.');
+    newTitle = newTitle.replace(reg2," ");
     return newTitle;
 }
 
