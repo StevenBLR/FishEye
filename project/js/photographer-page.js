@@ -74,40 +74,18 @@ function InitFilterDropdown(){
 }
 
 function InitMediaModal(){
-    var modalBts = [modalLeftBtElt, modalRightBtElt, modalCloseBtElt];
-    var events = ["click","keyup"];
-    // Init click and keyUp event
-    modalBts.forEach(bt =>{
-        for (var i=0; i < events.length; i++){
-            if (bt == modalLeftBtElt){
-                modalLeftBtElt.addEventListener(events[i], function(e){
-                    console.log(" I = " + i);
-                    if(events[i] == "keyup") PreviousMedia();
-                    if(events[i] != "click") console.log(`keyup event. key property value is "${e.key}"`);
-                });
-            }
-            if (bt == modalRightBtElt){
-                modalRightBtElt.addEventListener(events[i], function(e){
-                    if((events[i] == "keyup" && e.key == "ArrowRight") || (events[i] == "click")) NextMedia();
-                    //if(events[i] != "click") console.log(`keyup event. key property value is "${e.key}"`);
-                });
-            }
-            if(bt == modalCloseBtElt){
-                modalCloseBtElt.addEventListener(events[i], function(e){
-                    if((events[i] == "keyup" && e.key == "Escape") || (events[i] == "click")) ShowMediaModal(false);
-                    //if(events[i] != "click") console.log(`keyup event. key property value is "${e.key}"`);
-                });
-            }
-        }
-    })
+    modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
+    modalLeftBtElt.addEventListener("keyup", function(e){if(e.key == "ArrowLeft") PreviousMedia()});
+    
+    modalRightBtElt.addEventListener("click", function(e){NextMedia()});
+    modalLeftBtElt.addEventListener("keyup", function(e){if(e.key == "ArrowRight") NextMedia()});
 
-    // modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
-    // modalRightBtElt.addEventListener("click", function(e){NextMedia()});
-    // modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
+    modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
+    modalLeftBtElt.addEventListener("keyup", function(e){if(e.key == "Escape") ShowMediaModal(false)});
 
-    // modalLeftBtElt.addEventListener('keyup', (e) => {
-    //     console.log(`keyup event. key property value is "${e.key}"`);
-    //   });
+    modalLeftBtElt.addEventListener('keyup', (e) => {
+    console.log(`keyup event. key property value is "${e.key}"`);
+    });
 }
 
 function InitContactModal(){
@@ -147,7 +125,7 @@ function ResetFilterDropdown(currentFilter){
 
     console.log(newFilters);
     console.log("reset dd ui");
-    for (var i=0; i < filters.length; i++){
+    for (var i =0; i < filters.length; i++){
         filterDropdown.innerHTML +=
         `
             <li>
