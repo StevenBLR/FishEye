@@ -38,6 +38,7 @@ const ddAnimSpeed = 0.5;
 var currentProfil;
 var currentFilter;
 var currentMedia;
+var mediaModalOpened = false;
 
 const ddAnim = gsap.timeline({reversed: true, paused:true})
     .to(".dropdown", {height: "auto", duration: 1.5})
@@ -74,18 +75,34 @@ function InitFilterDropdown(){
 }
 
 function InitMediaModal(){
+    
+    document.addEventListener("keyup",function(e){
+        if(mediaModalOpened){
+            const code = e.code.toLowerCase();
+            console.log(e);
+            switch(code){
+                case("arrowleft"):
+                    PreviousMedia()
+                    break;
+                case("arrowright"):
+                    NextMedia()
+                    break;
+                case("escape"):
+                    ShowMediaModal(false);
+                    break;
+            }
+        }
+    });
+    
     modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
-    modalLeftBtElt.addEventListener("keyup", function(e){if(e.key == "ArrowLeft") PreviousMedia()});
     
     modalRightBtElt.addEventListener("click", function(e){NextMedia()});
-    modalLeftBtElt.addEventListener("keyup", function(e){if(e.key == "ArrowRight") NextMedia()});
 
     modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
-    modalLeftBtElt.addEventListener("keyup", function(e){if(e.key == "Escape") ShowMediaModal(false)});
 
-    modalLeftBtElt.addEventListener('keyup', (e) => {
-    console.log(`keyup event. key property value is "${e.key}"`);
-    });
+    // modalLeftBtElt.addEventListener('keyup', (e) => {
+    // console.log(`keyup event. key property value is "${e.key}"`);
+    // });
 }
 
 function InitContactModal(){
@@ -378,6 +395,7 @@ function ShowMediaModal(on){
   if(on) {
     modalLeftBtElt.focus();
   }
+  mediaModalOpened = on;
 }
 
 function ShowContactModal(on){

@@ -390,6 +390,17 @@ header .header__keywords span:hover {
     transform: rotateX(0deg);
   }
 }
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .info-label {
   position: fixed;
   display: flex;
@@ -829,6 +840,30 @@ header .header__keywords span:hover {
   bottom: 12px;
   color: #901C1C;
 }
+.media-card .media-card__likes .like-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.media-card .media-card__likes .like-wrapper .like {
+  color: #901C1C;
+}
+.media-card .media-card__likes .like-wrapper .like-switch {
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+  width: 100%;
+  opacity: 0;
+}
+.media-card .media-card__likes .like-wrapper .like-switch:checked ~ .like {
+  font-weight: 600;
+  animation: heartbeat 1s;
+}
+.media-card .media-card__likes .like-wrapper .like-switch:not(:checked) ~ .like {
+  font-weight: 400;
+  color: black;
+}
 .media-card .media-card__likes .media-card__nb-likes {
   font-size: 24px;
   font-weight: 500;
@@ -1186,6 +1221,17 @@ header .header__keywords span:hover {
   100% {
     opacity: 1;
     transform: rotateX(0deg);
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 .photographers .photographers__list {

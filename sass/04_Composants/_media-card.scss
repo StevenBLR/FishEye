@@ -33,6 +33,10 @@ $card-size: 320px;
         bottom: 12px;
         color: $primaryColor;
 
+        .like-wrapper{
+            @include likeBt();
+        }
+
         .media-card__nb-likes{
             font-size: 24px;
             font-weight: 500;
