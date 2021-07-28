@@ -615,7 +615,7 @@ class Photographer{
 }
 
 class Media{
-  constructor(id, photographerId, image, video, tags, likes, date, price){
+  constructor(id, photographerId, image, video, tags, likes, date, price, liked){
       this.id = id;
       this.photographerId = photographerId;
       this.image = image;
@@ -624,6 +624,7 @@ class Media{
       this.likes = likes;
       this.date = date;
       this.price = price;
+      this.liked = liked;
   }
 }
 
@@ -747,7 +748,26 @@ function GetOrderedMedias(filter, profilId = "", direction = "Desc" )
   return orderedMedias;
 }
 
+function GetLikedStatus(media){
+  if(medias.find(m => m == media)){
+    return medias.find(m => m == media).liked;
+  }
+}
 
+function GetMediaWithId(mediaId){
+  if(medias.find(m => m.id == mediaId)){
+    return medias.find(m => m.id == mediaId);
+  }
+}
+
+function ToggleLike(like,media){
+  if(medias.find(m => m == media)){
+    m = medias.find(m => m == media);
+    m.liked = like;
+  }
+  if (m.liked) m.likes++;
+  else m.likes--;
+}
 
 GetJsonData();
 GetAllTags();

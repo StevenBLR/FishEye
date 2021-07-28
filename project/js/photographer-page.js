@@ -355,7 +355,12 @@ function PopulateMediaFeed(profilData, filter = ""){
 
         var likeBt = document.createElement("input");
         likeBt.setAttribute("type","checkbox");
+        likeBt.setAttribute("data-info", pm.id);
         likeBt.classList.add("like-switch");
+        likeBt.addEventListener("click", function(e){
+            console.log(e);
+            AddLike(likeBt.getAttribute("data-info"), likeBt);
+        })
 
         var iElt = document.createElement("i");
         iElt.setAttribute("aria-label","likes");
@@ -393,6 +398,23 @@ function CleanTitle(title){
     newTitle = newTitle.split('.').slice(0,-1).join('.');
     newTitle = newTitle.replace(reg2," ");
     return newTitle;
+}
+
+function AddLike(mediaId,likeBt){
+    var m = GetMediaWithId(mediaId);
+    spanElt = likeBt.closest(".media-card__likes").querySelector(".media-card__nb-likes");
+    console.log(spanElt);
+    if (GetLikedStatus(m)){
+        ToggleLike(false,m);
+        spanElt.textContent = (parseFloat(spanElt.textContent)-1).toString();
+    }
+    else{
+        ToggleLike(true,m);
+        spanElt.textContent = (parseFloat(spanElt.textContent)+1).toString();
+    }
+    txtNbLikesElt.textContent = GetTotalLikes(m.photographerId);
+    console.log(spanElt.textContent);
+    
 }
 
 Init();
