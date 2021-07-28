@@ -1,4 +1,4 @@
-// Overview Elements 
+// Overview Elements
 const nameElt = document.querySelector(".profil__name");
 const locationElt = document.querySelector(".profil__location");
 const bioElt = document.querySelector(".profil__bio");
@@ -42,9 +42,6 @@ var currentMedia;
 const ddAnim = gsap.timeline({reversed: true, paused:true})
     .to(".dropdown", {height: "auto", duration: 1.5})
 
-// gsap.timeline()
-// .to(".dropdown", {height: "auto", duration: 1.5});
-
 //#region Init
 function Init(){
     currentFilter = "Popularity";
@@ -77,9 +74,40 @@ function InitFilterDropdown(){
 }
 
 function InitMediaModal(){
-    modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
-    modalRightBtElt.addEventListener("click", function(e){NextMedia()});
-    modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
+    var modalBts = [modalLeftBtElt, modalRightBtElt, modalCloseBtElt];
+    var events = ["click","keyup"];
+    // Init click and keyUp event
+    modalBts.forEach(bt =>{
+        for (var i=0; i < events.length; i++){
+            if (bt == modalLeftBtElt){
+                modalLeftBtElt.addEventListener(events[i], function(e){
+                    console.log(" I = " + i);
+                    if(events[i] == "keyup") PreviousMedia();
+                    if(events[i] != "click") console.log(`keyup event. key property value is "${e.key}"`);
+                });
+            }
+            if (bt == modalRightBtElt){
+                modalRightBtElt.addEventListener(events[i], function(e){
+                    if((events[i] == "keyup" && e.key == "ArrowRight") || (events[i] == "click")) NextMedia();
+                    //if(events[i] != "click") console.log(`keyup event. key property value is "${e.key}"`);
+                });
+            }
+            if(bt == modalCloseBtElt){
+                modalCloseBtElt.addEventListener(events[i], function(e){
+                    if((events[i] == "keyup" && e.key == "Escape") || (events[i] == "click")) ShowMediaModal(false);
+                    //if(events[i] != "click") console.log(`keyup event. key property value is "${e.key}"`);
+                });
+            }
+        }
+    })
+
+    // modalLeftBtElt.addEventListener("click", function(e){PreviousMedia()});
+    // modalRightBtElt.addEventListener("click", function(e){NextMedia()});
+    // modalCloseBtElt.addEventListener("click", function(e){ShowMediaModal(false)});
+
+    // modalLeftBtElt.addEventListener('keyup', (e) => {
+    //     console.log(`keyup event. key property value is "${e.key}"`);
+    //   });
 }
 
 function InitContactModal(){
@@ -116,11 +144,11 @@ function ResetFilterDropdown(currentFilter){
     const newFilters = [];
     newFilters.push(currentFilter);
     filters.filter(f => f != currentFilter).forEach(f => newFilters.push(f));
-    
+
     console.log(newFilters);
     console.log("reset dd ui");
-    for (var i =0; i < filters.length; i++){
-        filterDropdown.innerHTML += 
+    for (var i=0; i < filters.length; i++){
+        filterDropdown.innerHTML +=
         `
             <li>
                 <button class="" id="${newFilters[i]}">
@@ -135,16 +163,12 @@ function ResetFilterDropdown(currentFilter){
 
 }
 
-// function toggleDropdown(){
-//     ddAnim.reversed() ? ddAnim.play() : ddAnim.reverse();
-// }
-
 function GetUrlParams(){
     // (1) Defining profils to display  ------------------------------------------------------------------------
     urlParams = new URLSearchParams(window.location.search);
     tagsRootElt.textContent = "";
     var profilFound = false;
-     // Check if URL has parameters 
+     // Check if URL has parameters
      if (urlParams.has('pid')){
         pid = urlParams.get('pid');
         photographers.forEach(p => {
@@ -170,7 +194,7 @@ function DisplayMedia(mid = ""){
 
   // Check if an id has been received
   if(mid != ""){}
-  // If not Check if URL has parameters 
+  // If not Check if URL has parameters
   else if (urlParams.has('mid')) mid = urlParams.get('mid');
   else {
     console.error("No profil to load");
@@ -251,7 +275,7 @@ function PopulateOverview(profilData){
     //console.log(profilData);
     nameElt.textContent = profilData.name;
     profilContactBtElt.textContent = "Contactez-moi";
-    
+
     locationElt.textContent = profilData.city;
     bioElt.textContent = profilData.tagline;
     profilPicElt.setAttribute("src", `../imgs/low/Photographers ID Photos/${profilData.portrait}`);
@@ -262,7 +286,7 @@ function PopulateMediaFeed(profilData, filter = ""){
     if(filter == "") filter = currentFilter;
     var pMedias = GetOrderedMedias(filter,profilData.id);
     mediaCarousel = pMedias;
-    
+
     feedRootElt.textContent = "";
     console.log(profilData.name);
     let firstName = profilData.name.split(" ")[0];
@@ -298,7 +322,7 @@ function PopulateMediaFeed(profilData, filter = ""){
           var imgElt = document.createElement("img");
           imgElt.src = `../imgs/low/${firstName}/${pm.image}`;
           imgElt.alt = pm.image;
-          console.log(pm.image.toString().split(firstName));
+          //console.log(pm.image.toString().split(firstName));
         }
 
         var infoRootElt = document.createElement("div");
@@ -306,8 +330,8 @@ function PopulateMediaFeed(profilData, filter = ""){
 
         var titleElt = document.createElement("p");
         titleElt.classList.add("media-card__title");
-        
-        isVideo ? titleElt.textContent = pm.video : titleElt.textContent = pm.image;//CleanTitle(pm.image);
+
+        isVideo ? titleElt.textContent = CleanTitle(pm.video) : titleElt.textContent = CleanTitle(pm.image);//CleanTitle(pm.image);
         var divLikesElt = document.createElement("div");
         divLikesElt.classList.add("media-card__likes");
         var spanLikesElt = document.createElement("span");
@@ -338,15 +362,32 @@ function PopulateInfoLabel(profilData){
 
 function CleanTitle(title){
     var newTitle = "";
-    newTitle = title.split("_")[0] = "";
-    console.log(newTitle)
+    // Delete extension - Split avec ".", suppression avec -1 pour prendre le . et raccordement du str join
+    newTitle = title.split('.').slice(0,-1).join('.');
+    // if(title.includes("jpg")){
+    //     newTitle = title.split(".jpg");
+    // }
+    // if(title.includes("mp4")){
+    //     newTitle = title.split(".mp4");
+    // }
+    // Clean tag
+    //newTitle = newTitle.split("_").splice(0,);
+
+    //var tmp1 = newTitle.toString().split("_").shift();
+    //tmp1.join(" ");
+    //newTitle.shift(); // Delete first element
+    //console.log(tmp1);
+    //newTitle.pop();
+    // Space between words
+    //newTitle = newTitle.join(' ');
+    //
+    // newTitle.join(" ");
+    // console.log(newTitle)
     // allTags.forEach(t => {
-    //     if(title.toString().toUpperCase().includes(t.toString().toUpperCase())){
+    //     if(title.toUpperCase().includes(t.toString().toUpperCase())){
     //         console.log(`${title} contains ${t}`);
-    //         newTitle = title.replace(`${t}_`,'');
-    //     }
-    //     else{
-    //         newTitle = title;
+    //         newTitle = newTitle.split('_').splice(0,t.length+1).join('_');
+    //         //newTitle = title.replace(`${t}_`,'');
     //     }
     // })
     // console.log(newTitle);
@@ -354,8 +395,8 @@ function CleanTitle(title){
 }
 
 function ShowMediaModal(on){
-  on ? modalElt.style.display = "block" : modalElt.style.display = "none"; 
-  on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
+  on ? modalElt.style.display = "block" : modalElt.style.display = "none";
+  on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none";
   if(on) {
     modalLeftBtElt.focus();
   }
@@ -363,9 +404,11 @@ function ShowMediaModal(on){
 
 function ShowContactModal(on){
     on ? contactModalElt.style.display = "flex" : contactModalElt.style.display = "none"
-    on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none"; 
+    on ? modalBgElt.style.display = "block" : modalBgElt.style.display = "none";
     if(on) contactCloseBtElt.focus();
 }
+
+
 
 Init();
 PopulateProfilPage();
